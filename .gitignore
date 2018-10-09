@@ -38,4 +38,5 @@ Thumbs.db
 
 #papka#
 nbproject
-/vendor/
+node_modules
+storage

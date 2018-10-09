@@ -11766,7 +11766,7 @@ var Roulette = function() {
         options.first().animate({
             marginLeft: ret
         }, getType, "easeInOutCubic", function() {
-            var socket = io.connect(':2020', {rememberTransport: false});
+            var socket = io.connect(':3000', {rememberTransport: false});
             socket.emit('update');
             options.first().clearQueue(), options.first().stop(), $(".game-win").css("display", "block"),
                 $(".main-wrapper, .footer-wrapper").addClass("blur"), $("body").css("overflow", "hidden").css("padding-right", scrollbarWidth());
@@ -11775,13 +11775,13 @@ var Roulette = function() {
 };
 
 $(document).ready(function(){
-    window.liveUrl = ':2020';
+    window.liveUrl = ':3000';
     var socket = io(window.liveUrl, {
         'max reconnection attempts':Infinity,
         'transports': ['websocket', 'polling', 'flashsocket'],
         'sync disconnect on unload': true
     });
-
+    socket.emit('update');
     socket.on('live', function (data1) {
         data1 = data1.reverse();
         $('.live-win__coins-wrapper').empty();
