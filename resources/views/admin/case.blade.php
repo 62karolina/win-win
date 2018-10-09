@@ -5,7 +5,7 @@
 
 
     <div class="top-bar">
-        <h3>Кейс {{$case->id}}-го уровня</h3>
+        <h3>{{$case->name}}</h3>
 
     </div>
 
@@ -39,6 +39,12 @@
                 <label class="control-label" for="inputInline">Image</label>
                 <div class="controls">
                     <input type="text" name="image" value="{{$case->image}}" placeholder="..." class="input-block-level">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputNormal">Цвет</label>
+                <div class="controls">
+                    <input type="text" name="color" value="{{$case->color}}" placeholder="..." class="input-block-level">
                 </div>
             </div>
             <div class="control-group">

@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{$i->id}}</td>
                     <td>{{$i->username}}</td>
-                    <td>{{$i->price}}</td>
+                    <td>{{$i->case}}</td>
                 </tr>
             @endforeach
 

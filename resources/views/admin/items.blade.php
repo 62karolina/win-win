@@ -13,8 +13,8 @@
 
 
 <div class="top-bar">
-    <div><a href="/admin/addCase">Добавить Кейс</a> <span class="divider"></span></div>
-    <h3>Кейсы</h3>
+    <div><a href="/admin/addItem">Добавить Вещь</a> <span class="divider"></span></div>
+    <h3>Вещи</h3>
 
 </div>
 
@@ -26,9 +26,9 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Type</th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Кейс</th>
             </tr>
         </thead>
         <tbody>
@@ -41,8 +41,8 @@
                 <td>{{$i->id}} <img src="{{$i->image}}" alt="{{$i->id}}" style="width: 50px;heigth:50px;" class="userpic"></img></td>
                 <td>{{$i->name}}</td>
                 <td>{{$i->price}}</td>
-                <td>{{$i->type}}</td>
-                <td><a href="/admin/cases/{{$i->id}}">Редактировать</a></td>
+                <td>{{$i->caseName}}</td>
+                <td><a href="/admin/items/{{$i->id}}">Редактировать</a></td>
             </tr>
             @endforeach
 

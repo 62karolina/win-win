@@ -27,6 +27,12 @@
                     <input type="number" name="price" value="" placeholder="..." class="input-block-level">
                 </div>
             </div>
+            <div class="control-group">
+                <label class="control-label" for="inputNormal">Цвет</label>
+                <div class="controls">
+                    <input type="text" name="color" value="" placeholder="..." class="input-block-level">
+                </div>
+            </div>
 
             <div class="control-group">
                 <label class="control-label" for="inputNormal">Type</label>

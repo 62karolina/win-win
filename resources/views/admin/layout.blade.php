@@ -83,11 +83,11 @@
 
                     <ul class="pull-left">
                         <li><a href="/admin"><i class="icon-home"></i>Главная</a> <span class="divider">/</span></li>
-                        <li><a href="/admin/addItem">Добавить item</a> <span class="divider">/</span></li>
                         <li><a href="/admin/lastvvod">Последние платежи</a> <span class="divider">/</span></li>
                         <li><a href="/admin/lastvivod">Запросы на вывод</a> <span class="divider">/</span></li>
-                        <li><a href="/admin/users">Users</a> <span class="divider">/</span></li>
-                        <li><a href="/admin/cases">Cases</a> <span class="divider">/</span></li>
+                        <li><a href="/admin/users">Пользователи</a> <span class="divider">/</span></li>
+                        <li><a href="/admin/cases">Кейсы</a> <span class="divider">/</span></li>
+                        <li><a href="/admin/items">Вещи</a> <span class="divider">/</span></li>
                     </ul>
 
 
