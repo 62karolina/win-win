@@ -41,6 +41,3 @@ node_modules
 storage
 .idea/.name
 
-
-vendor/swiftmailer/swiftmailer/tests/_samples/files/textfile.zip
-vendor/symfony/console/Resources/bin/hiddeninput.exe

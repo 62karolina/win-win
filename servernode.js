@@ -1,11 +1,11 @@
-var mysql = require('mysql');
+﻿var mysql = require('mysql');
 // Let’s make node/socketio listen on port 3000
 var io = require('socket.io').listen(3000);
 // Define our db creds
 var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: '1',
     database: 'cases2'
 });
 // Log any errors connected to the db
