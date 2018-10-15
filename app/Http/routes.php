@@ -10,9 +10,6 @@ Route::get('/success', ['as' => 'success', 'uses' => 'PagesController@success'])
 Route::get('/box/{id}', ['as' => 'box', 'uses' => 'PagesController@box']);
 Route::get('/account/{id}', ['as' => 'account', 'uses' => 'PagesController@account']);
 Route::get('/pay', ['as' => 'pay', 'uses' => 'PagesController@pay']);
-Route::get('/login', 'LoginController@login');
-Route::get('/vklogin', 'LoginController@vklogin');
-Route::get('/register', 'LoginController@register');
 
 Route::post('/updateDelivery', ['as' => 'updateDelivery', 'uses' => 'PagesController@updateDelivery']);
 Route::post('/open', ['as' => 'open', 'uses' => 'PagesController@open']);
@@ -25,6 +22,11 @@ Route::post('/getPayment', 'PagesController@getPayment');
 Route::post('/register', 'LoginController@registerPost');
 Route::post('/login', 'LoginController@loginPost');
 
+Route::group(['middleware' => 'notAuth'], function () {
+    Route::get('/login', 'LoginController@login');
+    Route::get('/register', 'LoginController@register');
+    Route::get('/vklogin', 'LoginController@vklogin');
+});
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', 'LoginController@logout');

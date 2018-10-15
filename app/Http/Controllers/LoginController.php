@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller {
 
@@ -64,14 +65,55 @@ class LoginController extends Controller {
         Auth::logout();
         return redirect('/');
     }
-    
-    public function register(){
-        return view('pages.register');
+
+    public function registerPost(Request $r) {
+        $photo = 'http://vk.com/images/camera_200.png';
+        $user = User::where('login', $r->login)->first();
+        if ($user == NULL) {
+            $user = User::create([
+                        'username' => $r->name,
+                        'login' => $r->login,
+                        'avatar' => $photo,
+                        'password' => Hash::make($r->password),
+                        'ref_code' => $this->generate(),
+                        'nick' => $this->generate_name()
+            ]);
+            Auth::login($user, true);
+            return redirect('/');
+        } else {
+            $user = new User();
+            $user->name = $r->name;
+            $user->login = $r->login;
+            $user->password = "";
+            $user->userExist = true;
+            return view('pages.register', compact('user'));
+        }
     }
-    public function login(){
-        return view('pages.login');
+
+    public function loginPost(Request $r) {
+        $user = User::where('login', $r->login)->first();
+        if ($user != NULL && Hash::check($r->password, $user->password)) {
+            Auth::login($user, true);
+            return redirect('/');
+        }
+        $userNotFound = true;
+        return view('pages.login', compact('userNotFound'));
     }
-    
+
+    public function register() {
+        $user = new User();
+        $user->name = "";
+        $user->login = "";
+        $user->password = "";
+        $user->userExist = false;
+        return view('pages.register', compact('user'));
+    }
+
+    public function login() {
+        $userNotFound = false;
+        return view('pages.login', compact('userNotFound'));
+    }
+
     public function curl($url) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

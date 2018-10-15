@@ -7,6 +7,9 @@
             <div class="dark-card address">
                 <div class="address__header text-block text-block_align_center text-block_fs_b text-block_tf_up">Вход: </div>
                 <div class="row">
+                    @if($userNotFound)
+                        <div class="text-block text-block_tf_up register__input-header">Неправильный логин/пароль!</div>
+                    @endif
                     <form method="post" action="/login" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div style="margin-left: 25%;" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -19,7 +22,7 @@
                                 <input required type="password" class="input-block__input register__input" name="password" value="" data-error="Необходимо заполнить пароль" title="">
                             </div>
                             <div class="address__button-line">
-                                <button type="submit" class="address__button button-rounding button-rounding_big button-rounding_long button-rounding_light" id="btn-profile-delivery-save">Войти</button>
+                                <button type="submit" class="register__button button-rounding button-rounding_big button-rounding_long button-rounding_light">Войти</button>
                             </div>
                         </div>     
                     </form>
