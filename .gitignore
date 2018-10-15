@@ -40,4 +40,4 @@ nbproject
 node_modules
 storage
 .idea/.name
-
+.env
