@@ -10,7 +10,7 @@
     <title>Интернет-магазин коробок-сюрпризов Ranbox.ru — Ranbox</title>
 
     <link rel="stylesheet" href="/build/css/all-20597ee14f.css">
-
+    
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -73,7 +73,10 @@
                 </div>
                 <div class="header-row__element_static">
                     @if(Auth::guest())
-                        <div class="header-row__login-button hidden-xs">
+                        <div style = "display:inline-block;" class="header-row__login-button">
+                            <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="register">Регистрация</button>
+                        </div>
+                        <div style = "display:inline-block;" class="header-row__login-button">
                             <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="login">Вход</button>
                         </div>
                     @else
@@ -313,26 +316,26 @@
     <div class="modal-window__header-wrapper">
         <div class="modal-window__header">
             Войти
-            &nbsp;<span>на сайт</span>
             <div class="modal-window__header-border"></div>
         </div>
         <button class="modal-window__close-button"><img src="/build/img/cross_gray.png" alt="close" class="modal-window__close-button-cross"/></button>
     </div>
     <div class="modal-window__element modal-window__social-button-block">
-        <a href="/login" class="modal-window__social-button"><img src="/build/img/social-button__vk.png" alt="ВКонтакте" title="ВКонтакте" class="modal-window__social-button-img"/></a>
+        <a href="/vklogin" class="modal-window__social-button"><img src="/build/img/social-button__vk.png" alt="ВКонтакте" title="ВКонтакте" class="modal-window__social-button-img"/></a>
+        <a href="/login" class="modal-window__social-button"><img src="/build/img/login.jpg" alt="Обычный" title="Обычный" class="modal-window__social-button-img"/></a>
     </div>
 </div>
 <div id="register" class="modal-window modal-window_size_s">
     <div class="modal-window__header-wrapper">
         <div class="modal-window__header">
-            Выберите любимую
-            &nbsp;<span>социальную сеть</span>
+            Зарегистрироваться            
             <div class="modal-window__header-border"></div>
         </div>
         <button class="modal-window__close-button"><img src="/build/img/cross_gray.png" alt="close" class="modal-window__close-button-cross"/></button>
     </div>
     <div class="modal-window__element modal-window__social-button-block">
-        <a href="/login" class="modal-window__social-button"><img src="/build/img/social-button__vk.png" alt="ВКонтакте" title="ВКонтакте" class="modal-window__social-button-img"/></a>
+        <a href="/vklogin" class="modal-window__social-button"><img src="/build/img/social-button__vk.png" alt="ВКонтакте" title="ВКонтакте" class="modal-window__social-button-img"/></a>
+        <a href="/register" class="modal-window__social-button"><img src="/build/img/login.jpg" alt="Обычный" title="Обычный" class="modal-window__social-button-img"/></a>
     </div>
 </div>                <!-- additional modals -->
 

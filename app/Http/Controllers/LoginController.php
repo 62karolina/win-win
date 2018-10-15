@@ -15,7 +15,7 @@ class LoginController extends Controller {
 
         if (!is_null($r->code)) {
 
-            $obj = json_decode($this->curl('https://oauth.vk.com/access_token?client_id=' . $client_id . '&client_secret=' . $client_secret . '&redirect_uri=http://' . $redirect_uri . '/login&code=' . $r->code));
+            $obj = json_decode($this->curl('https://oauth.vk.com/access_token?client_id=' . $client_id . '&client_secret=' . $client_secret . '&redirect_uri=http://' . $redirect_uri . '/vklogin&code=' . $r->code));
 
             if (isset($obj->access_token)) {
 
@@ -56,7 +56,7 @@ class LoginController extends Controller {
                 return redirect('/');
             }
         } else {
-            return redirect('https://oauth.vk.com/authorize?client_id=' . $client_id . '&display=page&redirect_uri=http://' . $redirect_uri . '/login&scope=friends,photos,status,offline,&response_type=code&v=5.53');
+            return redirect('https://oauth.vk.com/authorize?client_id=' . $client_id . '&display=page&redirect_uri=http://' . $redirect_uri . '/vklogin&scope=friends,photos,status,offline,&response_type=code&v=5.53');
         }
     }
 
@@ -64,7 +64,14 @@ class LoginController extends Controller {
         Auth::logout();
         return redirect('/');
     }
-
+    
+    public function register(){
+        return view('pages.register');
+    }
+    public function login(){
+        return view('pages.login');
+    }
+    
     public function curl($url) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
