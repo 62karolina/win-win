@@ -11480,6 +11480,12 @@ a:active,a:focus,a:hover{
         transform:rotate(-360deg)
     }
 }
+.register{
+    margin:20px 0
+}
+.register__header{
+    margin-bottom:25px
+}
 .register__input-header{
     margin-bottom:10px
 }
@@ -11487,6 +11493,14 @@ a:active,a:focus,a:hover{
     width:100%;
     margin-bottom:20px;
     text-align:left
+}
+.register__button-line{
+    margin-top:60px;
+    width:100%;
+    text-align:center
+}
+.register__button{
+    display:inline-block
 }
 .address{
     margin:20px 0
