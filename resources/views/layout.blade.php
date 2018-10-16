@@ -30,11 +30,11 @@
                     <div class="stat-line hidden-xs">
 
                         <div class="stat-line__element">
-                            <div class="stat-line__value counter-user" data-value="0">0</div>
+                            <div class="stat-line__value counter-user" > {{PagesController::getStats()[0]}}</div>
                             <div class="stat-line__key">Пользователей</div>
                         </div>
                         <div class="stat-line__element">
-                            <div class="stat-line__value counter-case" data-value="0">0</div>
+                            <div class="stat-line__value counter-case">{{PagesController::getStats()[1]}}</div>
                             <div class="stat-line__key">Открыто коробок</div>
                         </div>
                     </div>
@@ -194,11 +194,11 @@
             <div class="stat-line stat-line_mobile visible-xs">
 
                 <div class="stat-line__element">
-                    <div class="stat-line__value counter-user" data-value="364534">0</div>
+                    <div class="stat-line__value counter-user" data-value="364534">{{PagesController::getStats()[0]}}</div>
                     <div class="stat-line__key">Пользователей</div>
                 </div>
                 <div class="stat-line__element">
-                    <div class="stat-line__value counter-case" data-value="969922">0</div>
+                    <div class="stat-line__value counter-case" data-value="969922">{{PagesController::getStats()[1]}}</div>
                     <div class="stat-line__key">Открыто коробок</div>
                 </div>
             </div>

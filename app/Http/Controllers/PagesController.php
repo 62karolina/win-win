@@ -52,10 +52,11 @@ class PagesController extends Controller
 
         return view('pages.box', compact('case','items'));
     }
-    public function getStats(){
+    public static  function getStats(){
         $user = User::where('id', '>', 1)->count();
         $cases =  History::where('id', '>', 0)->count();
-        return response()->json(['users' => $user,'box' => $cases]);
+        return [$user,$cases];
+        //return 100;
     }
 
     public function last(){
@@ -461,19 +462,19 @@ class PagesController extends Controller
                 $this->refuseurl($r->r);
             }
         }
-        $case1 = \DB::table('cases')->where('id', 1)->first();
-        $case2 = \DB::table('cases')->where('id', 2)->first();
-        $case3 = \DB::table('cases')->where('id', 3)->first();
+        $cases = \DB::table('cases')->get();
+//        $case2 = \DB::table('cases')->where('id', 2)->first();
+//        $case3 = \DB::table('cases')->where('id', 3)->first();
+//
+//        $item1 = \DB::table('items')->where('case', 1)->get();
+//        $item2 = \DB::table('items')->where('case', 2)->get();
+//        $item3 = \DB::table('items')->where('case', 3)->get();
+//
+//        $c1 = \DB::table('items')->where('case', 1)->count();
+//        $c2 = \DB::table('items')->where('case', 2)->count();
+//        $c3 = \DB::table('items')->where('case', 3)->count();
 
-        $item1 = \DB::table('items')->where('case', 1)->get();
-        $item2 = \DB::table('items')->where('case', 2)->get();
-        $item3 = \DB::table('items')->where('case', 3)->get();
-
-        $c1 = \DB::table('items')->where('case', 1)->count();
-        $c2 = \DB::table('items')->where('case', 2)->count();
-        $c3 = \DB::table('items')->where('case', 3)->count();
-
-        return view('pages.index', compact('case1','case2','case3','item1','item2','item3','c1','c2','c3'));
+        return view('pages.index', compact('cases'));
     }
 
     public function refuseurl($code2)
