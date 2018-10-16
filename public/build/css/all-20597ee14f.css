@@ -11224,7 +11224,6 @@ a:active,a:focus,a:hover {
 .cases-line .cases-row {
     opacity: 1;
     -webkit-transition: opacity .3s;
-    width: 500px;
     transition: opacity .3s;
 }
 
@@ -11506,11 +11505,10 @@ a:active,a:focus,a:hover {
 
 .box {
     position: inherit;
-    width: 100%;
+    height: 270.66666px;
+    width: 31%;
     background-color: #dfe0cc;
     border-radius: 14px;
-    border-color: #000000;
-    border-style: dotted;
     margin: 10px 10px;
     padding: 0 0 10px;
     overflow: visible;
@@ -11597,7 +11595,7 @@ a:active,a:focus,a:hover {
 }
 
 .box__bg-img {
-    display: inline-block;
+    display: table;
     position: absolute;
 }
 
@@ -14418,4 +14416,8 @@ a:active,a:focus,a:hover {
     color: #fff;
     margin-top: 30px;
     margin-bottom: 20px;
+}
+
+.div1{
+    display: inline-block;
 }

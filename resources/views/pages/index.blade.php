@@ -5,8 +5,9 @@
     <div class="container">
         <div class="row cases-row box-cases-row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <a href="/box/1">
-                    <div class="box box_gray-box">
+                @foreach($cases as $case)
+                <div class="box box_gray-box" style="display: inline-block">
+                <a href="/box/{{$case->id}}">
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
                                 <div class="box__bg-layout">
@@ -24,19 +25,12 @@
                                         <div class="box__bg box__box box__bg_gray"><img src="/build/img/box__gray-box.png" alt="" class="box__bg-img"/></div>
                                     </div>
                                 </div>
-
-                                <div class="box__img-wrapper"><img src="http://214010.selcdn.ru/ranbox/box/box1.png"  class="box__img"/></div>
-                                <div class="box__button-wrapper">
-                                    <button class="box__button">Открыть коробку</button>
-                                </div>
                             </div>
-
                         </div>
-
-                    </div>
                 </a>
+                </div>
+                @endforeach
             </div>
-
         </div>
     </div>
 </div>
