@@ -23,7 +23,7 @@
         <div class="container">
             <div class="header-row">
                 <div class="header-row__element_static">
-                    <div class="logo-wrapper visible-xs visible-lg"><a href="/"><img src="/build/img/logo-2.png" alt="Ranbox" class="logo-wrapper__img"/></a></div>
+                    <div class="logo-wrapper visible-xs visible-lg"><a href="/"><img src="/build/img/logo.png" alt="Ranbox" class="logo-wrapper__img"/></a></div>
                     <div class="logo-wrapper hidden-xs hidden-lg"><a href="/"><img src="/build/img/logo_min-2.png" alt="Ranbox" class="logo-wrapper__img"/></a></div>
                 </div>
                 <div class="header-row__element_static">
@@ -206,9 +206,7 @@
     </div>            <div class="live-win">
         <div class="container">
             <div class="live-win__wrapper">
-                <div class="live-win__header">
-                    <div class="live-win__header-text">Live лента</div>
-                </div>
+
                 <div class="live-win__block-shadow_right"></div>    
                 <div class="live-win__block-shadow_left"></div>
                 <div class="live-win__coins-wrapper">
