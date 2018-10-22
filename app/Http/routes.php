@@ -38,6 +38,8 @@ Route::group(['middleware' => 'admin', 'middleware' => 'access:admin', 'prefix' 
     Route::post('/addCase', 'AdminController@addCasePost');
     Route::get('/addItem', 'AdminController@addItem');
     Route::post('/addItem', 'AdminController@addItemPost');
+    Route::get('/addContest', 'AdminController@addContest');
+    Route::post('/addContest', 'AdminController@addContestPost');
     Route::get('/stock', 'AdminController@addStock');
     Route::post('/stock', 'AdminController@addStockPost');
     Route::get('/lastvvod', 'AdminController@lastvvod');
@@ -46,6 +48,7 @@ Route::group(['middleware' => 'admin', 'middleware' => 'access:admin', 'prefix' 
     Route::get('/users', 'AdminController@users');
     Route::get('/cases', 'AdminController@cases');
     Route::get('/items', 'AdminController@items');
+    Route::get('/contests', 'AdminController@contests');
     Route::get('/tickets', 'AdminController@tickets');
     Route::get('/cases/{id}', ['as' => 'cases', 'uses' => 'AdminController@caseid']);
     Route::get('/items/{id}', ['as' => 'items', 'uses' => 'AdminController@itemid']);

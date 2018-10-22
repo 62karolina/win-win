@@ -11,6 +11,7 @@ use Crypt;
 use App\Payments;
 use Illuminate\Http\Request;
 use App\Items;
+use App\Contest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
@@ -49,6 +50,40 @@ class AdminController extends Controller {
             }
         }
         return view('admin.items', compact('cases'));
+    }
+
+    public function contests() {
+        $contests = \DB::table('contest')->orderBy('created_at', 'asc')->paginate(100000);
+        foreach ($contests as $i) {
+            $item = Items::find($i->item_id);
+            $user = User::find($i->user_win_id);
+            switch ($i->status) {
+                case(1):
+                    $i->status = 'Прием ставок';
+                    break;
+                case(2):
+                    $i->status = 'Ожидание розыгрыша';
+                    break;
+                case(3):
+                    $i->status = 'Розыгрыш окончен';
+                    break;
+            }
+            if ($item != null) {
+                $i->itemName = $item->name;
+                $i->itemId = $item->id;
+            } else {
+                $i->itemName = '';
+                $i->itemId = null;
+            }
+            if ($user != null) {
+                $i->userName = $user->name;
+                $i->userId = $user->id;
+            } else {
+                $i->userName = '';
+                $i->userId = null;
+            }
+        }
+        return view('admin.contests', compact('contests'));
     }
 
     public function caseid($id) {

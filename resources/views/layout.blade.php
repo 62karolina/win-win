@@ -49,7 +49,7 @@
                             </a>
                         </div>
                         <div class="nav-line__element">
-                             <a href="/">
+                             <a href="/contests">
                                  <div class="nav-line__link  nav-line__link " >
                                      Конкурсы
                                  </div>
@@ -119,7 +119,7 @@
                     </a>
                 </div>
                  <div class="nav-line__element">
-                    <a href="/">
+                    <a href="/contests">
                         <div class="nav-line__link  nav-line__link " >
                              Конкурсы
                         </div>
@@ -176,7 +176,7 @@
                         </a>
                     </div>
                      <div class="nav-line__element">
-                         <a href="/">
+                         <a href="/contests">
                              <div class="nav-line__link  nav-line__link " >
                                  Конкурсы
                              </div>
@@ -258,7 +258,7 @@
                                 </a>
                             </div>
                              <div class="nav-line__element">
-                                <a href="/">
+                                <a href="/contests">
                                      <div class="nav-line__link  nav-line__link " >
                                          Конкурсы
                                      </div>

@@ -88,6 +88,7 @@
                         <li><a href="/admin/users">Пользователи</a> <span class="divider">/</span></li>
                         <li><a href="/admin/cases">Кейсы</a> <span class="divider">/</span></li>
                         <li><a href="/admin/items">Вещи</a> <span class="divider">/</span></li>
+                        <li><a href="/admin/contests">Розыгрыши</a> <span class="divider">/</span></li>
                     </ul>
 
 
