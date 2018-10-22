@@ -52,10 +52,12 @@ Route::group(['middleware' => 'admin', 'middleware' => 'access:admin', 'prefix' 
     Route::get('/tickets', 'AdminController@tickets');
     Route::get('/cases/{id}', ['as' => 'cases', 'uses' => 'AdminController@caseid']);
     Route::get('/items/{id}', ['as' => 'items', 'uses' => 'AdminController@itemid']);
+    Route::get('/contests/{id}', ['as' => 'contest', 'uses' => 'AdminController@contestid']);
     Route::get('/ticket/{id}', ['as' => 'ticket', 'uses' => 'AdminController@ticket']);
     Route::post('/ticketsave', ['as' => 'ticket', 'uses' => 'AdminController@ticketsave']);
     Route::post('/casedit', ['as' => 'case', 'uses' => 'AdminController@casedit']);
-    Route::post('/itemedit', ['as' => 'case', 'uses' => 'AdminController@itemedit']);
+    Route::post('/itemedit', ['as' => 'item', 'uses' => 'AdminController@itemedit']);
+    Route::post('/contestedit', ['as' => 'contest', 'uses' => 'AdminController@contestedit']);
     Route::get('/searchusers', ['as' => 'search', 'uses' => 'AdminController@search2']);
     Route::get('/searchusersname', ['as' => 'search', 'uses' => 'AdminController@searchusersname']);
     Route::get('/user/{id}', ['as' => 'users', 'uses' => 'AdminController@userid']);
