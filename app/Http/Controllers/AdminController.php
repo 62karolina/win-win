@@ -76,7 +76,7 @@ class AdminController extends Controller {
                 $i->itemId = null;
             }
             if ($user != null) {
-                $i->userName = $user->name;
+                $i->userName = $user->username;
                 $i->userId = $user->id;
             } else {
                 $i->userName = '';
@@ -93,8 +93,15 @@ class AdminController extends Controller {
 
     public function itemid($id) {
         $item = Items::find($id);
-        $cases = \DB::table('cases')->orderBy('id', 'asc')->paginate(100000);
+        $cases = \DB::table('cases')->orderBy('id', 'asc')->paginate(10000000);
         return view('admin.item', compact('cases'), compact('item'));
+    }
+
+    public function contestid($id) {
+        $contest = Contest::find($id);
+        $items = \DB::table('items')->orderBy('id', 'asc')->paginate(10000000);
+        $users = \DB::table('users')->orderBy('id', 'asc')->paginate(10000000);
+        return view('admin.contest', compact('users', 'items', 'contest'));
     }
 
     public function casedit(Request $request) {
@@ -116,6 +123,17 @@ class AdminController extends Controller {
         $case->case = $request->get('case');
         $case->save();
         return redirect('/admin/items');
+    }
+
+    public function contestedit(Request $request) {
+        $contest = Contest::find($request->get('id'));
+        $contest->end_at = $request->get('end_at');
+        $contest->ticket_price = $request->get('ticket_price');
+        $contest->item_id = $request->get('item_id');
+        $contest->user_win_id = $request->get('user_win_id');
+        $contest->status = $request->get('user_win_id') != null ? 3 : 1;
+        $contest->save();
+        return redirect('/admin/contests');
     }
 
     public function users() {
@@ -252,8 +270,14 @@ class AdminController extends Controller {
     }
 
     public function addItem() {
-        $cases = \DB::table('cases')->orderBy('id', 'asc')->paginate(100000);
+        $cases = \DB::table('cases')->orderBy('id', 'asc')->paginate(10000000);
         return view('admin.addItem', compact('cases'));
+    }
+
+    public function addContest() {
+        $items = \DB::table('items')->orderBy('id', 'asc')->paginate(10000000);
+        $users = \DB::table('users')->orderBy('id', 'asc')->paginate(10000000);
+        return view('admin.addContest', compact('users'), compact('items'));
     }
 
     public function addStock() {
@@ -396,6 +420,17 @@ class AdminController extends Controller {
             'type' => $r->type
         ]);
         return redirect('/admin/addItem');
+    }
+
+    public function addContestPost(Request $r) {
+        \DB::table('contest')->insertGetId([
+            'end_at' => $r->end_at,
+            'ticket_price' => $r->ticket_price,
+            'user_win_id' => $r->user_win_id,
+            'item_id' => $r->item_id,
+            'status' => $r->user_win_id != null ? 3 : 1
+        ]);
+        return redirect('/admin/addContest');
     }
 
     public function lastvvod() {
