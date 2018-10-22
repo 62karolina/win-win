@@ -49,6 +49,13 @@
                             </a>
                         </div>
                         <div class="nav-line__element">
+                             <a href="/">
+                                 <div class="nav-line__link  nav-line__link " >
+                                     Конкурсы
+                                 </div>
+                             </a>
+                        </div>
+                        <div class="nav-line__element">
                             <a href="/delivery">
                                 <div class="nav-line__link " >
                                     Доставка
