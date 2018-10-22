@@ -34,53 +34,5 @@
         </div>
     </div>
 </div>
-<div class="advantages-block">
-    <div class="container">
-        <div class="advantages-block__header">
-            <div class="advantages-block__header-line"></div>
-            <div class="advantages-block__header-text">Наши<span>гарантии</span></div>
-            <div class="advantages-block__header-line"></div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="advantages-block__advantages-wrapper">
-                    <div class="advantages advantages_inline">
-                        <div class="advantages__icon-wrapper">
-                            <div class="advantages__icon-glow"></div>
-                            <div class="advantages__icon-block"><img src="/build/img/advantages__icon_1.png" alt="" class="advantages__icon"/></div>
-                        </div>
-                        <div class="advantages__header">Полная прозрачность</div>
-                        <div class="advantages__text">У нас вы можете посмотреть все. Кто получил, что получил и когда. Каждый профиль снабжен ссылкой на контакт человека в одной из трех социальных сетей.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="advantages-block__advantages-wrapper">
-                    <div class="advantages advantages_inline">
-                        <div class="advantages__icon-wrapper">
-                            <div class="advantages__icon-glow"></div>
-                            <div class="advantages__icon-block"><img src="/build/img/advantages__icon_2.png" alt="" class="advantages__icon"/></div>
-                        </div>
-                        <div class="advantages__header">Гарантия низких цен</div>
-                        <div class="advantages__text">
-                            Благодаря крупным оптовым закупкам цены в нашем магазине на все товары одни из самых низких на рынке.
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <div class="advantages-block__advantages-wrapper">
-                    <div class="advantages advantages_inline">
-                        <div class="advantages__icon-wrapper">
-                            <div class="advantages__icon-glow"></div>
-                            <div class="advantages__icon-block"><img src="/build/img/advantages__icon_3.png" alt="" class="advantages__icon"/></div>
-                        </div>
-                        <div class="advantages__header">Проверенные товары</div>
-                        <div class="advantages__text">Мы выкладываем только проверенные товары от надежных поставщиков. Каждый товар тестируется перед отправкой и снабжается всей сопровождающей документацией.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 @stop
