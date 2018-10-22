@@ -1,57 +1,112 @@
--- phpMyAdmin SQL Dump
--- version 4.0.10deb1
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost
--- Generation Time: Apr 18, 2017 at 03:25 PM
--- Server version: 5.5.54-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.21
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: cases2
+-- ------------------------------------------------------
+-- Server version	5.5.23
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-
---
--- Database: `tower`
---
-
--- --------------------------------------------------------
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `cases`
 --
 
-CREATE TABLE IF NOT EXISTS `cases` (
+DROP TABLE IF EXISTS `cases`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cases` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `image` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `procent` int(11) NOT NULL,
+  `color` varchar(45) NOT NULL DEFAULT '#FFFFFF',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `cases`
 --
 
-INSERT INTO `cases` (`id`, `name`, `price`, `type`, `image`, `procent`) VALUES
-(1, 'case', 100, 'def', 'http://214010.selcdn.ru/ranbox/box/box1.png', 0),
-(2, 'def', 500, 'def', 'http://214010.selcdn.ru/ranbox/box/box2.png', 0),
-(3, 'def', 1000, 'def', 'http://214010.selcdn.ru/ranbox/box/box3.png', 0);
+LOCK TABLES `cases` WRITE;
+/*!40000 ALTER TABLE `cases` DISABLE KEYS */;
+INSERT INTO `cases` VALUES (1,'case',100,'money','https://lh3.googleusercontent.com/bYVafDlBEUJf-_agMoV97k336w4VSGMyIVNq5aJWMYlpyDq9y6hmTuso5cynuBDP8cI=s180',0,'#rwwerw'),(2,'def',500,'def','http://214010.selcdn.ru/ranbox/box/box2.png',0,'#FFFFFF'),(3,'def',1000,'def','http://214010.selcdn.ru/ranbox/box/box3.png',0,'#FFFFFF');
+/*!40000 ALTER TABLE `cases` ENABLE KEYS */;
+UNLOCK TABLES;
 
--- --------------------------------------------------------
+--
+-- Table structure for table `contest`
+--
+
+DROP TABLE IF EXISTS `contest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contest` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `end_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `item_id` int(11) NOT NULL,
+  `user_win_id` int(11) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '1' COMMENT '1-Прием ставок\n2-Ожидание розыгрыша\n3-Розыгрыш окончен',
+  `ticket_price` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COMMENT='Розыгрыши';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contest`
+--
+
+LOCK TABLES `contest` WRITE;
+/*!40000 ALTER TABLE `contest` DISABLE KEYS */;
+INSERT INTO `contest` VALUES (1,'2018-10-22 17:57:34','2018-10-27 15:00:00',1,NULL,1,5),(2,'2018-10-22 19:10:02','2019-10-15 16:00:00',1,1694,3,16),(3,'2018-10-22 19:12:32','2019-10-15 16:00:00',23,1700,3,14);
+/*!40000 ALTER TABLE `contest` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contest_ticket`
+--
+
+DROP TABLE IF EXISTS `contest_ticket`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contest_ticket` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_id` int(11) NOT NULL,
+  `contest_id` int(11) NOT NULL,
+  `number` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Ставки для розыгрышей';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contest_ticket`
+--
+
+LOCK TABLES `contest_ticket` WRITE;
+/*!40000 ALTER TABLE `contest_ticket` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contest_ticket` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `deliver`
 --
 
-CREATE TABLE IF NOT EXISTS `deliver` (
+DROP TABLE IF EXISTS `deliver`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `deliver` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` int(11) NOT NULL,
   `item1` int(11) NOT NULL,
@@ -64,22 +119,27 @@ CREATE TABLE IF NOT EXISTS `deliver` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `deliver`
 --
 
-INSERT INTO `deliver` (`id`, `user`, `item1`, `item2`, `item3`, `item4`, `item5`, `status`, `tracking`, `created_at`, `updated_at`) VALUES
-(1, 1695, 8, 21, 0, 0, 0, 0, 'RF0000CN', '2017-04-18 17:37:56', '2017-04-18 21:37:56');
-
--- --------------------------------------------------------
+LOCK TABLES `deliver` WRITE;
+/*!40000 ALTER TABLE `deliver` DISABLE KEYS */;
+INSERT INTO `deliver` VALUES (1,1695,8,21,0,0,0,0,'RF0000CN','2017-04-18 17:37:56','2017-04-18 21:37:56'),(2,1700,27,0,0,0,0,0,'','2018-10-16 16:38:37','2018-10-16 13:38:37');
+/*!40000 ALTER TABLE `deliver` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `delivery`
 --
 
-CREATE TABLE IF NOT EXISTS `delivery` (
+DROP TABLE IF EXISTS `delivery`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `delivery` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` int(11) NOT NULL,
   `name` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -92,22 +152,27 @@ CREATE TABLE IF NOT EXISTS `delivery` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `delivery`
 --
 
-INSERT INTO `delivery` (`id`, `user`, `name`, `country`, `city`, `postalcode`, `dom`, `kvartira`, `street`, `updated_at`, `created_at`) VALUES
-(1, 1695, 'eyJpdiI6Ilpxbms4ZXhNQ1NPUTErUU9pNG9USHc9PSIsInZhbHVlIjoieUw4NG13R29wVTcySE1nOEU0TlNrdz09IiwibWFjIjoiYmE3OTQxMTQ2ZTY0MGJlOTExNGNiYzZlMDc2ODQ3YjgwOGQ2Zjg2OWVmZTRiMzZhM2FmMmYxNjVhZTk5NjllYiJ9', 'eyJpdiI6IjcxV0ZlcWg0Q1wvK3hUVjRJYlIxeHlRPT0iLCJ2YWx1ZSI6Imh4QXhnR015ZmR6V2NNd1wvZ2Vqak1nPT0iLCJtYWMiOiJhZDAwNzdhNGMzZmQxNmEwNmM1MTI0NzgwOTA3NjM0ODg2ZmY5ZTdjZThmMDFhOTJiNTZiMjRmZDdjODYwZGFjIn0=', 'eyJpdiI6IlZFY0VEb2gwcGw4TVN3Rkh3UGh0QVE9PSIsInZhbHVlIjoiRG15aFRPRkpZbVFFT3JqckhUVFRPdz09IiwibWFjIjoiNTMzMmU4MzRmNzYzNDlhOTI3YjRiZWQ1NjkzYzBiZTU3YWMzNWIzNjMxOWFkODdiOWJlZGVhNzAyNTI4MjVkNyJ9', 'eyJpdiI6Ik45aXVQSW5UdEpqVjJCNkNKMVRXMlE9PSIsInZhbHVlIjoiWVR1RHRSU3gxWlQ1VVVKTlFuYitWUT09IiwibWFjIjoiMjZiNDA0MzJjYTVlZWY2MjZiOTdhMDcyYjc3Nzc4MzY3ZGZlYmVmYzMxZWUxMDNhYzFiNGMwOTg0NGE5ZjQwNCJ9', 'eyJpdiI6ImpLcVF0cjArYWMzMlMzTzM4dTFSOWc9PSIsInZhbHVlIjoiSGJEZFJXNVVXUkI5WWR1NU5tdFZndz09IiwibWFjIjoiNGFjZDkyODgwNTljMmZlNzU4ZGM0NThiZGRlYjg3NGQ4MzVmMjIwOTczYmIzMmVhNzRmOWM4ZTY3ZWE4YTE1MiJ9', 'eyJpdiI6Ikc4V0VXWVZzQ0loNkdKRnFyQTlDUVE9PSIsInZhbHVlIjoiUHVFWlFoTmhFRDdJVEZtbHFlSVVMZz09IiwibWFjIjoiNGFhYmMxZDYzY2ZlMmZkNjFjOGU2MmE5MWQwMjZiM2U4N2NmYjUxMDhiYThiZWQxNmU2OGU1NWRjMDBiZTdmOSJ9', 'eyJpdiI6ImFoQWVXcFpcL2lCZ2tTUFVrQXJUUDdRPT0iLCJ2YWx1ZSI6IlJ3aW93VVA3Q25UeE1Mc3RpRnVDajNCMVZSN3pDdHNZQ2JUXC9PYlwvOVhhbz0iLCJtYWMiOiI5NjNmNjYwZGQ1ODhmOGM3Y2ExYjM3NGY0YTkwMWUwMWU0ZjM4YzRiYjI3MGVjNDJlMzc1OTAxMmI4MWU4ZTY2In0=', '2017-04-18 21:09:13', '2017-04-18 21:09:13');
-
--- --------------------------------------------------------
+LOCK TABLES `delivery` WRITE;
+/*!40000 ALTER TABLE `delivery` DISABLE KEYS */;
+INSERT INTO `delivery` VALUES (1,1695,'eyJpdiI6Ilpxbms4ZXhNQ1NPUTErUU9pNG9USHc9PSIsInZhbHVlIjoieUw4NG13R29wVTcySE1nOEU0TlNrdz09IiwibWFjIjoiYmE3OTQxMTQ2ZTY0MGJlOTExNGNiYzZlMDc2ODQ3YjgwOGQ2Zjg2OWVmZTRiMzZhM2FmMmYxNjVhZTk5NjllYiJ9','eyJpdiI6IjcxV0ZlcWg0Q1wvK3hUVjRJYlIxeHlRPT0iLCJ2YWx1ZSI6Imh4QXhnR015ZmR6V2NNd1wvZ2Vqak1nPT0iLCJtYWMiOiJhZDAwNzdhNGMzZmQxNmEwNmM1MTI0NzgwOTA3NjM0ODg2ZmY5ZTdjZThmMDFhOTJiNTZiMjRmZDdjODYwZGFjIn0=','eyJpdiI6IlZFY0VEb2gwcGw4TVN3Rkh3UGh0QVE9PSIsInZhbHVlIjoiRG15aFRPRkpZbVFFT3JqckhUVFRPdz09IiwibWFjIjoiNTMzMmU4MzRmNzYzNDlhOTI3YjRiZWQ1NjkzYzBiZTU3YWMzNWIzNjMxOWFkODdiOWJlZGVhNzAyNTI4MjVkNyJ9','eyJpdiI6Ik45aXVQSW5UdEpqVjJCNkNKMVRXMlE9PSIsInZhbHVlIjoiWVR1RHRSU3gxWlQ1VVVKTlFuYitWUT09IiwibWFjIjoiMjZiNDA0MzJjYTVlZWY2MjZiOTdhMDcyYjc3Nzc4MzY3ZGZlYmVmYzMxZWUxMDNhYzFiNGMwOTg0NGE5ZjQwNCJ9','eyJpdiI6ImpLcVF0cjArYWMzMlMzTzM4dTFSOWc9PSIsInZhbHVlIjoiSGJEZFJXNVVXUkI5WWR1NU5tdFZndz09IiwibWFjIjoiNGFjZDkyODgwNTljMmZlNzU4ZGM0NThiZGRlYjg3NGQ4MzVmMjIwOTczYmIzMmVhNzRmOWM4ZTY3ZWE4YTE1MiJ9','eyJpdiI6Ikc4V0VXWVZzQ0loNkdKRnFyQTlDUVE9PSIsInZhbHVlIjoiUHVFWlFoTmhFRDdJVEZtbHFlSVVMZz09IiwibWFjIjoiNGFhYmMxZDYzY2ZlMmZkNjFjOGU2MmE5MWQwMjZiM2U4N2NmYjUxMDhiYThiZWQxNmU2OGU1NWRjMDBiZTdmOSJ9','eyJpdiI6ImFoQWVXcFpcL2lCZ2tTUFVrQXJUUDdRPT0iLCJ2YWx1ZSI6IlJ3aW93VVA3Q25UeE1Mc3RpRnVDajNCMVZSN3pDdHNZQ2JUXC9PYlwvOVhhbz0iLCJtYWMiOiI5NjNmNjYwZGQ1ODhmOGM3Y2ExYjM3NGY0YTkwMWUwMWU0ZjM4YzRiYjI3MGVjNDJlMzc1OTAxMmI4MWU4ZTY2In0=','2017-04-18 21:09:13','2017-04-18 21:09:13'),(2,1700,'eyJpdiI6IkRjb3Y2T1NNZUNmdnpRWktpeU8wbnc9PSIsInZhbHVlIjoiWjVXOTFRQmJ1MHZ3ZGh1TUMwUWI1TmVaWE1XNGt4WGJmSWkyN1pqVWJXMD0iLCJtYWMiOiJhMjQ3ODI3NzZiYzA3MjAzMjUwOTg4OWVkNzE2Mzg5NDlmZGM1ZmY5YzM3NThjOWJmNzNiZTMyYTg3ZmM3YzMwIn0=','eyJpdiI6ImxNeGp4Y1BiN3J0UTdpUUJFd05PV1E9PSIsInZhbHVlIjoiMkhZc0xVZlFNTHdEXC9JVTFZbExUVkE9PSIsIm1hYyI6ImEzOWUzNTEwY2E4NGM3ZDAyOTk3YjYzYjEzYWI3YzRhOTY5MDJmODE3NGU2NjMyYzAwMmE1YWY0M2M3M2U5MzYifQ==','eyJpdiI6IldNRUVrM0tseEttcWt2U0RTQzQ1K0E9PSIsInZhbHVlIjoiYXNLcEJQdkx2a3I5MHZDWE1KRjh3UT09IiwibWFjIjoiYzgyZDlmOTg3ZjEwOTJlM2Y0ODI4ZTM1Nzk0MTI1NTM4YThjY2U3ZmRkYmE3Nzg4MTJlNzRmNmExNGJiNDVmNyJ9','eyJpdiI6ImJzS1BqTnRNTTlRdzlpMHM1bE1XYUE9PSIsInZhbHVlIjoieGM2QzI1dE1oV0pWTElKZDJoM1Fadz09IiwibWFjIjoiMGJhZTZhOGU4NDM4NDU1MTkzNDEyNjkzYTAxYzBjNDgzOTc0ZjcyMWIyOGMwMTc3MTlhMzVkMjNjMjYyZWJjNiJ9','eyJpdiI6IjcxSjlZeWt0WTkza1dKbzdMam1VSVE9PSIsInZhbHVlIjoiK1NxTENubDZiYm5OZFwvdnBQa1wvMWpBPT0iLCJtYWMiOiI4YjA4Y2Y0MWQ0NzAyNjA4OTNiMGI2OGQ4ZGI1YjEzMzhkYTk5MThlNzZhMWQzMDI3Mzk1NzdhMzFjMDkxNDJkIn0=','eyJpdiI6IjJ6N1R3a3p4QnNKekEraEpmeXp3K3c9PSIsInZhbHVlIjoiamF4bHdtZDBZY1h0XC9zRjYzSGxrdUE9PSIsIm1hYyI6IjdkMGQwNGQ1ZThiZjE3NmJjMTQwODA4MThlZjYzZWQ2MjhkMWJiYTk0ZTljYWY5NTkyMGQ5NWE1YjRhMWJkMDEifQ==','eyJpdiI6IlRkdGFQZTRKUzhsTkhPcXRkaTFYN0E9PSIsInZhbHVlIjoiMHR3YndNR3hTTDByYzN6WVRnalZZdz09IiwibWFjIjoiMTRlYWEwNjU1MzljMzdmNmE3Y2Q1Y2M2NGViNDM1MzAwMGRiODM5YTM1OTM4NmUwMDRiMzUwYjFiOTUyODE5OSJ9','2018-10-08 15:04:17','2018-10-08 15:04:17'),(3,1705,'eyJpdiI6InBNNjcyeHNPUEpjS0YrK20wR1NtU2c9PSIsInZhbHVlIjoiNEtHdFZNQW5jb1FWdjhEeHJsMFMyUT09IiwibWFjIjoiNDBkYTFhODcxMTBlZTZiMWQ0NzQ1OGVjMmQ3ZmU1ZWRmNjdhYWE1NGViYmNkMGMxNGIzMDAwNzAzOTcwZDFkZSJ9','eyJpdiI6Ik5KU0Q4RFwvQzN4NExlOENZRTc0RmdnPT0iLCJ2YWx1ZSI6InJHWUVYZzhzeEIzT3Mza2JpMlIwMFE9PSIsIm1hYyI6IjlkYjBhMjg5NDczZTU5ZDU0OTMzYmIwNWRiOGNlMzgwYzE1MTlmZGQwODkxMzdiZjZlM2NlMzdkMmMyZjZjYzkifQ==','eyJpdiI6Ilwvdk5FUDhwdGhTckFJZXduenFid0RnPT0iLCJ2YWx1ZSI6IkcxeW5xUjkreVBJd3hKVlZrRWVWMUE9PSIsIm1hYyI6ImZmYTI5MzY0ZDA5Y2QzMDU5OTVmM2E1Mzc4MTRhOTE5Yzc5OTY1NzU5YjgyNmE0NDBmY2RjYTUzNGJjYzlkMWEifQ==','eyJpdiI6ImFacW1hMzh0WGZoUUtjTXhsTndZemc9PSIsInZhbHVlIjoiT0F2OHd6ZUR3V0tOUnFJUzV0TEpcL1E9PSIsIm1hYyI6ImU1OTZlNzJkY2I1ODliYzVlYjM0Yzc2NTMxMGQxOGFhYmZhNTM1YTQzYTUwNDI1MmNhZGI5Y2FlY2M0ODdlY2MifQ==','eyJpdiI6IndCUFFhRUc1R0hvaXAyY1ZcL2x4RHNBPT0iLCJ2YWx1ZSI6InJDbzNLbE16Um03V3RSd3NLaU53alE9PSIsIm1hYyI6IjJjNGEzNWFkNmEzNjgyYTgxMjgyZmU1OWQyZTA4YTNhNDBmZGU0N2VjYjMwNjg3YzVhN2I0N2M3N2QzZWJjNjIifQ==','eyJpdiI6IkdzdFJ2blNMbUtkeStDUmtBU1QzQWc9PSIsInZhbHVlIjoiV0hSXC9ST1BoWjJxUUYrSStlS3d1Q3c9PSIsIm1hYyI6ImJiYjBiZTMxYzkzNGZhNmQ3NmU2ODFkNDZkZjIwNzNiNjdlMGJhOTgyZWZkNTQ1M2EzMGYxNjU4ZGRlNzgyMDYifQ==','eyJpdiI6Ikx4eVF4RURNNlQ4d05VTjFVXC9aRzJBPT0iLCJ2YWx1ZSI6IjVBbHZNR25DNmRjdHNtbnZXSXpJd2c9PSIsIm1hYyI6ImI0M2EwYmEwMjRkN2FkNDg0YWMwNDJlZDNmYTVlNTQ4MTA5MGVhNDU0MDUwNjNkMDBkODI0NDk2NWY1ZmZjZGQifQ==','2018-10-16 13:38:04','2018-10-16 13:38:04');
+/*!40000 ALTER TABLE `delivery` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `games`
 --
 
-CREATE TABLE IF NOT EXISTS `games` (
+DROP TABLE IF EXISTS `games`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `games` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` int(11) NOT NULL,
   `case` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -117,162 +182,81 @@ CREATE TABLE IF NOT EXISTS `games` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `games`
+--
+
+LOCK TABLES `games` WRITE;
+/*!40000 ALTER TABLE `games` DISABLE KEYS */;
+/*!40000 ALTER TABLE `games` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `history`
 --
 
-CREATE TABLE IF NOT EXISTS `history` (
+DROP TABLE IF EXISTS `history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `history` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `item` int(11) NOT NULL,
   `user` int(11) NOT NULL,
   `case` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=54 ;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `history`
 --
 
-INSERT INTO `history` (`id`, `item`, `user`, `case`, `status`) VALUES
-(1, 8, 1695, 1, 2),
-(2, 21, 1695, 1, 2),
-(3, 6, 1695, 1, 1),
-(4, 14, 1667, 1, 1),
-(5, 6, 1667, 1, 1),
-(6, 17, 1667, 1, 1),
-(7, 7, 1667, 1, 1),
-(8, 18, 1667, 1, 1),
-(9, 36, 1667, 2, 1),
-(10, 41, 1667, 3, 1),
-(11, 27, 1667, 2, 1),
-(12, 18, 1695, 1, 1),
-(13, 24, 1667, 2, 1),
-(14, 16, 1695, 1, 1),
-(15, 13, 1695, 1, 1),
-(16, 13, 1695, 1, 1),
-(17, 9, 1695, 1, 1),
-(18, 16, 1695, 1, 1),
-(19, 6, 1695, 1, 1),
-(20, 12, 1695, 1, 1),
-(21, 4, 1695, 1, 1),
-(22, 9, 1695, 1, 1),
-(23, 14, 1695, 1, 1),
-(24, 17, 1695, 1, 1),
-(25, 16, 1695, 1, 1),
-(26, 3, 1695, 1, 1),
-(27, 14, 1695, 1, 1),
-(28, 3, 1695, 1, 1),
-(29, 1, 1695, 1, 1),
-(30, 12, 1695, 1, 1),
-(31, 10, 1695, 1, 1),
-(32, 8, 1695, 1, 1),
-(33, 16, 1695, 1, 1),
-(34, 11, 1695, 1, 1),
-(35, 16, 1695, 1, 1),
-(36, 18, 1695, 1, 1),
-(37, 10, 1695, 1, 1),
-(38, 14, 1695, 1, 1),
-(39, 14, 1695, 1, 1),
-(40, 4, 1695, 1, 1),
-(41, 15, 1695, 1, 1),
-(42, 18, 1695, 1, 1),
-(43, 17, 1695, 1, 1),
-(44, 41, 1695, 3, 1),
-(45, 41, 1695, 3, 1),
-(46, 42, 1695, 3, 1),
-(47, 42, 1695, 3, 1),
-(48, 4, 1667, 1, 1),
-(49, 10, 1667, 1, 0),
-(50, 19, 1667, 1, 0),
-(51, 11, 1667, 1, 0),
-(52, 43, 1695, 3, 1),
-(53, 41, 1695, 3, 1);
-
--- --------------------------------------------------------
+LOCK TABLES `history` WRITE;
+/*!40000 ALTER TABLE `history` DISABLE KEYS */;
+INSERT INTO `history` VALUES (1,8,1695,1,2),(2,21,1695,1,2),(3,6,1695,1,1),(4,14,1667,1,1),(5,6,1667,1,1),(6,17,1667,1,1),(7,7,1667,1,1),(8,18,1667,1,1),(9,36,1667,2,1),(10,41,1667,3,1),(11,27,1667,2,1),(12,18,1695,1,1),(13,24,1667,2,1),(14,16,1695,1,1),(15,13,1695,1,1),(16,13,1695,1,1),(17,9,1695,1,1),(18,16,1695,1,1),(19,6,1695,1,1),(20,12,1695,1,1),(21,4,1695,1,1),(22,9,1695,1,1),(23,14,1695,1,1),(24,17,1695,1,1),(25,16,1695,1,1),(26,3,1695,1,1),(27,14,1695,1,1),(28,3,1695,1,1),(29,1,1695,1,1),(30,12,1695,1,1),(31,10,1695,1,1),(32,8,1695,1,1),(33,16,1695,1,1),(34,11,1695,1,1),(35,16,1695,1,1),(36,18,1695,1,1),(37,10,1695,1,1),(38,14,1695,1,1),(39,14,1695,1,1),(40,4,1695,1,1),(41,15,1695,1,1),(42,18,1695,1,1),(43,17,1695,1,1),(44,41,1695,3,1),(45,41,1695,3,1),(46,42,1695,3,1),(47,42,1695,3,1),(48,4,1667,1,1),(49,10,1667,1,0),(50,19,1667,1,0),(51,11,1667,1,0),(52,43,1695,3,1),(53,41,1695,3,1),(54,27,1700,2,2),(55,43,1700,3,1),(56,12,1700,1,0),(57,11,1700,1,1),(58,6,1700,1,0),(59,7,1700,1,0),(60,7,1700,1,0),(61,8,1700,1,0),(62,4,1700,1,0),(63,6,1700,1,0),(64,6,1700,1,0),(65,18,1700,1,0),(66,35,1700,2,0),(67,23,1700,2,1),(68,25,1700,2,0),(69,25,1700,2,1),(70,24,1700,2,0),(71,24,1700,2,0),(72,27,1700,2,0),(73,38,1700,2,0),(74,24,1705,2,0);
+/*!40000 ALTER TABLE `history` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `items`
 --
 
-CREATE TABLE IF NOT EXISTS `items` (
+DROP TABLE IF EXISTS `items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'def',
   `image` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `case` int(11) NOT NULL,
+  `case` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `name`, `price`, `type`, `image`, `case`) VALUES
-(1, 'Нож кредитка', 60, 'def', 'http://214010.selcdn.ru/ranbox/items/9_medium.png', 1),
-(2, 'USB гибкая лампа', 80, 'def', 'http://214010.selcdn.ru/ranbox/items/usb_led_medium.png', 1),
-(3, 'Наушники JBL2', 150, 'def', 'http://214010.selcdn.ru/ranbox/items/jbl_headphone_medium.png', 1),
-(4, 'USB-кабель Android', 95, 'def', 'http://214010.selcdn.ru/ranbox/items/android_cable_medium.png', 1),
-(5, 'Наушники Beats Tour', 110, 'def', 'http://214010.selcdn.ru/ranbox/items/beats_tour_almaz_medium.png', 1),
-(6, 'Светящийся браслет', 90, 'def', 'http://214010.selcdn.ru/ranbox/items/led_braslet_medium.png', 1),
-(7, 'Чехол со львом', 80, 'def', 'http://214010.selcdn.ru/ranbox/items/17_medium.png', 1),
-(8, 'MP3 плеер', 90, 'def', 'http://214010.selcdn.ru/ranbox/items/18_medium.png', 1),
-(9, 'Fish Eye', 90, 'def', 'http://214010.selcdn.ru/ranbox/items/7_medium.png', 1),
-(10, 'Силиконовый чехол', 60, 'def', 'http://214010.selcdn.ru/ranbox/items/19_medium.png', 1),
-(11, 'Селфи палка (Монопод)', 90, 'def', 'http://214010.selcdn.ru/ranbox/items/21_medium.png', 1),
-(12, 'Брелок PowerBank 2600 mAh', 110, 'def', 'http://214010.selcdn.ru/ranbox/items/powerbank_medium.png', 1),
-(13, 'Шагометр', 250, 'def', 'http://214010.selcdn.ru/ranbox/items/shagometr_medium.png', 1),
-(14, 'USB зажигалка', 280, 'def', 'http://214010.selcdn.ru/ranbox/items/usb_lighter_medium.png', 1),
-(15, 'Электронная сигарета', 250, 'def', 'http://214010.selcdn.ru/ranbox/items/cigarette_medium.png', 1),
-(16, 'Спиннер', 250, 'def', 'http://214010.selcdn.ru/ranbox/items/spinner_medium.png', 1),
-(17, 'Наушники JBL', 350, 'def', 'http://214010.selcdn.ru/ranbox/items/jbl_medium.png', 1),
-(18, 'Флешка SmartBuy 4GB', 400, 'def', 'http://214010.selcdn.ru/ranbox/items/usb_smartbuy_4gb_medium.png', 1),
-(19, 'Bluetooth Колонка', 700, 'def', 'http://214010.selcdn.ru/ranbox/items/pokemon_bt_medium.png', 1),
-(20, 'Смарт Часы (Android)', 2200, 'def', 'http://214010.selcdn.ru/ranbox/items/11_medium.png', 1),
-(21, 'Экшн Камера', 2400, 'def', 'http://214010.selcdn.ru/ranbox/items/10_medium.png', 1),
-(22, 'USB зажигалка', 280, 'def', 'http://214010.selcdn.ru/ranbox/items/usb_lighter_medium.png', 2),
-(23, 'Флешка SmartBuy 4GB', 400, 'def', 'http://214010.selcdn.ru/ranbox/items/usb_smartbuy_4gb_medium.png', 2),
-(24, 'Спиннер', 250, 'def', 'http://214010.selcdn.ru/ranbox/items/spinner_medium.png', 2),
-(25, 'Электронная сигарета', 250, 'def', 'http://214010.selcdn.ru/ranbox/items/cigarette_medium.png', 2),
-(26, 'Флешка SmartBuy 8GB', 500, 'def', 'http://214010.selcdn.ru/ranbox/items/usb_smartbuy_8gb_medium.png', 2),
-(27, 'Фонарь-светильник Бочка', 400, 'def', 'http://214010.selcdn.ru/ranbox/items/bochka_medium.png', 2),
-(28, '3D очки VR Box II', 600, 'def', 'http://214010.selcdn.ru/ranbox/items/vr_box_medium.png', 2),
-(29, 'Флешка SmartBuy 16GB', 600, 'def', 'http://214010.selcdn.ru/ranbox/items/usb_smartbuy_16gb_medium.png', 2),
-(30, 'Casio G-Shock', 700, 'def', 'http://214010.selcdn.ru/ranbox/items/g_shock_medium.png', 2),
-(31, 'Bluetooth Колонка MINI-X6', 800, 'def', 'http://214010.selcdn.ru/ranbox/items/bt_speaker_medium.png', 2),
-(32, 'Селфи-кольцо', 500, 'def', 'http://214010.selcdn.ru/ranbox/items/selfie_ring_medium.png', 2),
-(33, 'Беспроводные наушники Beats', 1400, 'def', 'http://214010.selcdn.ru/ranbox/items/beats_solo_medium.png', 2),
-(34, 'Экшн Камера', 2400, 'def', 'http://214010.selcdn.ru/ranbox/items/10_medium.png', 2),
-(35, 'Bluetooth Колонка', 700, 'def', 'http://214010.selcdn.ru/ranbox/items/pokemon_bt_medium.png', 2),
-(36, 'Смарт Часы (Android)', 2200, 'def', 'http://214010.selcdn.ru/ranbox/items/11_medium.png', 2),
-(37, 'JBL Charge2+', 2500, 'def', 'http://214010.selcdn.ru/ranbox/items/charge2_medium.png', 2),
-(38, '3D ручка', 3000, 'def', 'http://214010.selcdn.ru/ranbox/items/3dpen_medium.png', 2),
-(39, 'Sony Playstation 4 500Gb', 30000, 'def', 'http://214010.selcdn.ru/ranbox/items/34_medium.png', 2),
-(40, 'Bluetooth Колонка', 700, 'def', 'http://214010.selcdn.ru/ranbox/items/pokemon_bt_medium.png', 3),
-(41, 'Casio G-Shock', 700, 'def', 'http://214010.selcdn.ru/ranbox/items/g_shock_medium.png', 3),
-(42, 'Bluetooth Колонка MINI-X6', 800, 'def', 'http://214010.selcdn.ru/ranbox/items/bt_speaker_medium.png', 3),
-(43, 'PowerBank 8800 mAh', 900, 'def', 'http://214010.selcdn.ru/ranbox/items/20_medium.png', 3),
-(44, 'Беспроводные наушники Beats', 1400, 'def', 'http://214010.selcdn.ru/ranbox/items/beats_solo_medium.png', 3),
-(45, 'JBL Charge2+', 2500, 'def', 'http://214010.selcdn.ru/ranbox/items/charge2_medium.png', 3),
-(46, 'Смарт Часы (Android)', 2200, 'def', 'http://214010.selcdn.ru/ranbox/items/11_medium.png', 3),
-(47, 'Apple TV 32Gb', 30000, 'def', 'http://214010.selcdn.ru/ranbox/items/29_medium.png', 3),
-(48, 'Canon EOS 1100D Kit', 30000, 'def', 'http://214010.selcdn.ru/ranbox/items/45_medium.png', 3),
-(49, 'XBox One 500Gb', 30000, 'def', 'http://214010.selcdn.ru/ranbox/items/33_medium.png', 3),
-(50, 'iPad Mini 4', 40000, 'def', 'http://214010.selcdn.ru/ranbox/items/24_medium.png', 3),
-(51, 'iPhone 7 32Gb', 57000, 'def', 'http://214010.selcdn.ru/ranbox/items/27_medium.png', 3);
-
--- --------------------------------------------------------
+LOCK TABLES `items` WRITE;
+/*!40000 ALTER TABLE `items` DISABLE KEYS */;
+INSERT INTO `items` VALUES (1,'Нож кредитка',60,'def','http://214010.selcdn.ru/ranbox/items/9_medium.png',1),(2,'USB гибкая лампа',80,'def','http://214010.selcdn.ru/ranbox/items/usb_led_medium.png',1),(3,'Наушники JBL2',150,'def','http://214010.selcdn.ru/ranbox/items/jbl_headphone_medium.png',1),(4,'USB-кабель Android',95,'def','http://214010.selcdn.ru/ranbox/items/android_cable_medium.png',1),(5,'Наушники Beats Tour',110,'def','http://214010.selcdn.ru/ranbox/items/beats_tour_almaz_medium.png',1),(6,'Светящийся браслет',90,'def','http://214010.selcdn.ru/ranbox/items/led_braslet_medium.png',1),(7,'Чехол со львом',80,'def','http://214010.selcdn.ru/ranbox/items/17_medium.png',1),(8,'MP3 плеер',90,'def','http://214010.selcdn.ru/ranbox/items/18_medium.png',1),(9,'Fish Eye',90,'def','http://214010.selcdn.ru/ranbox/items/7_medium.png',1),(10,'Силиконовый чехол',60,'def','http://214010.selcdn.ru/ranbox/items/19_medium.png',1),(11,'Селфи палка (Монопод)',90,'def','http://214010.selcdn.ru/ranbox/items/21_medium.png',1),(12,'Брелок PowerBank 2600 mAh',110,'def','http://214010.selcdn.ru/ranbox/items/powerbank_medium.png',1),(13,'Шагометр',250,'def','http://214010.selcdn.ru/ranbox/items/shagometr_medium.png',1),(14,'USB зажигалка',280,'def','http://214010.selcdn.ru/ranbox/items/usb_lighter_medium.png',1),(15,'Электронная сигарета',250,'def','http://214010.selcdn.ru/ranbox/items/cigarette_medium.png',1),(16,'Спиннер',250,'def','http://214010.selcdn.ru/ranbox/items/spinner_medium.png',1),(17,'Наушники JBL',350,'def','http://214010.selcdn.ru/ranbox/items/jbl_medium.png',1),(18,'Флешка SmartBuy 4GB',400,'def','http://214010.selcdn.ru/ranbox/items/usb_smartbuy_4gb_medium.png',1),(19,'Bluetooth Колонка',700,'def','http://214010.selcdn.ru/ranbox/items/pokemon_bt_medium.png',1),(20,'Смарт Часы (Android)',2200,'def','http://214010.selcdn.ru/ranbox/items/11_medium.png',1),(21,'Экшн Камера',2400,'def','http://214010.selcdn.ru/ranbox/items/10_medium.png',1),(22,'USB зажигалка',280,'def','http://214010.selcdn.ru/ranbox/items/usb_lighter_medium.png',2),(23,'Флешка SmartBuy 4GB',400,'def','http://214010.selcdn.ru/ranbox/items/usb_smartbuy_4gb_medium.png',2),(24,'Спиннер',250,'def','http://214010.selcdn.ru/ranbox/items/spinner_medium.png',2),(25,'Электронная сигарета',250,'def','http://214010.selcdn.ru/ranbox/items/cigarette_medium.png',2),(26,'Флешка SmartBuy 8GB',500,'def','http://214010.selcdn.ru/ranbox/items/usb_smartbuy_8gb_medium.png',2),(27,'Фонарь-светильник Бочка',400,'def','http://214010.selcdn.ru/ranbox/items/bochka_medium.png',2),(28,'3D очки VR Box II',600,'def','http://214010.selcdn.ru/ranbox/items/vr_box_medium.png',2),(29,'Флешка SmartBuy 16GB',600,'def','http://214010.selcdn.ru/ranbox/items/usb_smartbuy_16gb_medium.png',2),(30,'Casio G-Shock',700,'def','http://214010.selcdn.ru/ranbox/items/g_shock_medium.png',2),(31,'Bluetooth Колонка MINI-X6',800,'def','http://214010.selcdn.ru/ranbox/items/bt_speaker_medium.png',2),(32,'Селфи-кольцо',500,'def','http://214010.selcdn.ru/ranbox/items/selfie_ring_medium.png',2),(33,'Беспроводные наушники Beats',1400,'def','http://214010.selcdn.ru/ranbox/items/beats_solo_medium.png',2),(34,'Экшн Камера',2400,'def','http://214010.selcdn.ru/ranbox/items/10_medium.png',2),(35,'Bluetooth Колонка',700,'def','http://214010.selcdn.ru/ranbox/items/pokemon_bt_medium.png',2),(36,'Смарт Часы (Android)',2200,'def','http://214010.selcdn.ru/ranbox/items/11_medium.png',2),(37,'JBL Charge2+',2500,'def','http://214010.selcdn.ru/ranbox/items/charge2_medium.png',2),(38,'3D ручка',3000,'def','http://214010.selcdn.ru/ranbox/items/3dpen_medium.png',2),(39,'Sony Playstation 4 500Gb',30000,'def','http://214010.selcdn.ru/ranbox/items/34_medium.png',2),(40,'Bluetooth Колонка',700,'def','http://214010.selcdn.ru/ranbox/items/pokemon_bt_medium.png',3),(41,'Casio G-Shock',700,'def','http://214010.selcdn.ru/ranbox/items/g_shock_medium.png',3),(42,'Bluetooth Колонка MINI-X6',800,'def','http://214010.selcdn.ru/ranbox/items/bt_speaker_medium.png',3),(43,'PowerBank 8800 mAh',900,'def','http://214010.selcdn.ru/ranbox/items/20_medium.png',3),(44,'Беспроводные наушники Beats',1400,'def','http://214010.selcdn.ru/ranbox/items/beats_solo_medium.png',3),(45,'JBL Charge2+',2500,'def','http://214010.selcdn.ru/ranbox/items/charge2_medium.png',3),(46,'Смарт Часы (Android)',2200,'def','http://214010.selcdn.ru/ranbox/items/11_medium.png',3),(47,'Apple TV 32Gb',30000,'def','http://214010.selcdn.ru/ranbox/items/29_medium.png',3),(48,'Canon EOS 1100D Kit',30000,'def','http://214010.selcdn.ru/ranbox/items/45_medium.png',3),(49,'XBox One 500Gb',30000,'def','http://214010.selcdn.ru/ranbox/items/33_medium.png',3),(50,'iPad Mini 4',40000,'def','http://214010.selcdn.ru/ranbox/items/24_medium.png',3),(51,'iPhone 7 32Gb',57000,'def','http://214010.selcdn.ru/ranbox/items/27_medium.png',3),(53,'gthddsasdf',2344,'def','',3);
+/*!40000 ALTER TABLE `items` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `payments`
 --
 
-CREATE TABLE IF NOT EXISTS `payments` (
+DROP TABLE IF EXISTS `payments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `payments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `amount` int(11) NOT NULL,
   `user` int(11) NOT NULL,
@@ -281,15 +265,27 @@ CREATE TABLE IF NOT EXISTS `payments` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `payments`
+--
+
+LOCK TABLES `payments` WRITE;
+/*!40000 ALTER TABLE `payments` DISABLE KEYS */;
+INSERT INTO `payments` VALUES (1,100,1700,'1539029496',0,'2018-10-08 20:11:36','0000-00-00 00:00:00'),(2,100,1700,'1539029531',0,'2018-10-08 20:12:11','0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `payments` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `stats`
 --
 
-CREATE TABLE IF NOT EXISTS `stats` (
+DROP TABLE IF EXISTS `stats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `total` int(11) NOT NULL DEFAULT '0',
   `games` int(11) NOT NULL DEFAULT '0',
@@ -297,37 +293,53 @@ CREATE TABLE IF NOT EXISTS `stats` (
   `deposit` int(11) NOT NULL,
   `vivod` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `stats`
 --
 
-INSERT INTO `stats` (`id`, `total`, `games`, `profit`, `deposit`, `vivod`) VALUES
-(1, 2984, 187, 0, 0, 600);
-
--- --------------------------------------------------------
+LOCK TABLES `stats` WRITE;
+/*!40000 ALTER TABLE `stats` DISABLE KEYS */;
+INSERT INTO `stats` VALUES (1,2984,187,0,0,600);
+/*!40000 ALTER TABLE `stats` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `stock`
 --
 
-CREATE TABLE IF NOT EXISTS `stock` (
+DROP TABLE IF EXISTS `stock`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `stock` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `case` int(11) NOT NULL,
   `type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `game` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `stock`
+--
+
+LOCK TABLES `stock` WRITE;
+/*!40000 ALTER TABLE `stock` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stock` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(256) NOT NULL,
   `avatar` varchar(256) NOT NULL,
@@ -357,47 +369,29 @@ CREATE TABLE IF NOT EXISTS `users` (
   `profit2` int(11) NOT NULL,
   `timer` int(14) NOT NULL,
   `nick` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1700 ;
+) ENGINE=InnoDB AUTO_INCREMENT=1706 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `avatar`, `login`, `money`, `is_admin`, `ref_code`, `ref_use`, `open_box`, `win`, `remember_token`, `created_at`, `updated_at`, `is_yt`, `login2`, `bonus_time`, `bonus_time_drop`, `free_cases_left`, `refferal_money`, `ip`, `deposit`, `mini_wins`, `ban_mini`, `profit`, `ban_ticket`, `request`, `profit2`, `timer`, `nick`) VALUES
-(1, 'Anatol', 'https://pp.userapi.com/c630916/v630916998/4bed/ArHAnvv6x3Y.jpg', '1', 0, 1, '1', '21', 0, 0, 'bJ7s45y8sUHpLX2U9NZ3Yy7zRke8Xs2ZXaCsjtrRtTyYPfGuWmlazS9LFt6s', '2017-04-09 09:58:40', '2017-04-09 13:58:40', 1, '123', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 219120, 0, 0, 0, 0, 'nKByi2Y9'),
-(1667, 'Прядиев Андрей', 'https://pp.userapi.com/c619321/v619321749/dde0/S-2S3KKrprU.jpg', 'id44810749', 192444, 1, 'YkeBn6bRSDZtr', NULL, 13, 0, 'UeL3b0SXRLySjzmY0rIK4KhoV3pixMg6CPjPKNJwfAGydWy3tGGZBZJMZAjo', '2017-04-18 19:19:12', '2017-04-18 23:19:12', 0, '44810749', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, '526zNZrT'),
-(1668, 'Недров Кузьма', 'https://pp.userapi.com/c626616/v626616162/62842/xsu7er-H6fk.jpg', 'id196658162', 5417, 0, '88tFEh5H89GRB', NULL, 0, 0, 'OovRhUP49DLS42Sxt9369X5bTIx0ZhnjUpZyBIUdDIIqBWchuj6PIZaD3zIU', '2017-04-18 18:01:47', '2017-04-18 22:01:47', 1, '196658162', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 's9s3zBEy'),
-(1669, 'Муфтахин Руслан', 'https://pp.userapi.com/c627429/v627429458/7971/D7ZXvh0E1ZE.jpg', 'id2348458', 700, 0, 'T24ztiisADNeA', NULL, 0, 0, 'mgvLj8vSWc4Vt7nOOKbj2dWtYqrrVLNSVD3rgdzBqOkNYKI4A3B7Rw9Nabvk', '2017-04-18 18:01:53', '2017-04-18 22:01:53', 0, '2348458', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 214, 0, 0, 0, 0, 'nkhzQhY7'),
-(1670, 'Тудвасев Антон', 'https://pp.vk.me/c638819/v638819016/126f8/vzgqbRAc5GU.jpg', 'id157618016', 0, 0, 'K8hshar8YZTE4', NULL, 0, 0, 'Qoa482GzlNdVokYLLssPaDoe7gkR0Ebk9yocEAhqiJBjIGVSxW9yKPKDvrse', '2017-02-26 14:58:54', '2017-02-26 11:58:54', 0, '157618016', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'dBh7GfFY'),
-(1671, 'Романов Алексей', 'https://pp.userapi.com/c626631/v626631900/574ca/r2mhYAGCxeU.jpg', 'id167166900', 6831, 0, 'kr8NAQ79ebf3t', NULL, 0, 0, 'Ly69dFXnY0IyevsWhKfVwKueEKRS3ARMw6gqdBCvwRaaUqAiE9qwg8JhidwB', '2017-04-18 09:30:19', '2017-04-18 13:30:19', 0, '167166900', '2017-03-06 09:43:45', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 2660, 0, 0, 0, 0, 'BQ9BKHAs'),
-(1672, 'Моисеев Егор', 'https://pp.userapi.com/c837427/v837427498/45e5b/d3TiXXRsKMU.jpg', 'id354288498', 0, 0, 'sbFKr229n57k9', 'YDhHkbsfeQQrZ', 0, 0, 'X6eIfBERL0koJVEE08nt93XFWd39PD6fI0nPyA1nDRa9sZ1qmNyFt7c1oHx7', '2017-04-09 15:08:59', '2017-04-09 22:08:59', 0, '354288498', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 1653427, 0, 0, 0, 0, 'A5FstDBa'),
-(1673, 'Лавров Николай', 'https://pp.userapi.com/c636716/v636716841/4cb7c/NgsKxpY5Cjg.jpg', 'id91785841', 0, 0, 'RHBBN2ZyRGFTF', NULL, 0, 0, 'dJjZDysLBVvvYNf7o1dFrb38e8H2uOnjyoMox2da7PGvG0AhVWI0GcCOjdm2', '2017-02-28 20:43:57', '2017-02-28 17:43:57', 0, '91785841', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 3189260, 0, 0, 0, 0, 'tAGYbQFd'),
-(1674, 'Полинский Артём', 'https://pp.userapi.com/c622126/v622126182/543e9/pFt4zYBQr1I.jpg', 'id62796182', 0, 0, 'baGE58t35D86G', NULL, 0, 0, 'tCVFfjGUghrDTXMCIyCHnBXQjqdOKYdrXvqj4jvzHZWcJGy4jp3iajh41egZ', '2017-03-01 08:54:34', '2017-03-01 05:54:34', 0, '62796182', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'KZ2SsEEG'),
-(1675, 'Белов Сергей', 'https://pp.userapi.com/c604422/v604422153/1a92c/VUbiAzkSDFU.jpg', 'id343153', 0, 0, 'H9bZAB4BHQdSh', NULL, 0, 0, 'wMKrhh296gV82dWdaGQJOnhMQp31HapgMYImme16SWyCUEU1bovRSVxcHnVS', '2017-04-06 14:02:54', '2017-03-01 10:32:03', 0, '343153', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 272773, 0, 0, 0, 0, 'yBRAhsbN'),
-(1677, 'Кодеров Владимир', 'https://pp.userapi.com/c638627/v638627566/2b013/Dz04Je82TFA.jpg', 'id371446566', 0, 0, 'tEGFdZ3F9YkSN', NULL, 0, 0, 'tYCLJ570OjVIeFw5RQpy3A7E5XGEb4MKjSB5rhJEQuXc0TJdUXtGlGhbAiIK', '2017-03-02 07:18:43', '2017-03-02 04:18:43', 0, '371446566', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'beDZHkiE'),
-(1678, 'Тригуба Евгений', 'https://cs7051.userapi.com/c604619/v604619846/273b1/oCOzHxk21AQ.jpg', 'id116445846', 0, 0, 'YQGzanzTsHG3D', NULL, 0, 0, 'Qw1BRfSqarnJETbQV82wq6LeyZ1I6D38qNz8kpS08fBPJGzmoVcQxa088L6t', '2017-03-03 20:28:07', '2017-03-03 17:28:07', 0, '116445846', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'Gs2tk65z'),
-(1679, 'Документов Александр', 'https://pp.userapi.com/c636922/v636922560/4e0f2/_E-ME4luzIY.jpg', 'id315996560', 37700, 0, 'Sri2rStQRrn2Y', NULL, 0, 0, 'bq901eks3Tfmy3l1wwfo0qI1YUAjWqlCa5BjKNFEHuCDeMZ26Nqvn9WutHkj', '2017-04-17 19:51:36', '2017-04-17 23:51:36', 0, '315996560', '2017-03-06 18:03:08', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'yF2tDBT9'),
-(1680, 'Строгий Саша', 'https://pp.userapi.com/c638325/v638325135/10f44/3kh0dyd8CJM.jpg', 'id88189135', 1, 0, 'zbbHK53EGbzZe', NULL, 0, 0, 'i6Wh5BRtyrdIB3tptd9hU6d15e0B5xJ7EKUSqQhzprSG8eJckytJpRHW7rw1', '2017-03-05 23:02:25', '2017-03-05 20:02:25', 0, '88189135', '2017-03-05 23:02:25', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'fKBkyG5n'),
-(1681, 'Хилин Максим', 'https://pp.userapi.com/c633716/v633716455/35d6f/-pZpTAt2OAU.jpg', 'id158864455', 1, 0, '8KZk2H7fdTDFh', NULL, 0, 0, 'zO9LwSQiyz1YrMP9axrkov8QFGpN7LaeqAvA13VxIPXiI5B9eWJwLAXplvS1', '2017-03-04 17:13:02', '2017-03-04 14:13:02', 0, '158864455', '2017-03-04 17:13:02', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'hE69zGEG'),
-(1682, 'Чиповский Дмитрий', 'https://pp.userapi.com/c637228/v637228619/53fdd/w4iTs-cXGao.jpg', 'id79736619', 0, 0, 'sKSyS8ANzBTf3', NULL, 0, 0, 'VqDb8nMWZvDkK4qdbAW9Q3YZinL76pPev2RHQmu84aNFHMOv1UtDvd3iOB0J', '2017-03-04 23:51:00', '2017-03-04 20:51:00', 0, '79736619', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'iSHer3bN'),
-(1683, '''о'' Влад', 'https://pp.userapi.com/c637225/v637225345/23c47/6PCDvBAnVoQ.jpg', 'id248420345', 0, 0, 's5FhFsH6NYT8Y', NULL, 0, 0, 'CHA4iwsyTJwa0lBh4ttuMn2POyC8g6LJ0mUJNR02yiB0dcwqaJt3Q6LywPbE', '2017-03-05 11:01:05', '2017-03-05 08:01:05', 0, '248420345', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'niENe8QG'),
-(1684, 'Михайлишин Роман', 'https://pp.userapi.com/c837336/v837336672/1628b/xTjpxoNsKLI.jpg', 'id120072672', 0, 0, 'YEtHFBQRQkEih', NULL, 0, 0, 'oPHavx3kNJLycDzdywoF5mV7wslmzWyjgSIfDpdGmiz4F8UHaPkWrHZ4zLTc', '2017-03-24 23:27:17', '2017-03-25 03:27:17', 0, '120072672', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'inN3aDYf'),
-(1692, 'adad', 'https://pp.userapi.com/c630916/v630916998/4bed/ArHAnvv6x3Y.jpg', 'adad', 0, 0, 'adda', NULL, 0, 0, 'adad', '2017-04-11 17:55:18', '2017-04-12 00:53:44', 1, 'adad', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'adad'),
-(1693, 'Ярмаков Кирилл', 'https://pp.userapi.com/c604525/v604525662/303fb/mX-E0mJCY64.jpg', 'id214391662', 0, 1, 'nBT6edRQYn9EG', NULL, 0, 0, 'U8SRnFwQ5HBcARPYCXILkHiDmpYBn9ujztZ0sWDAfI02l47AUpomYZLgddLf', '2017-04-16 17:18:04', '2017-04-09 22:52:03', 0, '214391662', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, '8THa7bnt'),
-(1694, 'Габдуллин Тимур', 'https://pp.userapi.com/c622116/v622116605/5079a/oVwE4rXnvIA.jpg', 'id170718605', 0, 0, 'iyhfasG5NT2ks', NULL, 0, 0, 'e9uvsZVsaAVwk19yzBPPy95gUrA9t2JGbvwRaT38rOxt6a6WuvOUpqBL0B7S', '2017-04-16 17:18:06', '2017-04-09 22:49:56', 0, '170718605', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'eYrd5Ere'),
-(1695, 'Krists Krists', 'https://pp.userapi.com/c630916/v630916998/4bed/ArHAnvv6x3Y.jpg', 'id337048378', 96037, 1, '46Nk3aABbr2DE', NULL, 37, 0, 'mWLhWuLAdvt5n5pxDJ1INsnUqNVnXj28GhKkhrUgSMg8NwiVCGi85yW02MrB', '2017-04-18 19:21:30', '2017-04-18 23:21:30', 1, '337048378', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'hRSs5rHy'),
-(1696, 'Исаев Иван', 'https://pp.userapi.com/c622629/v622629867/439ea/lSZVcKzC2Nk.jpg', 'id293841867', 9931, 1, 'iYYABezKz9ZtA', NULL, 0, 0, '92fMwEdenJY5bOy8oKNSI7VBwUJFBXEYwymY0rJbbXUX2y1T2ygISDOCYn6m', '2017-04-12 15:02:26', '2017-04-12 22:02:26', 0, '293841867', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'hhGGy6Kb'),
-(1698, 'Алексеев Никита', 'https://pp.userapi.com/c639817/v639817974/126a2/SwNLB3Lc-Bo.jpg', 'id12903974', 3650, 0, '26YfhrzQA9RhT', NULL, 0, 0, 'GyAsfmPo9RgHtyTBcddDTeTw7fu0CSKvbiS6hfjbmXT35aURxbEjYCzt4kb0', '2017-04-17 20:11:07', '2017-04-18 00:11:07', 0, '12903974', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'EaRZtHYA'),
-(1699, 'Алексеев Данил', 'http://vk.com/images/camera_200.png', 'id371760471', 0, 0, 'z66KfaYDEnSfA', NULL, 0, 0, 'JSsul0WIVQs0cdmKR1fBUGvzTx6GMmVnD3YplLjQeQq7PUa26G5ECWIz4cew', '2017-04-17 18:49:53', '2017-04-17 22:49:53', 0, '371760471', '2016-11-08 19:43:23', '2016-11-11 18:13:23', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 'yyGNytyE');
-
--- --------------------------------------------------------
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Anatol','https://pp.userapi.com/c630916/v630916998/4bed/ArHAnvv6x3Y.jpg','1',0,1,'1','21',0,0,'bJ7s45y8sUHpLX2U9NZ3Yy7zRke8Xs2ZXaCsjtrRtTyYPfGuWmlazS9LFt6s','2017-04-09 09:58:40','2017-04-09 13:58:40',1,'123','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,219120,0,0,0,0,'nKByi2Y9',''),(1667,'Прядиев Андрей','https://pp.userapi.com/c619321/v619321749/dde0/S-2S3KKrprU.jpg','id44810749',192444,1,'YkeBn6bRSDZtr',NULL,13,0,'UeL3b0SXRLySjzmY0rIK4KhoV3pixMg6CPjPKNJwfAGydWy3tGGZBZJMZAjo','2017-04-18 19:19:12','2017-04-18 23:19:12',0,'44810749','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'526zNZrT',''),(1668,'Недров Кузьма','https://pp.userapi.com/c626616/v626616162/62842/xsu7er-H6fk.jpg','id196658162',5417,0,'88tFEh5H89GRB',NULL,0,0,'OovRhUP49DLS42Sxt9369X5bTIx0ZhnjUpZyBIUdDIIqBWchuj6PIZaD3zIU','2017-04-18 18:01:47','2017-04-18 22:01:47',1,'196658162','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'s9s3zBEy',''),(1669,'Муфтахин Руслан','https://pp.userapi.com/c627429/v627429458/7971/D7ZXvh0E1ZE.jpg','id2348458',700,0,'T24ztiisADNeA',NULL,0,0,'mgvLj8vSWc4Vt7nOOKbj2dWtYqrrVLNSVD3rgdzBqOkNYKI4A3B7Rw9Nabvk','2017-04-18 18:01:53','2017-04-18 22:01:53',0,'2348458','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,214,0,0,0,0,'nkhzQhY7',''),(1670,'Тудвасев Антон','https://pp.vk.me/c638819/v638819016/126f8/vzgqbRAc5GU.jpg','id157618016',0,0,'K8hshar8YZTE4',NULL,0,0,'Qoa482GzlNdVokYLLssPaDoe7gkR0Ebk9yocEAhqiJBjIGVSxW9yKPKDvrse','2017-02-26 14:58:54','2017-02-26 11:58:54',0,'157618016','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'dBh7GfFY',''),(1671,'Романов Алексей','https://pp.userapi.com/c626631/v626631900/574ca/r2mhYAGCxeU.jpg','id167166900',6831,0,'kr8NAQ79ebf3t',NULL,0,0,'Ly69dFXnY0IyevsWhKfVwKueEKRS3ARMw6gqdBCvwRaaUqAiE9qwg8JhidwB','2017-04-18 09:30:19','2017-04-18 13:30:19',0,'167166900','2017-03-06 09:43:45','2016-11-11 18:13:23',0,0,'',0,0,0,2660,0,0,0,0,'BQ9BKHAs',''),(1672,'Моисеев Егор','https://pp.userapi.com/c837427/v837427498/45e5b/d3TiXXRsKMU.jpg','id354288498',0,0,'sbFKr229n57k9','YDhHkbsfeQQrZ',0,0,'X6eIfBERL0koJVEE08nt93XFWd39PD6fI0nPyA1nDRa9sZ1qmNyFt7c1oHx7','2017-04-09 15:08:59','2017-04-09 22:08:59',0,'354288498','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,1653427,0,0,0,0,'A5FstDBa',''),(1673,'Лавров Николай','https://pp.userapi.com/c636716/v636716841/4cb7c/NgsKxpY5Cjg.jpg','id91785841',0,0,'RHBBN2ZyRGFTF',NULL,0,0,'dJjZDysLBVvvYNf7o1dFrb38e8H2uOnjyoMox2da7PGvG0AhVWI0GcCOjdm2','2017-02-28 20:43:57','2017-02-28 17:43:57',0,'91785841','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,3189260,0,0,0,0,'tAGYbQFd',''),(1674,'Полинский Артём','https://pp.userapi.com/c622126/v622126182/543e9/pFt4zYBQr1I.jpg','id62796182',0,0,'baGE58t35D86G',NULL,0,0,'tCVFfjGUghrDTXMCIyCHnBXQjqdOKYdrXvqj4jvzHZWcJGy4jp3iajh41egZ','2017-03-01 08:54:34','2017-03-01 05:54:34',0,'62796182','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'KZ2SsEEG',''),(1675,'Белов Сергей','https://pp.userapi.com/c604422/v604422153/1a92c/VUbiAzkSDFU.jpg','id343153',0,0,'H9bZAB4BHQdSh',NULL,0,0,'wMKrhh296gV82dWdaGQJOnhMQp31HapgMYImme16SWyCUEU1bovRSVxcHnVS','2017-04-06 14:02:54','2017-03-01 10:32:03',0,'343153','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,272773,0,0,0,0,'yBRAhsbN',''),(1677,'Кодеров Владимир','https://pp.userapi.com/c638627/v638627566/2b013/Dz04Je82TFA.jpg','id371446566',0,0,'tEGFdZ3F9YkSN',NULL,0,0,'tYCLJ570OjVIeFw5RQpy3A7E5XGEb4MKjSB5rhJEQuXc0TJdUXtGlGhbAiIK','2017-03-02 07:18:43','2017-03-02 04:18:43',0,'371446566','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'beDZHkiE',''),(1678,'Тригуба Евгений','https://cs7051.userapi.com/c604619/v604619846/273b1/oCOzHxk21AQ.jpg','id116445846',0,0,'YQGzanzTsHG3D',NULL,0,0,'Qw1BRfSqarnJETbQV82wq6LeyZ1I6D38qNz8kpS08fBPJGzmoVcQxa088L6t','2017-03-03 20:28:07','2017-03-03 17:28:07',0,'116445846','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'Gs2tk65z',''),(1679,'Документов Александр','https://pp.userapi.com/c636922/v636922560/4e0f2/_E-ME4luzIY.jpg','id315996560',37700,0,'Sri2rStQRrn2Y',NULL,0,0,'bq901eks3Tfmy3l1wwfo0qI1YUAjWqlCa5BjKNFEHuCDeMZ26Nqvn9WutHkj','2017-04-17 19:51:36','2017-04-17 23:51:36',0,'315996560','2017-03-06 18:03:08','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'yF2tDBT9',''),(1680,'Строгий Саша','https://pp.userapi.com/c638325/v638325135/10f44/3kh0dyd8CJM.jpg','id88189135',1,0,'zbbHK53EGbzZe',NULL,0,0,'i6Wh5BRtyrdIB3tptd9hU6d15e0B5xJ7EKUSqQhzprSG8eJckytJpRHW7rw1','2017-03-05 23:02:25','2017-03-05 20:02:25',0,'88189135','2017-03-05 23:02:25','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'fKBkyG5n',''),(1681,'Хилин Максим','https://pp.userapi.com/c633716/v633716455/35d6f/-pZpTAt2OAU.jpg','id158864455',1,0,'8KZk2H7fdTDFh',NULL,0,0,'zO9LwSQiyz1YrMP9axrkov8QFGpN7LaeqAvA13VxIPXiI5B9eWJwLAXplvS1','2017-03-04 17:13:02','2017-03-04 14:13:02',0,'158864455','2017-03-04 17:13:02','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'hE69zGEG',''),(1682,'Чиповский Дмитрий','https://pp.userapi.com/c637228/v637228619/53fdd/w4iTs-cXGao.jpg','id79736619',0,0,'sKSyS8ANzBTf3',NULL,0,0,'VqDb8nMWZvDkK4qdbAW9Q3YZinL76pPev2RHQmu84aNFHMOv1UtDvd3iOB0J','2017-03-04 23:51:00','2017-03-04 20:51:00',0,'79736619','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'iSHer3bN',''),(1683,'\'о\' Влад','https://pp.userapi.com/c637225/v637225345/23c47/6PCDvBAnVoQ.jpg','id248420345',0,0,'s5FhFsH6NYT8Y',NULL,0,0,'CHA4iwsyTJwa0lBh4ttuMn2POyC8g6LJ0mUJNR02yiB0dcwqaJt3Q6LywPbE','2017-03-05 11:01:05','2017-03-05 08:01:05',0,'248420345','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'niENe8QG',''),(1684,'Михайлишин Роман','https://pp.userapi.com/c837336/v837336672/1628b/xTjpxoNsKLI.jpg','id120072672',0,0,'YEtHFBQRQkEih',NULL,0,0,'oPHavx3kNJLycDzdywoF5mV7wslmzWyjgSIfDpdGmiz4F8UHaPkWrHZ4zLTc','2017-03-24 23:27:17','2017-03-25 03:27:17',0,'120072672','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'inN3aDYf',''),(1692,'adad','https://pp.userapi.com/c630916/v630916998/4bed/ArHAnvv6x3Y.jpg','adad',0,0,'adda',NULL,0,0,'adad','2017-04-11 17:55:18','2017-04-12 00:53:44',1,'adad','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'adad',''),(1693,'Ярмаков Кирилл','https://pp.userapi.com/c604525/v604525662/303fb/mX-E0mJCY64.jpg','id214391662',0,1,'nBT6edRQYn9EG',NULL,0,0,'U8SRnFwQ5HBcARPYCXILkHiDmpYBn9ujztZ0sWDAfI02l47AUpomYZLgddLf','2017-04-16 17:18:04','2017-04-09 22:52:03',0,'214391662','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'8THa7bnt',''),(1694,'Габдуллин Тимур','https://pp.userapi.com/c622116/v622116605/5079a/oVwE4rXnvIA.jpg','id170718605',0,0,'iyhfasG5NT2ks',NULL,0,0,'e9uvsZVsaAVwk19yzBPPy95gUrA9t2JGbvwRaT38rOxt6a6WuvOUpqBL0B7S','2017-04-16 17:18:06','2017-04-09 22:49:56',0,'170718605','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'eYrd5Ere',''),(1695,'Krists Krists','https://pp.userapi.com/c630916/v630916998/4bed/ArHAnvv6x3Y.jpg','id337048378',96037,1,'46Nk3aABbr2DE',NULL,37,0,'mWLhWuLAdvt5n5pxDJ1INsnUqNVnXj28GhKkhrUgSMg8NwiVCGi85yW02MrB','2017-04-18 19:21:30','2017-04-18 23:21:30',1,'337048378','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'hRSs5rHy',''),(1696,'Исаев Иван','https://pp.userapi.com/c622629/v622629867/439ea/lSZVcKzC2Nk.jpg','id293841867',9931,1,'iYYABezKz9ZtA',NULL,0,0,'92fMwEdenJY5bOy8oKNSI7VBwUJFBXEYwymY0rJbbXUX2y1T2ygISDOCYn6m','2017-04-12 15:02:26','2017-04-12 22:02:26',0,'293841867','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'hhGGy6Kb',''),(1698,'Алексеев Никита','https://pp.userapi.com/c639817/v639817974/126a2/SwNLB3Lc-Bo.jpg','id12903974',3650,0,'26YfhrzQA9RhT',NULL,0,0,'GyAsfmPo9RgHtyTBcddDTeTw7fu0CSKvbiS6hfjbmXT35aURxbEjYCzt4kb0','2017-04-17 20:11:07','2017-04-18 00:11:07',0,'12903974','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'EaRZtHYA',''),(1699,'Алексеев Данил','http://vk.com/images/camera_200.png','id371760471',0,0,'z66KfaYDEnSfA',NULL,0,0,'JSsul0WIVQs0cdmKR1fBUGvzTx6GMmVnD3YplLjQeQq7PUa26G5ECWIz4cew','2017-04-17 18:49:53','2017-04-17 22:49:53',0,'371760471','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'yyGNytyE',''),(1700,'Курлович Алексей','https://pp.userapi.com/c836124/v836124469/51b4b/ke8Bip6NxPQ.jpg?ava=1','id137458469',995140,1,'88Sr3TdnDhhhh',NULL,20,0,'pz6eCNnWT1BqDbuVsPxUVOO5W1yAbBnx9ktYNa18G0QAJ1LpgoSg0l8e9jCG','2018-10-17 16:49:56','2018-10-17 13:49:56',0,'137458469','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'Zds2EzyS',''),(1701,'тестик','http://vk.com/images/camera_200.png','testlogin',0,0,'2Dhrfrys9iAY5',NULL,0,0,'u1KmYwJFeaJsFxEJN6BTUE0DNXNB1z3ncGAjrQ2ZfOQzHKd2yyjbq1YFM1zK','2018-10-15 18:33:53','2018-10-15 15:33:53',0,'','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'tGG2kD8h',''),(1703,'1112','http://vk.com/images/camera_200.png','1112',0,0,'92eSiFTNi8Y5a',NULL,0,0,'1Yt6vdMpeYD3kiA3JrYwfTcGwLcMXDXOvA3QhzIEw7jL68PHe8wJZx0SyPT1','2018-10-15 19:02:20','2018-10-15 16:02:20',0,'','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'Z55fbtBE',''),(1705,'111','http://vk.com/images/camera_200.png','111',999500,0,'hHdfaNst77FsS',NULL,1,0,'Q8bwehQXd0vTgOCzy9KRokIjWXCQtBD8cE6MPGhvQT3kNoaAB7YBnmJGnK7v','2018-10-16 16:38:20','2018-10-16 13:38:20',0,'','2016-11-08 19:43:23','2016-11-11 18:13:23',0,0,'',0,0,0,0,0,0,0,0,'7ifBBsD6','$2y$10$AzKRFEbolofzftIZ0hHQ1Oi3sA0wQe5TcERl.Txg1dmBDm/jgrNPa');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `vivod`
 --
 
-CREATE TABLE IF NOT EXISTS `vivod` (
+DROP TABLE IF EXISTS `vivod`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vivod` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
@@ -406,8 +400,25 @@ CREATE TABLE IF NOT EXISTS `vivod` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
+--
+-- Dumping data for table `vivod`
+--
+
+LOCK TABLES `vivod` WRITE;
+/*!40000 ALTER TABLE `vivod` DISABLE KEYS */;
+/*!40000 ALTER TABLE `vivod` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-10-22 22:25:30
