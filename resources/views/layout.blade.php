@@ -118,6 +118,13 @@
                         </div>
                     </a>
                 </div>
+                 <div class="nav-line__element">
+                    <a href="/">
+                        <div class="nav-line__link  nav-line__link " >
+                             Конкурсы
+                        </div>
+                    </a>
+                 </div>
                 <div class="nav-line__element">
                     <a href="/delivery">
                         <div class="nav-line__link " >
@@ -168,6 +175,13 @@
                             </div>
                         </a>
                     </div>
+                     <div class="nav-line__element">
+                         <a href="/">
+                             <div class="nav-line__link  nav-line__link " >
+                                 Конкурсы
+                             </div>
+                         </a>
+                     </div>
                     <div class="header-drop-menu__element">
                         <a href="/shop">
                             <div class="header-drop-menu__link "  style="color: #f4bc2a" >
@@ -243,6 +257,13 @@
                                     </div>
                                 </a>
                             </div>
+                             <div class="nav-line__element">
+                                <a href="/">
+                                     <div class="nav-line__link  nav-line__link " >
+                                         Конкурсы
+                                     </div>
+                                </a>
+                             </div>
                             <div class="nav-line__element footer__nav-element">
                                 <a href="/delivery">
                                     <div class="nav-line__link " >
