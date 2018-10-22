@@ -30,6 +30,9 @@ class PagesController extends Controller
     public function success(){
         return Redirect::to('/');
     }
+    public function contests(){
+        return view('pages.contests');
+    }
     public function delivery(){
         return view('pages.delivery');
     }
