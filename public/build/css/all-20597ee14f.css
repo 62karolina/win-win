@@ -14421,3 +14421,22 @@ a:active,a:focus,a:hover {
 .div1{
     display: inline-block;
 }
+.box-ticket{
+    display: inline-block;
+    width: 10%;
+}
+.ticket-value{
+    width: 100%;
+    height: 100%;
+    font-size: 36px;
+    color: black;
+    padding-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+@media (max-width:991px) {
+    .box-ticket{
+        display: inline-block;
+        width: 15%;
+    }  
+}

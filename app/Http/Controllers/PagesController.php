@@ -8,6 +8,8 @@ use App\Cases;
 use App\Items;
 use App\History;
 use App\Delivery;
+use App\Contest;
+use App\Contest_ticket;
 use Auth;
 use Crypt;
 use DB;
@@ -31,7 +33,8 @@ class PagesController extends Controller
         return Redirect::to('/');
     }
     public function contests(){
-        return view('pages.contests');
+        $contests = Contest::where('status',1)->get();
+        return view('pages.contests', compact('contests'));
     }
     public function delivery(){
         return view('pages.delivery');
@@ -368,6 +371,7 @@ class PagesController extends Controller
         }else{
 
             $items = History::where('user',Auth::user()->id)->where('status',0)->get();
+            $tickets = Contest_ticket::where('user_id',Auth::user()->id)->orderBy('created_at','desc')->get();
             $dev = Delivery::where('user', Auth::user()->id)->first();
             $c = User::where('ref_use',Auth::user()->ref_code)->count();
             $deliver = Deliver::where('user',Auth::user()->id)->orderBy('id','desc')->get();
@@ -393,6 +397,26 @@ class PagesController extends Controller
                 }
             }
 
+            if(count($tickets) != 0){
+                foreach ($tickets as $t){
+                    $item = Items::where('id',$t->item_id)->first();
+                    if(count($dev) != 0){
+                        $d->country = Crypt::decrypt($dev->country);
+                        $d->city  = Crypt::decrypt($dev->city);
+                        $d->postalcode = Crypt::decrypt($dev->postalcode);
+                        $d->dom = Crypt::decrypt($dev->dom);
+                        $d->kvartira = Crypt::decrypt($dev->kvartira);
+                        $d->street = Crypt::decrypt($dev->street);
+                        $d->name = Crypt::decrypt($dev->name); //
+                    }
+                    if($d->item1 != 0){$item1 = Items::where('id',$d->item1)->first(); $d->item1 = $item1->name;}else{$d->item1 = 'null';}
+                    if($d->item2 != 0){$item2 = Items::where('id',$d->item2)->first(); $d->item2 = $item2->name;}else{$d->item2 = 'null';}
+                    if($d->item3 != 0){$item3 = Items::where('id',$d->item3)->first(); $d->item3 = $item3->name;}else{$d->item3 = 'null';}
+                    if($d->item4 != 0){$item4 = Items::where('id',$d->item4)->first(); $d->item4 = $item4->name;}else{$d->item4 = 'null';}
+                    if($d->item5 != 0){$item5 = Items::where('id',$d->item5)->first(); $d->item5 = $item5->name;}else{$d->item5 = 'null';}
+                    $d->name = $uk->username;
+                }
+            }
             if(count($dev) != 0){
                 $country = Crypt::decrypt($dev->country);
                 $city  = Crypt::decrypt($dev->city);

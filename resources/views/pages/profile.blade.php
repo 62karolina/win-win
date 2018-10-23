@@ -17,10 +17,11 @@
                 </div>
             </div>
             <div class="content-button-row lk-tabs">
-                <button data-toggleup="#game-history, #finance, #affiliate" data-toggledown="#profile-row" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_dark button-rounding_disabled">Профиль</button>
-                <button data-toggleup="#profile-row, #finance, #affiliate" data-toggledown="#game-history" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_trans-dark">Мои товары</button>
-                <button data-toggleup="#profile-row, #game-history, #affiliate" data-toggledown="#finance" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_trans-dark">Мои доставки</button>
-                <button data-toggleup="#profile-row, #game-history, #finance" data-toggledown="#affiliate" id="affiliate-tab" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_trans-dark">Партнёрская программа</button>
+                <button data-toggleup="#game-history, #finance, #affiliate, #contest-ticket" data-toggledown="#profile-row" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_dark button-rounding_disabled">Профиль</button>
+                <button data-toggleup="#profile-row, #finance, #affiliate, #contest-ticket" data-toggledown="#game-history" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_trans-dark">Мои товары</button>
+                <button data-toggleup="#profile-row, #finance, #game-history, #affiliate" data-toggledown="#contest-ticket" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_trans-dark">Мои ставки</button>
+                <button data-toggleup="#profile-row, #game-history, #affiliate, #contest-ticket" data-toggledown="#finance" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_trans-dark">Мои доставки</button>
+                <button data-toggleup="#profile-row, #game-history, #finance, #contest-ticket" data-toggledown="#affiliate" id="affiliate-tab" class="lk-tabs__lk-tab content-button-row__button button-rounding button-rounding_med button-rounding_trans-dark">Партнёрская программа</button>
                 <button data-toggle="add-cash" class="modal-toggle lk-tabs__lk-cashin content-button-row__button content-button-row__button_right button-rounding button-rounding_med button-rounding_light hidden-xs hidden-sm">Пополнить</button>
                 <div class="balance-block content-button-row__button_right hidden-xs hidden-sm">
                     Баланс:
@@ -339,6 +340,35 @@
                                     </div>
                                 </div>
                             </a>
+                        </div>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
+        <div id="contest-ticket" class="lk-block game-history">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="lk-block_header text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Мои Ставки</div>
+                    </div>
+                </div>
+                <div class="row cases-history">
+                    @foreach($items as $item)
+                        <div class="box-ticket" id="ticket-{{$item->id}}">
+                            <div class="coin-block-min coin-block-min_silver">
+                                <div class="coin-block-min__coin-glow">
+                                    
+                                </div>
+                                <img src="{{$item->image}}" alt="coin25" class="coin-block-min__coin-img">
+                                <div class="coin-block-min__ava-link">
+                                    <div class="circle-ava">
+                                        <a href="/contests/{{$item->id}}">
+                                            <div class="ticket-value">{{$item->number}}</div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     @endforeach
 
