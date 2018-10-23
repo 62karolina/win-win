@@ -52,6 +52,10 @@ class PagesController extends Controller
         return view('pages.confidence');
     }
 
+    public function infocontests(){
+            return view('pages.infocontests');
+    }
+
     public function box($id){
         $case = Cases::where('id',$id)->first();
         $items = Items::where('case',$id)->orderBy('price','desc')->get();
