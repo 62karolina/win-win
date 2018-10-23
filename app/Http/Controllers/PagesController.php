@@ -399,22 +399,9 @@ class PagesController extends Controller
 
             if(count($tickets) != 0){
                 foreach ($tickets as $t){
-                    $item = Items::where('id',$t->item_id)->first();
-                    if(count($dev) != 0){
-                        $d->country = Crypt::decrypt($dev->country);
-                        $d->city  = Crypt::decrypt($dev->city);
-                        $d->postalcode = Crypt::decrypt($dev->postalcode);
-                        $d->dom = Crypt::decrypt($dev->dom);
-                        $d->kvartira = Crypt::decrypt($dev->kvartira);
-                        $d->street = Crypt::decrypt($dev->street);
-                        $d->name = Crypt::decrypt($dev->name); //
-                    }
-                    if($d->item1 != 0){$item1 = Items::where('id',$d->item1)->first(); $d->item1 = $item1->name;}else{$d->item1 = 'null';}
-                    if($d->item2 != 0){$item2 = Items::where('id',$d->item2)->first(); $d->item2 = $item2->name;}else{$d->item2 = 'null';}
-                    if($d->item3 != 0){$item3 = Items::where('id',$d->item3)->first(); $d->item3 = $item3->name;}else{$d->item3 = 'null';}
-                    if($d->item4 != 0){$item4 = Items::where('id',$d->item4)->first(); $d->item4 = $item4->name;}else{$d->item4 = 'null';}
-                    if($d->item5 != 0){$item5 = Items::where('id',$d->item5)->first(); $d->item5 = $item5->name;}else{$d->item5 = 'null';}
-                    $d->name = $uk->username;
+                    $contest = Contest::where('id',$t->contest_id)->first();
+                    $item = Items::where('id',$contest->item_id)->first();
+                    $t->item_image = $item->image;
                 }
             }
             if(count($dev) != 0){
@@ -432,7 +419,7 @@ class PagesController extends Controller
                     $item->name  = $itema->name;
                     $item->price = $itema->price;
                 }
-                return view('pages.profile',compact('items','deliver','country','city','postalcode','dom','kvartira','street','name','c'));
+                return view('pages.profile',compact('items','tickets','deliver','country','city','postalcode','dom','kvartira','street','name','c'));
             }else{
                 $country = '';
                 $city  = '';
@@ -449,7 +436,7 @@ class PagesController extends Controller
                     $item->name  = $itema->name;
                     $item->price = $itema->price;
                 }
-                return view('pages.profile',compact('items','deliver','country','city','postalcode','dom','kvartira','street','name','c'));
+                return view('pages.profile',compact('items','tickets','deliver','country','city','postalcode','dom','kvartira','street','name','c'));
             }
 
         }

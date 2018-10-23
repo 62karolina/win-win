@@ -59,10 +59,6 @@
                                     &nbsp;<span>{{Auth::user()->open_box}}</span>
                                 </div>
                             </div>
-                            <div class="profile-row__user-stat-element"><img src="/build/img/stat-icon__normal-cases.png" alt="normal cases" class="profile-row__user-stat-icon">
-                                <div class="profile-row__user-stat-text">Пригласил друзей:</div>
-                                <div class="profile-row__user-stat-text"><span>{{$c}}</span></div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -354,17 +350,17 @@
                     </div>
                 </div>
                 <div class="row cases-history">
-                    @foreach($items as $item)
-                        <div class="box-ticket" id="ticket-{{$item->id}}">
+                    @foreach($tickets as $ticket)
+                        <div class="box-ticket" id="ticket-{{$ticket->id}}">
                             <div class="coin-block-min coin-block-min_silver">
                                 <div class="coin-block-min__coin-glow">
                                     
                                 </div>
-                                <img src="{{$item->image}}" alt="coin25" class="coin-block-min__coin-img">
+                                <img src="{{$ticket->item_image}}" alt="coin25" class="coin-block-min__coin-img">
                                 <div class="coin-block-min__ava-link">
                                     <div class="circle-ava">
-                                        <a href="/contests/{{$item->id}}">
-                                            <div class="ticket-value">{{$item->number}}</div>
+                                        <a href="/contests/{{$ticket->id}}">
+                                            <div class="ticket-value">{{$ticket->number}}</div>
                                         </a>
                                     </div>
                                 </div>
