@@ -9812,6 +9812,16 @@ a:active,a:focus,a:hover {
 .text-block {
     font: 14px ptsans,Helvetica,Arial,sans-serif;
     font-weight: 400;
+    color: #fff;
+    text-align: left;
+    text-transform: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+.text-block-black {
+    font: 14px ptsans,Helvetica,Arial,sans-serif;
+    font-weight: 400;
     text-align: left;
     text-transform: none;
     -webkit-user-select: none;
@@ -9962,7 +9972,7 @@ a:active,a:focus,a:hover {
 
 .button-rounding_light {
     background-color: #c8c9bb;
-    color: #f4bc2a;
+    color: #fff;
     font-weight: 500;
     border: 1px solid #000;
     box-shadow: none;

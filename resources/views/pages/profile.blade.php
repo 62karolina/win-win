@@ -156,7 +156,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="lk-block_header text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Корзина доставки</div>
+                        <div class="lk-block_header text-block-black text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Корзина доставки</div>
                     </div>
                 </div>
                 <div class="row">
@@ -298,7 +298,7 @@
 
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="lk-block_header text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Мои товары</div>
+                        <div class="lk-block_header text-block-black text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Мои товары</div>
                     </div>
                 </div>
                 <div class="row cases-history">
@@ -346,7 +346,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="lk-block_header text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Мои Ставки</div>
+                        <div class="lk-block_header text-block-black text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Мои Ставки</div>
                     </div>
                 </div>
                 <div class="row cases-history">
@@ -359,7 +359,7 @@
                                 <img src="{{$ticket->item_image}}" alt="coin25" class="coin-block-min__coin-img">
                                 <div class="coin-block-min__ava-link">
                                     <div class="circle-ava">
-                                        <a href="/contests/{{$ticket->id}}">
+                                        <a href="/infocontest/{{$ticket->id}}">
                                             <div class="ticket-value">{{$ticket->number}}</div>
                                         </a>
                                     </div>
@@ -449,7 +449,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="lk-block__header text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Партнёрская программа</div>
+                        <div class="lk-block__header text-block-black text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Партнёрская программа</div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="profile-affiliate dark-card">
@@ -470,9 +470,9 @@
 
                         </div>
                         <div class="instruction-affiliate light-border-card">
-                            <div class="light-border-card__header text-block text-block_fs_m text-block_tf_up text-block_fw_bold">Инструкция:</div>
+                            <div class="light-border-card__header text-block-black text-block_fs_m text-block_tf_up text-block_fw_bold">Инструкция:</div>
                             <div class="light-border-card__element"><img src="/build/img/affiliate-instruction__icon_1.png" alt="" class="light-border-card__element-icon">
-                                <div class="light-border-card__element-text text-block">Распространяй свой промо-код и получай 5% от всех пополнений игроков, которые введут его при регистрации. За ввод твоего промо-кода игрок получит 50 рублей!</div>
+                                <div class="light-border-card__element-text text-block-black">Распространяй свой промо-код и получай 5% от всех пополнений игроков, которые введут его при регистрации. За ввод твоего промо-кода игрок получит 50 рублей!</div>
                             </div>
 
                         </div>
@@ -480,10 +480,10 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="partner-list">
-                            <div class="partner-list__header text-block text-block_fs_m text-block_tf_up text-block_fw_bold">Привлечённые игроки:
+                            <div class="partner-list__header text-block-black text-block_fs_m text-block_tf_up text-block_fw_bold">Привлечённые игроки:
                                 <div class="hidden-xs partner-list__counter text-block text-block_color_gray">
                                     Пригласил:
-                                    &nbsp;<span class="white">{{$c}}</span>
+                                    &nbsp;<span class="black">{{$c}}</span>
                                 </div>
                             </div>
                             <div class="row">
