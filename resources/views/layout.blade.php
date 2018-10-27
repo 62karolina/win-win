@@ -7,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="csrf-token" content="gJIjuNEOWpq3ZRaykxB85DZ24mB3wQTYR3cgj5tl">
 
-    <title>Интернет-магазин коробок-сюрпризов Ranbox.ru — Ranbox</title>
+    <title>Win-Win Box - играй и выигрывай</title>
 
     <link rel="stylesheet" href="/build/css/all-20597ee14f.css">
+
+
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -100,14 +102,20 @@
                         </div>
                     @endif
                 </div>
-                <div class="header-row__element_static">
-                    <div class="menu-button visible-xs">
-                        <div class="menu-button__wrapper">
-                            <div class="menu-button__line"></div>
-                            <div class="menu-button__line"></div>
-                            <div class="menu-button__line"></div>
-                        </div>
-                    </div>
+                <div class="sss">
+                <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+                <label class="btn-menu" for="hmt">
+                  <span class="first"></span>
+                  <span class="second"></span>
+                  <span class="third"></span>
+                </label>
+                <ul class="hidden-menu">
+                  <li class="hidden-menu_li"><a href="/">Главная</a></li>
+                  <li class="hidden-menu_li"><a href="/contests">Конкурсы</a></li>
+                  <li class="hidden-menu_li"><a href="/delivery">Доставка</a></li>
+                  <li class="hidden-menu_li"><a href="/opinions">Отзывы</a></li>
+                  <li class="hidden-menu_li"><a href="/help">Помощь</a></li>
+                </ul>
                 </div>
             </div>
             <nav class="nav-line nav-line_pad visible-sm">
@@ -458,7 +466,12 @@
     </div>
 </div>        <div class="modal-layout"></div>
 <!-- scripts -->
+
 <script src="//vk.com/js/api/openapi.js?136"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
 <script src="/build/js/all-dbd3292ee5.js?v=22222"></script>
