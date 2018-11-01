@@ -4,8 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Access
-{
+class Access {
+
     /**
      * Handle an incoming request.
      *
@@ -14,27 +14,31 @@ class Access
      * @param  string $role
      * @return mixed
      */
-    public function handle($request, Closure $next, $role)
-    {
-        switch($role){
+    public function handle($request, Closure $next, $role) {
+        switch ($role) {
             case 'admin':
-                if(!$request->user()->is_admin){
-                    if($request->ajax())
-                        return response('Access Denied')->setStatusCode(403);
+                if ($request->user()) {
+                    if (!$request->user()->is_admin) {
+                        if ($request->ajax())
+                            return response('Access Denied')->setStatusCode(403);
+                        abort(404);
+                    }
+                } else {
                     abort(404);
                 }
-            break;
+                break;
             case 'moderator':
-                if(!$request->user()->is_moderator){
-                    if($request->ajax())
+                if (!$request->user()->is_moderator) {
+                    if ($request->ajax())
                         return response('Access Denied')->setStatusCode(403);
                     abort(404);
                 }
-            break;
+                break;
             default:
                 return response('Access Denied')->setStatusCode(403);
-            break;
+                break;
         }
         return $next($request);
     }
+
 }
