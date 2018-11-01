@@ -121,6 +121,7 @@ class AdminController extends Controller {
         $case->price = $request->get('price');
         $case->image = $request->get('image');
         $case->case = $request->get('case');
+        $case->note = $request->get('note');
         $case->save();
         return redirect('/admin/items');
     }
@@ -417,6 +418,7 @@ class AdminController extends Controller {
             'price' => $r->price,
             'case' => $r->case,
             'name' => $r->name,
+            'note' => $r->note,
             'type' => $r->type
         ]);
         return redirect('/admin/addItem');

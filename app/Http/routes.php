@@ -26,6 +26,8 @@ Route::post('/login', 'LoginController@loginPost');
 
 Route::group(['middleware' => 'notAuth'], function () {
     Route::get('/login', 'LoginController@login');
+    Route::get('/changepass', 'LoginController@changepass');
+    Route::post('/changepass', 'LoginController@changepassPost');
     Route::get('/register', 'LoginController@register');
     Route::get('/vklogin', 'LoginController@vklogin');
 });

@@ -35,7 +35,7 @@ class LoginController extends Controller {
                     $user = User::create([
                                 'username' => $info['response'][0]['last_name'] . ' ' . $info['response'][0]['first_name'],
                                 'avatar' => $photo,
-                                'password'=> Hash::make($str_random(12)),
+                                'password' => Hash::make($str_random(12)),
                                 'login' => 'id' . $info['response'][0]['uid'],
                                 'login2' => $info['response'][0]['uid'],
                                 'ref_code' => $this->generate(),
@@ -100,7 +100,8 @@ class LoginController extends Controller {
             return redirect('/');
         }
         $userNotFound = true;
-        return view('pages.login', compact('userNotFound'));
+        $passwordEmail = false;
+        return view('pages.login', compact('userNotFound', 'passwordEmail'));
     }
 
     public function register() {
@@ -115,7 +116,55 @@ class LoginController extends Controller {
 
     public function login() {
         $userNotFound = false;
-        return view('pages.login', compact('userNotFound'));
+        $passwordEmail = false;
+        return view('pages.login', compact('userNotFound', 'passwordEmail'));
+    }
+
+    public function changepass() {
+        return view('pages.changepass');
+    }
+
+    public function changepassPost(Request $r) {
+        $user = User::where('login', $r->login)->first();
+        if ($user != NULL && $user->email != NULL) {
+            $to = $user->email;
+            $subject = 'Смена пароля Win-Win box';
+            $pass = str_random(12);
+//            $message = '
+//<html>
+//    <head>
+//        <title>Смена пароля</title>
+//        <meta charset="utf8">
+//    </head>
+//    <body>
+//        <p>Ваш новый пароль: <b>' . $pass . '</b> </p>
+//    </body>
+//</html>
+//';
+//
+////            $headers[] = 'MIME-Version: 1.0';
+////            $headers[] = 'Content-type: text/html; charset=utf8';
+////            $headers[] = 'To: Receiver <receiver@test.com>';
+////            $headers[] = 'From: Sender <sender@test.com>';
+////            $headers[] = 'Cc: copy@test.com';
+////            $result = mail($to, $subject, $message, implode("\r\n", $headers));
+//            Mail::send('emails.test', [], function ($message) {
+//                $m->from('sender@test.com', 'Sender');
+//                $m->to('receiver@test.com', 'Receiver')->subject('Тестовое письмо с HTML');
+//                $m->cc('copy@test.com', '');
+//            });
+
+            \Mail::raw('Ваш новый пароль:' . $pass, function(\Illuminate\Mail\Message $mail) use ($user) {
+                $mail->subject('Смена пароля Win-Win box');
+                $mail->from('boxwinwin@gmail.com', 'WinWinBox');
+                $mail->to($user->email);
+            });
+            $user->password = Hash::make($pass);
+            $user->save();
+        }
+        $userNotFound = false;
+        $passwordEmail = true;
+        return view('pages.login', compact('userNotFound', 'passwordEmail'));
     }
 
     public function curl($url) {
