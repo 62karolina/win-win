@@ -14461,6 +14461,7 @@ a:active,a:focus,a:hover {
         list-style:none;
         margin-top: 7px;
         padding: 10px;
+        font-size: 18px;
         margin: 0;
         box-sizing: border-box;
         width: 200px;
@@ -14477,11 +14478,15 @@ a:active,a:focus,a:hover {
     .hidden-menu-ticker {
         display: none;
     }
-
+    .sss{
+        margin-top: 32px;
+        margin-left: 15px;
+    }
     .btn-menu {
         color: #fff;
         background-color: #666;
         padding: 3px;
+        border-radius: 4px;
         position: static;
         top: 5px;
         right: 5px;
@@ -14496,10 +14501,19 @@ a:active,a:focus,a:hover {
     .hidden-menu_li {
         margin: 10px;
     }
+    .hidden-menu_li >  a{
+        margin: 10px;
+        color: black;
+    }
+    .hidden-menu_li >  a:hover{
+        margin: 10px;
+        color: #f4bc2a;
+    }
 
     .btn-menu span {
         display: block;
         height: 5px;
+        border-radius: 2px;
         background-color: #fff;
         margin: 5px 0 0;
         transition: all .1s linear .23s;

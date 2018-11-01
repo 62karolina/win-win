@@ -21,6 +21,10 @@
                             <div class="input-block">
                                 <input required class="input-block__input register__input" name="login" value="{{$user->login}}" data-error="Необходимо заполнить логин" title="">
                             </div>
+                            <div class="text-block text-block_tf_up register__input-header">Email</div>
+                            <div class="input-block">
+                                <input required class="input-block__input register__input" type="email" name="email" value="{{$user->email}}" data-error="Необходимо заполнить электронную почту" title="">
+                            </div>
                             <div class="text-block text-block_tf_up register__input-header">Пароль</div>
                             <div class="input-block">
                                 <input required type="password" class="input-block__input register__input" name="password" value="" data-error="Необходимо заполнить пароль" title="">

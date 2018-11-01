@@ -35,6 +35,7 @@ class LoginController extends Controller {
                     $user = User::create([
                                 'username' => $info['response'][0]['last_name'] . ' ' . $info['response'][0]['first_name'],
                                 'avatar' => $photo,
+                                'password'=> Hash::make($str_random(12)),
                                 'login' => 'id' . $info['response'][0]['uid'],
                                 'login2' => $info['response'][0]['uid'],
                                 'ref_code' => $this->generate(),
@@ -72,6 +73,7 @@ class LoginController extends Controller {
         if ($user == NULL) {
             $user = User::create([
                         'username' => $r->name,
+                        'email' => $r->email,
                         'login' => $r->login,
                         'avatar' => $photo,
                         'password' => Hash::make($r->password),
@@ -83,6 +85,7 @@ class LoginController extends Controller {
         } else {
             $user = new User();
             $user->name = $r->name;
+            $user->email = $r->email;
             $user->login = $r->login;
             $user->password = "";
             $user->userExist = true;
@@ -105,6 +108,7 @@ class LoginController extends Controller {
         $user->name = "";
         $user->login = "";
         $user->password = "";
+        $user->email = "";
         $user->userExist = false;
         return view('pages.register', compact('user'));
     }
