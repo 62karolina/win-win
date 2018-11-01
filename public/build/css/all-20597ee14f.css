@@ -11516,8 +11516,8 @@ a:active,a:focus,a:hover {
 
 .box {
     position: inherit;
-    height: 270.66666px;
-    width: 31%;
+    height: 270px;
+    width: 100%;
     background-color: #dfe0cc;
     border-radius: 14px;
     margin: 10px 10px;
@@ -11542,7 +11542,7 @@ a:active,a:focus,a:hover {
 }
 
 .box_nobg .box__header-line {
-    padding: 30px 0 10px!important;
+    padding: 50px 0 0!important;
 }
 
 .box__cart-line {
@@ -11697,7 +11697,6 @@ a:active,a:focus,a:hover {
     display: inline-block;
     position: relative;
     height: auto;
-    width: 100%;
     max-width: 261px;
     padding: 20px 0;
 }
@@ -11794,10 +11793,11 @@ a:active,a:focus,a:hover {
 }
 
 .box__img-wrapper {
+    margin-top: 20px;
     display: block;
     position: relative;
     height: 224px;
-    width: 100%;
+    width: 80%;
     padding: 10px;
     text-align: center;
     line-height: 138px;
@@ -11807,8 +11807,9 @@ a:active,a:focus,a:hover {
 .box__img {
     display: inline-block;
     position: relative;
-    height: auto;
-    width: auto;
+    margin-top: -160px;
+    height: 110px;
+    width: 110px;
     max-width: 100%;
 }
 
@@ -11955,7 +11956,7 @@ a:active,a:focus,a:hover {
     width: auto;
     font: 24px ptsans,Helvetica,Arial,sans-serif;
     font-weight: 500;
-    color: #fff;
+    color: black;
     line-height: 31px;
     user-select: none;
     cursor: default;
