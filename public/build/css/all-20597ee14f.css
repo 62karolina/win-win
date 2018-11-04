@@ -1793,6 +1793,14 @@ pre code {
     width: 140%;
 }
 
+.head-xs-12 {
+    width: 100%;
+}
+
+.license_block-xs-12 {
+    width: 100%;
+}
+
 @media (max-width: 777px) {
     .box_contests-xs-12{
         width: 100%;
@@ -2014,6 +2022,10 @@ pre code {
 
     .col-sm-12 {
         width: 110%;
+    }
+
+    .license_block-sm-12 {
+        width: 108%;
     }
 
     .col-sm-11 {
@@ -2250,8 +2262,16 @@ pre code {
         width: 58.33333333%;
     }
 
+    .license_block-md-7 {
+        width: 100%;
+    }
+
     .col-md-6 {
         width: 50%;
+    }
+
+    .license_block-md-6 {
+        width: 100%;
     }
 
     .col-md-5 {
@@ -9912,12 +9932,18 @@ a:active,a:focus,a:hover {
     color: #f4bc2a;
 }
 
+.text-block span.yellow,.text-block_color_black {
+    color: #000000;
+}
+
 .text-block_fs_s {
     font-size: 12px;
 }
 
 .text-block_fs_m {
     font-size: 15px;
+    font-style: oblique;
+    font-weight: bold;
 }
 
 .text-block_fs_b {
@@ -12699,7 +12725,7 @@ a:active,a:focus,a:hover {
 .dark-card {
     width: auto;
     padding: 45px;
-    background-color: #141a21;
+    background-color: #dfe0cc;
     border-radius: 10px;
 }
 
@@ -12781,7 +12807,7 @@ a:active,a:focus,a:hover {
     padding-left: 15px;
     border-left: 2px solid #f4bb2b;
     font-size: 16px;
-    color: #bbb;
+    color: #000000;
 }
 
 .profile-row__logout a,.profile-row__user-link a {
@@ -13139,6 +13165,7 @@ a:active,a:focus,a:hover {
 
 .help-padge__header {
     padding: 20px 0 0;
+    color: #000;
 }
 
 .chatra-block {
@@ -14592,4 +14619,8 @@ a:active,a:focus,a:hover {
 
 .contest_name{
     margin-top: 12px;
+}
+
+.license_block{
+    width: 120%;
 }
