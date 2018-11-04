@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Коробка содержит:</div>
+            <div class="text-block-black text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Коробка содержит:</div>
             <div class="row cases-row box-cases-row">
 
                 @if($case->id == 1)
@@ -60,13 +60,11 @@
                                             <div class="box__bg box__box box__bg_gray box__bg-box"><img src="/build/img/box__gray-box_min.png" alt="" class="box__bg-img"></div>
                                         </div>
                                     </div>
-                                    <div class="box__header-wrapper">
+                                    <div class="box__img-wrapper">
                                         <div class="box__header-line">
                                             <div class="box__name">{{$item->name}}</div>
                                         </div>
-                                    </div>
-                                    <div class="box__img-wrapper">
-                                        <img src="{{$item->image}}" alt="{{$item->name}}" title="{{$item->name}} ({{$item->price}} руб. - цена продажи)" class="box__img">
+                                        <img  src="{{$item->image}}" alt="{{$item->name}}" title="{{$item->name}} ({{$item->price}} руб. - цена продажи)" class="box__img">
                                     </div>
                                 </div>
                             </a>

@@ -18,7 +18,7 @@ class Items extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','price', 'type', 'image', 'case'];
+    protected $fillable = ['name','price', 'type', 'image', 'case','note'];
 
     public $timestamps = false;
 

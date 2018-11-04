@@ -42,6 +42,12 @@
             </div>
         </div>
         <div class="control-group">
+            <label class="control-label" for="inputNormal">Описание</label>
+            <div class="controls">
+                <input type="text" name="note" value="{{$item->note}}" placeholder="..." class="input-block-level">
+            </div>
+        </div>
+        <div class="control-group">
             <label class="control-label" for="inputNormal">Кейс</label>
 
             <select class="input-block-level" name="case" style="margin-left:30px;">
