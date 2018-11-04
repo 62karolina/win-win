@@ -32,7 +32,7 @@
         <div class="control-group">
             <label class="control-label" for="inputInline">Цена</label>
             <div class="controls">
-                <input type="number" name="price" value="{{$item->price}}" placeholder="..." class="input-block-level">
+                <input type="number" step=".1" name="price" value="{{$item->price}}" placeholder="..." class="input-block-level">
             </div>
         </div>
         <div class="control-group">

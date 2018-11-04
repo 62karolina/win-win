@@ -11564,7 +11564,9 @@ a:active,a:focus,a:hover {
     padding: 0 0 10px;
     overflow: visible;
 }
-
+.box_item_list {
+    width: 100%;!impornant
+}
 .box_nobg {
     background-color: transparent!important;
     margin: 0!important;

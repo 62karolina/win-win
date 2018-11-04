@@ -26,7 +26,7 @@
         <div class="control-group">
             <label class="control-label" for="inputNormal">Price</label>
             <div class="controls">
-                <input type="number" name="price" value="" placeholder="..." class="input-block-level">
+                <input type="number" step=".1"name="price" value="" placeholder="..." class="input-block-level">
             </div>
         </div>
 

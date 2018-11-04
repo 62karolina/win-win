@@ -7,11 +7,12 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 @foreach($cases as $case)
                 <div class="box box_gray-box" style="display: inline-block">
-                <a href="/box/{{$case->id}}">
+                    <a href="/box/{{$case->id}}">
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-xs-12 col-sm-12">
                                 <div class="box__bg-layout">
                                     <div class="box__bg-wrapper">
+                                        <img  src="{{$case->image}}" alt="{{$case->name}}" title="" class="box__img">
                                         <div class="box__bg box__bg_shadow"><img src="/build/img/box__shadow.png" alt="" class="box__bg-img"/></div>
                                         <div class="box__bg box__bg_hov box__bg_red"><img src="/build/img/box__red-hov.png" alt="" class="box__bg-img"/></div>
                                         <div class="box__bg box__box box__bg_red"><img src="/build/img/box__red-box.png" alt="" class="box__bg-img"/></div>
@@ -27,7 +28,7 @@
                                 </div>
                             </div>
                         </div>
-                </a>
+                    </a>
                 </div>
                 @endforeach
             </div>
