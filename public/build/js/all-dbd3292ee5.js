@@ -11536,7 +11536,42 @@ if (function(l, doc) {
                     }
                 }
             });
-        }, this.sale = function(pObj) {
+        }, this.ticket = function(pObj){
+            $.ajax({
+                url: "/addTicket",
+                type: "post",
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr("content"),
+                    id: $("#contest_id").val()
+                },
+                dataType: "json",
+                success: function(response) {
+                    switch (response.status) {
+                        case 200:
+                            _test.spin(response.number),
+                                $("#win-name").html(response.name),
+                                $(".game-win__block-prize-img").attr("src",response.image),
+                                $("#win-sale-item span.price").html(response.price_sale),
+                                $("#user-item-id").val(response.user_item_id),
+                                $(".user-balance").numerator({
+                                    easing: "linear",
+                                    duration: 1e3,
+                                    toValue: response.balance
+                                });
+                            break;
+
+                        case 401:
+                            update("need-money"), $("#need-money span.amount").html((parseInt($(".user-balance").html()) - parseInt(window.button_price)) * -1),
+                                $("#button-game-again").click();
+                            break;
+
+                        case 403:
+                            update("login"), $("#button-game-again").click();
+                    }
+                }
+            });
+        },
+            this.sale = function(pObj) {
             $.ajax({
                 url: "/sale",
                 type: "POST",
@@ -11560,7 +11595,12 @@ if (function(l, doc) {
         window.button_open = $(this).html(), window.button_price = $(".price-box").html(),
             $(this).addClass("button-line__button_disabled").attr("disabled", "disabled").html("Идет открытие коробки..."),
             app.spin();
-    }), $("#win-sale-item").click(function() {
+    }),$("#bye-ticket").click(function() {
+        window.button_open = $(this).html(), window.button_price = $(".price-box").html(),
+            $(this).addClass("button-line__button_disabled").attr("disabled", "disabled").html("Идет открытие коробки..."),
+            app.ticket();
+    }),
+        $("#win-sale-item").click(function() {
         var ida = $("#user-item-id").val();
         $.ajax({
             url: "/sale",
