@@ -34,6 +34,12 @@ class PagesController extends Controller
     }
     public function contests(){
         $contests = Contest::where('status',1)->get();
+        foreach($contests as $contest){
+            $item = Items::where('id',$contest->item_id)->first();
+            $contest->image = $item->image;
+            $contest->name = $item->name;
+            $contest->price = $item->ticket_price;
+        }
         return view('pages.contests', compact('contests'));
     }
     public function delivery(){

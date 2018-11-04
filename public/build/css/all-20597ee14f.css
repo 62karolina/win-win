@@ -1793,6 +1793,20 @@ pre code {
     width: 140%;
 }
 
+@media (max-width: 777px) {
+    .box_contests-xs-12{
+        width: 100%;
+    }
+
+    .box__bg-xs-12{
+
+    }
+}
+
+.box_contest-xs-12 {
+    width: 140%;
+}
+
 .col-xs-11 {
     width: 91.66666667%;
 }
@@ -2201,6 +2215,10 @@ pre code {
     .col-sm-offset-0 {
         margin-left: 0;
     }
+
+    .box_contest-sm-12 {
+        width: 200%;
+    }
 }
 
 @media (min-width:992px) {
@@ -2411,6 +2429,11 @@ pre code {
     .col-md-offset-0 {
         margin-left: 0;
     }
+
+    .box_contests-md-4 {
+      float: left;
+    }
+
 }
 
 @media (min-width:1200px) {
@@ -2620,6 +2643,15 @@ pre code {
 
     .col-lg-offset-0 {
         margin-left: 0;
+    }
+
+    .box_contest-lg-4{
+
+    }
+
+    .box_contest-md-4{
+        position: sticky;
+
     }
 }
 
@@ -3334,6 +3366,14 @@ a.btn.disabled,fieldset[disabled] a.btn {
     background-color: #337ab7;
     border-color: #2e6da4;
 }
+
+.btn-contests {
+    margin-top: 10px;
+    color: #000000;
+    background-color: #f4bb2b;
+    border-color: #000000;
+}
+
 
 .btn-primary.focus,.btn-primary:focus {
     color: #fff;
@@ -14540,4 +14580,13 @@ a:active,a:focus,a:hover {
         -webkit-transform: rotate(-45deg);
         top: -10px;
     }
+}
+
+.contest_imgbox{
+    width: 170px;
+    margin-top: 12px;
+}
+
+.contest_name{
+    margin-top: 12px;
 }

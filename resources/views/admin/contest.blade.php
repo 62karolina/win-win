@@ -52,6 +52,7 @@
                 @if($contest->user_win_id == null)<option selected></option> @endif
             </select>
         </div>
+
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">Сохранить</button>
 
