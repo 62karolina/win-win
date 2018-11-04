@@ -23,7 +23,8 @@
                                             <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="login">Авторизация</button>
                                         </div>
                                         @else
-                                           <form method="post" action="/pages/login">
+                                           <form method="post" action="/addTicket">
+                                              <input type="hidden" name="id" value="{{$contest->id}}" id="contest_id">
                                               <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                  <div class="form-actions">
                                                     <button type="submit" class="btn btn-contests" >Стоимость ставки {{$contest->ticket_price}} BYN</button>
