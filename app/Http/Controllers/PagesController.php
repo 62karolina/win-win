@@ -86,7 +86,33 @@ class PagesController extends Controller
         return $game;
     }
 
-    public function open(Request $r){
+    public function addTicket(Request $r){
+        if(!Auth::check()){return response()->json(['status' => 403]);}
+        $contest =  Contest::where('id',$r->id)->first();
+        $user = Auth::user();
+        $contestTikcet = Contest_ticket::where('user_id',$user->id)->where('contest_id', $r->id)->orderBy('id', 'desc')->first();
+        if($user->money < $contest->ticket_price){return response()->json(['status' => 401]);}
+        $user->money = $user->money - $contest->ticket_price;
+        $number = $contestTikcet ? $contestTikcet->number+1 : 1;
+        $user->save();
+                Contest_ticket::create([
+                    'user_id' => $user->id,
+                    'contest_id' =>  $contest->id,
+                    'number' => $number,
+                ]);
+//                History::create([
+//                    'user' => $user->id,
+//                    'item' => $win->id,
+//                    'case' => $case->id
+//                ]);
+                return response()->json([
+                    'status' => 200,
+                    'balance' => $user->money,
+                ]);
+
+    }
+    
+  public function open(Request $r){
         if(!Auth::check()){return response()->json(['status' => 403]);}
         $case =  Cases::where('id',$r->id)->first();
         $user = Auth::user();

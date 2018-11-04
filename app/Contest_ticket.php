@@ -18,7 +18,7 @@ class Contest_ticket extends Model
      *
      * @var array
      */
-    protected $fillable = ['created_at','contest_id', 'user_id'];
+    protected $fillable = ['created_at','contest_id', 'user_id', 'number'];
 
     public $timestamps = false;
 
