@@ -94,7 +94,7 @@
                                 <div class="circle-ava"><a href="/profile"><img src="{{Auth::user()->avatar}}" alt="ava" class="circle-ava__img"></a></div>
                             </div>
                             <div class="user-block__info-wrapper hidden-xs"><a href="/profile" class="user-block__name">Мой профиль</a>
-                                <div class="user-block__balance"><img src="/build/img/money__icon_yellow.png" alt="money" class="user-block__icon"><span><span class="user-balance">{{Auth::user()->money}}</span><span class="rouble">p</span></span></div>
+                                <div class="user-block__balance"><img src="/build/img/money__icon_yellow.png" alt="money" class="user-block__icon"><span><span class="user-balance">{{Auth::user()->money}}</span><span class="rouble">BYN</span></span></div>
                                 <div class="user-block__button-wrapper">
                                     <button data-toggle="add-cash" class="modal-toggle user-block__button user-block__button_yellow-shadow"><img src="/build/img/cash-in__icon.png" alt="cashin" class="user-block__button-img"></button>
                                 </div>
