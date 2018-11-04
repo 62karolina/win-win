@@ -19,14 +19,16 @@
                                      </div>
                                      <div class="contest_price">
                                         @if(Auth::guest())
-                                         <form method="post" action="/pages/login">
-                                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                 <div class="form-actions">
-                                                     <button type="submit" class="btn btn-contests" data-toggle="register">Авторизация</button>
-                                                 </div>
-                                          </form>
+                                        <div style = "display:inline-block;" class="header-row__login-button">
+                                            <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="login">Авторизация</button>
+                                        </div>
                                         @else
-
+                                           <form method="post" action="/pages/login">
+                                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                 <div class="form-actions">
+                                                    <button type="submit" class="btn btn-contests" >Стоимость ставки {{$contest->ticket_price}} BYN</button>
+                                                 </div>
+                                        </form>
                                         @endif
                                      </div>
                                 </div>

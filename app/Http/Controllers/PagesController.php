@@ -38,8 +38,8 @@ class PagesController extends Controller
             $item = Items::where('id',$contest->item_id)->first();
             $contest->image = $item->image;
             $contest->name = $item->name;
-            $contest->price = $item->ticket_price;
         }
+
         return view('pages.contests', compact('contests'));
     }
     public function delivery(){
