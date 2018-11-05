@@ -14617,10 +14617,58 @@ a:active,a:focus,a:hover {
     margin-top: 12px;
 }
 
+.infocontest_imgbox{
+    width: 200px;
+    margin-top: 12px;
+    border: solid;
+    border-radius: 10px;
+    border-color: #f4bb2b;
+}
+
+.infocontest_image {
+    width:220px;
+    float:left;
+    margin:20px 40px 0 0;
+    padding: 10px;
+}
+
+.infocontest_info{
+    font-style: normal;
+    margin-top: 10px;
+}
+
 .contest_name{
     margin-top: 12px;
 }
 
 .license_block{
     width: 120%;
+}
+
+.contest_info{
+    margin-top: 30px;
+    font-style: italic;
+    font-size: 20px;
+}
+
+
+.contest_info {
+    width:550px;
+    float:left;
+    margin: 20px 20px 15px 0;
+    text-align: left;
+    padding: 16px;
+}
+
+.infocontests_player {
+    width:220px;
+    float:left;
+    margin: 25px 20px 35px 0;
+    text-align:center;
+    padding: 15px;
+    font-weight: bolder;
+    font-size: 15px;
+    border: solid;
+    border-radius: 10px;
+    border-color: #f4bb2b;
 }

@@ -58,8 +58,16 @@ class PagesController extends Controller
         return view('pages.confidence');
     }
 
-    public function infocontests(){
-            return view('pages.infocontests');
+    public function infocontests($id){
+        $contest = Contest::where('id',$id)->first();
+        $item = Items::where('id',$contest->item_id)->first();
+             $contest->image = $item->image;
+             $contest->name = $item->name;
+             $contest->note = $item->note;
+
+        $players = Contest_ticket::where('contest_id', $id)->count();
+
+        return view('pages.infocontests', compact('contest', 'players'));
     }
 
     public function box($id){
