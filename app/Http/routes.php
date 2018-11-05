@@ -31,6 +31,7 @@ Route::group(['middleware' => 'notAuth'], function () {
     Route::post('/changepass', 'LoginController@changepassPost');
     Route::get('/register', 'LoginController@register');
     Route::get('/vklogin', 'LoginController@vklogin');
+    Route::get('/fblogin', 'LoginController@fblogin');
 });
 
 Route::group(['middleware' => 'auth'], function () {

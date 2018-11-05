@@ -25,7 +25,7 @@
                 <button data-toggle="add-cash" class="modal-toggle lk-tabs__lk-cashin content-button-row__button content-button-row__button_right button-rounding button-rounding_med button-rounding_light hidden-xs hidden-sm">Пополнить</button>
                 <div class="balance-block content-button-row__button_right hidden-xs hidden-sm">
                     Баланс:
-                    &nbsp;<span>{{Auth::user()->money}}<span class="rouble">p</span></span>
+                    &nbsp;<span>{{Auth::user()->money}}<span class="rouble">BYN</span></span>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                                 У вас есть
                                 &nbsp;<span class="yellow">партнёрский код?</span>
                             </div>
-                            <div class="text-block">Введите код и получите 50<span class="rouble">p</span>&nbsp;
+                            <div class="text-block">Введите код и получите 1<span class="rouble">BYN</span>&nbsp;
                                 на счет прямо сейчас!
                             </div>
                             <div class="text-block visible-lg">&nbsp;</div>

@@ -11127,7 +11127,7 @@ if (function(l, doc) {
         easing: "swing",
         duration: 500,
         delimiter: data,
-        rounding: 0,
+        rounding: 2,
         toValue: data,
         fromValue: data,
         queue: !1,
@@ -11520,7 +11520,7 @@ if (function(l, doc) {
                             _test.spin(response.number),
                                 $("#win-name").html(response.name),
                                 $(".game-win__block-prize-img").attr("src",response.image),
-                                $("#win-sale-item span.price").html(response.price_sale),
+                                $("#win-sale-item span.price").html(response.price_sale-(response.price_sale*20/100)),
                                 $("#user-item-id").val(response.user_item_id),
                                 $(".user-balance").numerator({
                                     easing: "linear",
@@ -11551,7 +11551,6 @@ if (function(l, doc) {
                 success: function(response) {
                     switch (response.status) {
                         case 200:
-                            _test.spin(response.number),
                                 $(".user-balance").numerator({
                                     easing: "linear",
                                     duration: 4e2,

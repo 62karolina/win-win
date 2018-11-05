@@ -385,7 +385,7 @@ class PagesController extends Controller
             $item = Items::where('id',$itemss->item)->first();
             $user = User::where('id',$itemss->user)->first();
             if($itemss->status != 0){return response()->json(['status' => 401]);}
-            $user->money = $user->money + $item->price;
+            $user->money = $user->money + ($item->price-($item->price * 20/100));
             $user->save();
             $itemss->status = 1;
             $itemss->save();

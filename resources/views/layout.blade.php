@@ -356,6 +356,7 @@
     </div>
     <div class="modal-window__element modal-window__social-button-block">
         <a href="/vklogin" class="modal-window__social-button"><img src="/build/img/social-button__vk.png" alt="ВКонтакте" title="ВКонтакте" class="modal-window__social-button-img"/></a>
+        <a href="/fblogin" class="modal-window__social-button"><img src="/build/img/social-button__fb.png" alt="Facebook" title="Facebook" class="modal-window__social-button-img"/></a>
         <a href="/login" class="modal-window__social-button"><img src="/build/img/login.jpg" alt="Обычный" title="Обычный" class="modal-window__social-button-img"/></a>
     </div>
 </div>
@@ -369,6 +370,7 @@
     </div>
     <div class="modal-window__element modal-window__social-button-block">
         <a href="/vklogin" class="modal-window__social-button"><img src="/build/img/social-button__vk.png" alt="ВКонтакте" title="ВКонтакте" class="modal-window__social-button-img"/></a>
+        <a href="/fblogin" class="modal-window__social-button"><img src="/build/img/social-button__fb.png" alt="Facebook" title="Facebook" class="modal-window__social-button-img"/></a>
         <a href="/register" class="modal-window__social-button"><img src="/build/img/login.jpg" alt="Обычный" title="Обычный" class="modal-window__social-button-img"/></a>
     </div>
 </div>                <!-- additional modals -->
@@ -443,7 +445,7 @@
             </div>
             <!--<div class="game-win__block-button-line"><a href="#" class="game-win__block-button-line-share-link"><span>Расскажи друзьям</span><br/>и получи +100500 к удаче</a></div>-->
             <div class="game-win__block-button-line">
-                <button class="game-win__block-button-line-button" id="win-sale-item">Продать за <span class="price">%price%</span><span class="rouble">p</span></button>
+                <button class="game-win__block-button-line-button" id="win-sale-item">Продать за <span class="price">%price% </span><span class="rouble">BYN</span></button>
                 <button class="game-win__block-button-line-button" id="win-order-item">Заказать доставку</button>
             </div>
             <div class="game-win__block-button-line">
@@ -460,7 +462,7 @@
             <div class="modal-window__header-border"></div>
         </div>
     </div>
-    <div class="modal-window__element text-block text-block_color_gray text-block_align_center">Недостаточно средств на балансе. Пополните баланс на <span class="amount"></span> руб.</span></div>
+    <div class="modal-window__element text-block text-block_color_gray text-block_align_center">Недостаточно средств на балансе. Пополните баланс на <span class="amount"></span> BYN.</span></div>
     <div class="modal-window__element modal-window__button-block">
         <button class="modal-window__button button-rounding button-rounding_big button-rounding_vlong button-rounding_light modal-toggle" data-toggle="add-cash">Пополнить</button>
     </div>
