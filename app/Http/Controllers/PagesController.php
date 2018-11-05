@@ -59,15 +59,22 @@ class PagesController extends Controller
     }
 
     public function infocontests($id){
+
         $contest = Contest::where('id',$id)->first();
         $item = Items::where('id',$contest->item_id)->first();
              $contest->image = $item->image;
              $contest->name = $item->name;
              $contest->note = $item->note;
 
+        if(Auth::check()) {
+            $user = Auth::user();
+            $players_tickets = Contest_ticket::where('contest_id', $id)->where('user_id', $user->id)->count();
+        } else {
+            $players_tickets = 0;
+        }
         $players = Contest_ticket::where('contest_id', $id)->count();
 
-        return view('pages.infocontests', compact('contest', 'players'));
+        return view('pages.infocontests', compact('contest', 'players', 'players_tickets'));
     }
 
     public function box($id){
