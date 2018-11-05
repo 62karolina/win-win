@@ -11334,7 +11334,10 @@ if (function(l, doc) {
             !1;
     }), $(".modal-layout").click(function() {
         return $(".modal-layout").hide(), $(".modal-window").hide(), $("body").css("overflow", "auto").css("padding-right", 0),
-            !1;
+            !1;    
+    }),$(".hide-modal").click(function() {
+        return $(".modal-layout").hide(), $(".modal-window").hide(), $("body").css("overflow", "auto").css("padding-right", 0),
+            !1;    
     }), $(".modal-window .pay-system__img-wrapper").click(function() {
         return $(".pay-system__img-wrapper").removeClass("modal-window__img-wrapper_select"),
             $(this).addClass("modal-window__img-wrapper_select"), !1;
@@ -11549,17 +11552,13 @@ if (function(l, doc) {
                     switch (response.status) {
                         case 200:
                             _test.spin(response.number),
-                                $("#win-name").html(response.name),
-                                $(".game-win__block-prize-img").attr("src",response.image),
-                                $("#win-sale-item span.price").html(response.price_sale),
-                                $("#user-item-id").val(response.user_item_id),
                                 $(".user-balance").numerator({
                                     easing: "linear",
-                                    duration: 1e3,
+                                    duration: 4e2,
                                     toValue: response.balance
                                 });
+                            update("success-ticket"), $("#success-ticket span.amount").html(response.number);
                             break;
-
                         case 401:
                             update("need-money"), $("#need-money span.amount").html((parseInt($(".user-balance").html()) - parseInt(window.button_price)) * -1),
                                 $("#button-game-again").click();
@@ -11596,8 +11595,7 @@ if (function(l, doc) {
             $(this).addClass("button-line__button_disabled").attr("disabled", "disabled").html("Идет открытие коробки..."),
             app.spin();
     }),$("#bye-ticket").click(function() {
-        window.button_open = $(this).html(), window.button_price = $(".price-box").html(),
-            $(this).addClass("button-line__button_disabled").attr("disabled", "disabled").html("Идет открытие коробки..."),
+//            $(this).addClass("button-line__button_disabled").attr("disabled", "disabled").html("Идет открытие коробки..."),
             app.ticket();
     }),
         $("#win-sale-item").click(function() {

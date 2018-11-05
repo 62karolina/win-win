@@ -6,45 +6,41 @@
         <div class="row cases-row box-cases-row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 @foreach($contests as $contest)
-                <a href="/infocontests/{{$contest->id}}">
-                    <div class="box box_gray-box" style="display: inline-block">
-                        <div class="row">
-                            <div class="box_contests box_contests-md-4 box_contest-lg-4 col-xs-12  box_contest-sm-12">
-                                <div class="box__bg-layout box__bg-xs-12">
-                                     <div class="contest_name">
+                <div class="box box_gray-box" style="display: inline-block">
+                    <div class="row">
+                        <div class="box_contests box_contests-md-4 box_contest-lg-4 col-xs-12  box_contest-sm-12">
+                            <div class="box__bg-layout box__bg-xs-12">
+                                <a href="/infocontests/{{$contest->id}}">
+                                    <div class="contest_name">
                                         {{$contest->name}}
-                                     </div>
-                                     <div class="contest_image">
+                                    </div>
+                                    <div class="contest_image">
                                         <img src="{{$contest->image}}" class="contest_imgbox">
-                                     </div>
-                                     <div class="contest_price">
-                                        @if(Auth::guest())
-                                        <div style = "display:inline-block;" class="header-row__login-button">
-                                            <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="login">Авторизация</button>
-                                        </div>
-                                        @else
-                                           <form method="post" action="/addTicket">
-                                              <input type="hidden"  value="{{$contest->id}}" id="contest_id">
-                                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                 <div class="form-actions">
-                                                    <button type="submit" id="bye-ticket" class="btn btn-contests" >Стоимость ставки {{$contest->ticket_price}} BYN</button>
-                                                 </div>
-
-                                        </form>
-                                        @endif
-                                     </div>
+                                    </div>
+                                </a>
+                                <div class="contest_price">
+                                    @if(Auth::guest())
+                                    <div style = "display:inline-block;" class="header-row__login-button">
+                                        <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="login">Авторизация</button>
+                                    </div>
+                                    @else
+                                    <input type="hidden"  value="{{$contest->id}}" id="contest_id">
+                                    <div class="form-actions">
+                                        <button type="submit" id="bye-ticket" class="btn btn-contests" >Стоимость ставки {{$contest->ticket_price}} BYN</button>
+                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
                 @endforeach
             </div>
         </div>
     </div>
 </div>
 
- <!-- additional modals -->
+<!-- additional modals -->
 
 
 

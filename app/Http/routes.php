@@ -15,7 +15,7 @@ Route::get('/infocontests/{id}', ['as' => 'infocontests', 'uses' => 'PagesContro
 
 Route::post('/updateDelivery', ['as' => 'updateDelivery', 'uses' => 'PagesController@updateDelivery']);
 Route::post('/open', ['as' => 'open', 'uses' => 'PagesController@open']);
-Route::post('/addTicket', 'PagesController@addTicket');
+Route::post('/addTicket', ['as' => 'addTicket', 'uses' => 'PagesController@addTicket']);
 Route::post('/api/stats', 'PagesController@getStats');
 Route::post('/api/last', 'PagesController@last');
 Route::post('/sale', 'PagesController@sell');

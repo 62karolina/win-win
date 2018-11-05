@@ -16,6 +16,8 @@ class VerifyCsrfToken extends BaseVerifier
         '/updateDelivery',
         'open',
         '/open',
+        'addTicket',
+        '/addTicket',
         '/api/stats',
         'api/stats',
         '/api/last',
