@@ -61,6 +61,58 @@ class LoginController extends Controller {
             return redirect('https://oauth.vk.com/authorize?client_id=' . $client_id . '&display=page&redirect_uri=http://' . $redirect_uri . '/vklogin&scope=friends,photos,status,offline,&response_type=code&v=5.53');
         }
     }
+    public function fblogin(Request $r) {
+        $client_id = '191108368444968';
+        $client_secret = 'e6aa7a8775320c78b4762062d1130dc2';
+        $redirect_uri = 'cases/';
+
+        if (!is_null($r->code)) {
+
+            $obj = json_decode($this->curl('https://graph.facebook.com/oauth/access_token?client_id=' . $client_id . '&client_secret=' . $client_secret . '&redirect_uri=http://' . $redirect_uri . '/fblogin&code=' . $r->code));
+
+            if (isset($obj->access_token)) {
+
+                $info = json_decode($this->curl('https://graph.facebook.com/me?user_ids&fields=photo_200&access_token=' . $obj->access_token . '&v=V'), true);
+
+
+
+                $user = User::where('login2', $info['response'][0]['uid'])->first();
+                if ($user == NULL) {
+                    if (array_key_exists('photo_200', $info['response'][0])) {
+                        $photo = $info['response'][0]['photo_200'];
+                    } else {
+                        $photo = 'http://vk.com/images/camera_200.png';
+                    }
+
+                    $user = User::create([
+                                'username' => $info['response'][0]['last_name'] . ' ' . $info['response'][0]['first_name'],
+                                'avatar' => $photo,
+                                'password' => Hash::make($str_random(12)),
+                                'login' => 'id' . $info['response'][0]['uid'],
+                                'login2' => $info['response'][0]['uid'],
+                                'ref_code' => $this->generate(),
+                                'nick' => $this->generate_name()
+                    ]);
+                } else {
+                    if (array_key_exists('photo_200', $info['response'][0])) {
+                        $photo = $info['response'][0]['photo_200'];
+                    } else {
+                        $photo = 'http://vk.com/images/camera_200.png';
+                    }
+                    $user->username = $info['response'][0]['last_name'] . ' ' . $info['response'][0]['first_name'];
+                    $user->avatar = $photo;
+                    $user->login = 'id' . $info['response'][0]['uid'];
+                    $user->login2 = $info['response'][0]['uid'];
+                    $user->save();
+                }
+
+                Auth::login($user, true);
+                return redirect('/');
+            }
+        } else {
+            return redirect('https://graph.facebook.com/oauth/authorize?client_id=' . $client_id . '&display=page&redirect_uri=http://' . $redirect_uri . '/fblogin&scope=friends,photos,status,offline,&response_type=code&v=5.53');
+        }
+    }
 
     public function logout() {
         Auth::logout();

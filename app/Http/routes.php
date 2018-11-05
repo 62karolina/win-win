@@ -15,7 +15,7 @@ Route::get('/infocontests/{id}', ['as' => 'infocontests', 'uses' => 'PagesContro
 
 Route::post('/updateDelivery', ['as' => 'updateDelivery', 'uses' => 'PagesController@updateDelivery']);
 Route::post('/open', ['as' => 'open', 'uses' => 'PagesController@open']);
-Route::post('/addTicket', 'PagesController@addTicket');
+Route::post('/addTicket', ['as' => 'addTicket', 'uses' => 'PagesController@addTicket']);
 Route::post('/api/stats', 'PagesController@getStats');
 Route::post('/api/last', 'PagesController@last');
 Route::post('/sale', 'PagesController@sell');
@@ -31,6 +31,7 @@ Route::group(['middleware' => 'notAuth'], function () {
     Route::post('/changepass', 'LoginController@changepassPost');
     Route::get('/register', 'LoginController@register');
     Route::get('/vklogin', 'LoginController@vklogin');
+    Route::get('/fblogin', 'LoginController@fblogin');
 });
 
 Route::group(['middleware' => 'auth'], function () {

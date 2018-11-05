@@ -98,7 +98,7 @@ class PagesController extends Controller
         if(!Auth::check()){return response()->json(['status' => 403]);}
         $contest =  Contest::where('id',$r->id)->first();
         $user = Auth::user();
-        $contestTikcet = Contest_ticket::where('user_id',$user->id)->where('contest_id', $r->id)->orderBy('id', 'desc')->first();
+        $contestTikcet = Contest_ticket::where('contest_id', $r->id)->orderBy('id', 'desc')->first();
         if($user->money < $contest->ticket_price){return response()->json(['status' => 401]);}
         $user->money = $user->money - $contest->ticket_price;
         $number = $contestTikcet ? $contestTikcet->number+1 : 1;
@@ -116,6 +116,7 @@ class PagesController extends Controller
                 return response()->json([
                     'status' => 200,
                     'balance' => $user->money,
+                    'number' => $number
                 ]);
 
     }
@@ -392,7 +393,7 @@ class PagesController extends Controller
             $item = Items::where('id',$itemss->item)->first();
             $user = User::where('id',$itemss->user)->first();
             if($itemss->status != 0){return response()->json(['status' => 401]);}
-            $user->money = $user->money + $item->price;
+            $user->money = $user->money + ($item->price-($item->price * 20/100));
             $user->save();
             $itemss->status = 1;
             $itemss->save();
