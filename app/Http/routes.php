@@ -2,7 +2,7 @@
 
 Route::get('/', ['as' => 'index', 'uses' => 'PagesController@index']);
 Route::get('/delivery', ['as' => 'delivery', 'uses' => 'PagesController@delivery']);
-Route::get('/opinions', ['as' => 'opinions', 'uses' => 'PagesController@opinions']);
+//Route::get('/opinions', ['as' => 'opinions', 'uses' => 'PagesController@opinions']);
 Route::get('/help', ['as' => 'help', 'uses' => 'PagesController@help']);
 Route::get('/confidence', ['as' => 'confidence', 'uses' => 'PagesController@confidence']);
 Route::get('/license', ['as' => 'license', 'uses' => 'PagesController@license']);

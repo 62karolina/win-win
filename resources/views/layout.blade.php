@@ -64,13 +64,13 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="nav-line__element">
+<!--                        <div class="nav-line__element">
                             <a href="/opinions">
                                 <div class="nav-line__link " >
                                     Отзывы
                                 </div>
                             </a>
-                        </div>
+                        </div>-->
                         <div class="nav-line__element">
                             <a href="/help">
                                 <div class="nav-line__link " >
@@ -113,7 +113,7 @@
                   <li class="hidden-menu_li"><a href="/">Главная</a></li>
                   <li class="hidden-menu_li"><a href="/contests">Конкурсы</a></li>
                   <li class="hidden-menu_li"><a href="/delivery">Доставка</a></li>
-                  <li class="hidden-menu_li"><a href="/opinions">Отзывы</a></li>
+<!--                  <li class="hidden-menu_li"><a href="/opinions">Отзывы</a></li>-->
                   <li class="hidden-menu_li"><a href="/help">Помощь</a></li>
                 </ul>
                 </div>
@@ -140,13 +140,13 @@
                         </div>
                     </a>
                 </div>
-                <div class="nav-line__element">
+<!--                <div class="nav-line__element">
                     <a href="/opinions">
                         <div class="nav-line__link " >
                             Отзывы
                         </div>
                     </a>
-                </div>
+                </div>-->
                 <div class="nav-line__element">
                     <a href="/help">
                         <div class="nav-line__link " >
@@ -204,13 +204,13 @@
                             </div>
                         </a>
                     </div>
-                    <div class="header-drop-menu__element">
+<!--                    <div class="header-drop-menu__element">
                         <a href="/opinions">
                             <div class="header-drop-menu__link " >
                                 Отзывы
                             </div>
                         </a>
-                    </div>
+                    </div>-->
                     <div class="header-drop-menu__element">
                         <a href="/help">
                             <div class="header-drop-menu__link " >
@@ -279,13 +279,13 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="nav-line__element footer__nav-element">
+                        <!--   <div class="nav-line__element footer__nav-element">
                                 <a href="/opinions">
                                     <div class="nav-line__link " >
                                         Отзывы
                                     </div>
                                 </a>
-                            </div>
+                            </div> -->
                             <div class="nav-line__element footer__nav-element">
                                 <a href="/help">
                                     <div class="nav-line__link " >

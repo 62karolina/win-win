@@ -1790,7 +1790,7 @@ pre code {
 }
 
 .col-xs-12 {
-    width: 140%;
+    width: 100%;
 }
 
 .head-xs-12 {
@@ -2021,7 +2021,7 @@ pre code {
     }
 
     .col-sm-12 {
-        width: 110%;
+        width: 100%;
     }
 
     .license_block-sm-12 {
@@ -9895,6 +9895,7 @@ a:active,a:focus,a:hover {
 
 .text-block__link {
     color: #f4bc2a;
+    font-size: 16px;
     text-decoration: underline;
 }
 
@@ -9932,8 +9933,8 @@ a:active,a:focus,a:hover {
     color: #f4bc2a;
 }
 
-.text-block span.yellow,.text-block_color_black {
-    color: #000000;
+.text-block-black span.yellow,.text-block_color_yellow {
+    color: #f4bc2a;
 }
 
 .text-block_fs_s {
@@ -12751,7 +12752,7 @@ a:active,a:focus,a:hover {
 }
 
 .dark-card__link {
-    padding: 18px 0;
+    padding: 10px 0;
 }
 
 .light-border-card {

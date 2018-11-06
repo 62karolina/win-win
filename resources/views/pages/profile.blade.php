@@ -65,11 +65,11 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="dark-card">
-                            <div class="dark-card__header text-block text-block_fs_m text-block_tf_up text-block_fw_bold">
+                            <div class="dark-card__header text-block-black text-block_fs_m text-block_tf_up text-block_fw_bold">
                                 У вас есть
                                 &nbsp;<span class="yellow">партнёрский код?</span>
                             </div>
-                            <div class="text-block">Введите код и получите 1<span class="rouble">BYN</span>&nbsp;
+                            <div class="text-block-black">Введите код и получите 1<span class="rouble">BYN</span>&nbsp;
                                 на счет прямо сейчас!
                             </div>
                             <div class="text-block visible-lg">&nbsp;</div>
@@ -86,11 +86,11 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="dark-card">
-                            <div class="dark-card__header text-block text-block_fs_m text-block_tf_up text-block_fw_bold">
+                            <div class="dark-card__header text-block-black text-block_fs_m text-block_tf_up text-block_fw_bold">
                                 Приглашайте друзей и
                                 &nbsp;<span class="yellow">зарабатывайте 5% от всех пополнений!</span>
                             </div>
-                            <div class="text-block">Отправьте свой уникальный код друзьям, и получайте по 5% от каждого пополнения баланса другом!</div>
+                            <div class="text-block-black">Отправьте свой уникальный код друзьям, и получайте по 5% от каждого пополнения баланса другом!</div>
                             <div class="row">
                                 <div class="dark-card__input-block-col col-xs-12 col-sm-5 col-md-12 col-lg-5">
                                     <div class="input-block">
@@ -100,7 +100,7 @@
                                 <div class="dark-card__input-block-col col-xs-4 col-sm-2 col-md-4 col-lg-2">
                                     <div class="dark-card__stat-block">
                                         <div class="text-block text-block_color_gray text-block_align_center">Пригласил:</div>
-                                        <div class="text-block text-block_align_center text-block_fw_bold">{{$c}}</div>
+                                        <div class="text-block-black text-block_align_center text-block_fw_bold">{{$c}}</div>
                                     </div>
                                 </div>
                                 <div class="dark-card__input-block-col col-xs-4 col-sm-3 col-md-4 col-lg-3">
@@ -111,36 +111,36 @@
                     </div>
                 </div>
                 <div class="dark-card address">
-                    <div class="address__header text-block text-block_align_center text-block_fs_b text-block_tf_up">Анкета для доставки товаров: [Не менять до получение заказа] </div>
+                    <div class="address__header text-block-black text-block_align_center text-block_fs_b text-block_tf_up">Анкета для доставки товаров: [Не менять до получение заказа] </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <div class="text-block text-block_tf_up address__input-header">Фамилия Имя Отчество</div>
+                            <div class="text-block-black text-block_tf_up address__input-header">Фамилия Имя Отчество</div>
                             <div class="input-block">
                                 <input class="input-block__input address__input" name="profile_name" value="{{$name}}" data-error="Необходимо заполнить фамилию имя и отчество" title="">
                             </div>
-                            <div class="text-block text-block_tf_up address__input-header">Страна</div>
+                            <div class="text-block-black text-block_tf_up address__input-header">Страна</div>
                             <div class="input-block">
                                 <input class="input-block__input address__input" name="profile_country" value="{{$country}}" data-error="Необходимо заполнить страну" title="">
                             </div>
-                            <div class="text-block text-block_tf_up address__input-header">Город</div>
+                            <div class="text-block-black text-block_tf_up address__input-header">Город</div>
                             <div class="input-block">
                                 <input class="input-block__input address__input" name="profile_city" value="{{$city}}" data-error="Необходимо заполнить город" title="">
                             </div>
-                            <div class="text-block text-block_tf_up address__input-header">Индекс</div>
+                            <div class="text-block-black text-block_tf_up address__input-header">Индекс</div>
                             <div class="input-block">
                                 <input class="input-block__input address__input" name="profile_zip" value="{{$postalcode}}" data-error="Необходимо заполнить индекс" title="">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <div class="text-block text-block_tf_up address__input-header">Улица</div>
+                            <div class="text-block-black text-block_tf_up address__input-header">Улица</div>
                             <div class="input-block">
                                 <input class="input-block__input address__input" name="profile_street" value="{{$street}}" data-error="Необходимо заполнить улицу" title="">
                             </div>
-                            <div class="text-block text-block_tf_up address__input-header">Дом, корпус, строение</div>
+                            <div class="text-block-black text-block_tf_up address__input-header">Дом, корпус, строение</div>
                             <div class="input-block">
                                 <input class="input-block__input address__input" name="profile_house" value="{{$dom}}" data-error="Необходимо заполнить дом, корпус и строение" title="">
                             </div>
-                            <div class="text-block text-block_tf_up address__input-header">Квартира / Офис</div>
+                            <div class="text-block-black text-block_tf_up address__input-header">Квартира / Офис</div>
                             <div class="input-block">
                                 <input class="input-block__input address__input" name="profile_flat" value="{{$kvartira}}" data-error="Необходимо заполнить квартиру или офис" title="">
                             </div>
@@ -453,15 +453,15 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                         <div class="profile-affiliate dark-card">
-                            <div class="dark-card__header text-block text-block_fs_m text-block_tf_up text-block_fw_bold">
+                            <div class="dark-card__header text-block-black text-block_fs_m text-block_tf_up text-block_fw_bold">
                                 Приглашай друзей и
                                 &nbsp;<span class="yellow">получай 5% от всех пополнений!</span>
                             </div>
-                            <div class="text-block">Моментально, деньги сразу доступны для выплаты.</div>
+                            <div class="text-block-black">Моментально, деньги сразу доступны для выплаты.</div>
                             <div class="row">
                                 <div class="dark-card__input-block-col col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <div class="dark-card__input-block input-block">
-                                        <div class="input-block__header text-block">Твой промо-код:</div>
+                                        <div class="input-block__header text-block-black">Твой промо-код:</div>
                                         <input id="change-kod__input" value="{{Auth::user()->ref_code}}" class="dark-card__input input-block__input input-block__input_left-align input-block__input_right-button-b">
 
                                     </div>
