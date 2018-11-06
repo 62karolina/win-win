@@ -24,13 +24,15 @@
                             <div class="infocontest_description"> {{$contest->note}}</div>
                         </div>
                     </div>
-                    <div class="infocontests_player"> Количество ставок: {{$players}}
+                    <div class="infocontests_player"> 
+                        <div class="contest_info_row">Количество ставок: <span class="players">{{$players}}</span></div>   
                         @if(Auth::guest())
                         <div style = "display:inline-block;" class="header-row__login-button">
                             <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="login">Авторизация</button>
                         </div>
                         @else
-                        Ваших ставок: {{$players_tickets}}
+                        <div class="contest_info_row">Ваших ставок: <span class="players_tickets">{{$players_tickets}}</span></div>  
+                        <div class="contest_info_row contest_info_row_win_rate"> Шанс на победу: <span class="player_win_rate">{{$player_win_rate}}</span>%</div>  
                         <input type="hidden"  value="{{$contest->id}}" id="contest_id">
                         <div class="form-actions">
                             <button type="submit" id="bye-ticket" class="btn btn-contests" >Стоимость ставки {{$contest->ticket_price}} BYN</button>

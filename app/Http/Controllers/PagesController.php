@@ -73,8 +73,8 @@ class PagesController extends Controller
             $players_tickets = 0;
         }
         $players = Contest_ticket::where('contest_id', $id)->count();
-
-        return view('pages.infocontests', compact('contest', 'players', 'players_tickets'));
+        $player_win_rate=round(100/$players*$players_tickets,2);
+        return view('pages.infocontests', compact('contest', 'players', 'players_tickets','player_win_rate'));
     }
 
     public function box($id){
@@ -115,6 +115,9 @@ class PagesController extends Controller
                     'contest_id' =>  $contest->id,
                     'number' => $number,
                 ]);
+        $players_tickets = Contest_ticket::where('contest_id', $r->id)->where('user_id', $user->id)->count();
+        $players = Contest_ticket::where('contest_id', $r->id)->count();
+        $player_win_rate=round(100/$players*$players_tickets,2);
 //                History::create([
 //                    'user' => $user->id,
 //                    'item' => $win->id,
@@ -123,7 +126,10 @@ class PagesController extends Controller
                 return response()->json([
                     'status' => 200,
                     'balance' => $user->money,
-                    'number' => $number
+                    'number' => $number,
+                    'players_tickets' => $players_tickets,
+                    'players' => $players,
+                    'player_win_rate' => $player_win_rate
                 ]);
 
     }
@@ -171,7 +177,8 @@ class PagesController extends Controller
                     'image' => $win->image,
                     'user_item_id' => $int_id,
                     'balance' => $user->money,
-                    'price_sale' => $win->price
+                    'price_sale' => $win->price,
+                    'case_count' => $this->getStats()[1]
                 ]);
             }
         }

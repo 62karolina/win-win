@@ -14619,14 +14619,14 @@ a:active,a:focus,a:hover {
 
 .infocontest_imgbox{
     width: 200px;
-    margin-top: 12px;
     border: solid;
     border-radius: 10px;
     border-color: #f4bb2b;
 }
 
 .infocontest_image {
-    width:220px;
+    width:200px;
+    height:200px;
     float:left;
     margin:20px 40px 0 0;
     padding: 10px;
@@ -14653,7 +14653,7 @@ a:active,a:focus,a:hover {
 
 
 .contest_info {
-    width:550px;
+    width:500px;
     float:left;
     margin: 20px 20px 15px 0;
     text-align: left;
@@ -14661,9 +14661,10 @@ a:active,a:focus,a:hover {
 }
 
 .infocontests_player {
-    width:220px;
+    width:280px;
     float:left;
-    margin: 25px 20px 35px 0;
+    height:200px;
+    margin: 30px 20px 35px 0;
     text-align:center;
     padding: 15px;
     font-weight: bolder;
@@ -14671,4 +14672,12 @@ a:active,a:focus,a:hover {
     border: solid;
     border-radius: 10px;
     border-color: #f4bb2b;
+}
+.contest_info_row{
+    margin: 10px 0;
+    font-size: 18px;
+    border-bottom: 2px solid #f4bc2a;
+}
+.contest_info_row_win_rate{
+    border-bottom: 3px solid #af1111;
 }

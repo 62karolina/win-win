@@ -11527,6 +11527,12 @@ if (function(l, doc) {
                                     duration: 1e3,
                                     toValue: response.balance
                                 });
+                                $(".counter-case").numerator({
+                                    easing: "linear",
+                                    duration: 1e3,
+                                     rounding: 0,
+                                    toValue: response.case_count
+                                });
                             break;
 
                         case 401:
@@ -11555,6 +11561,23 @@ if (function(l, doc) {
                                     easing: "linear",
                                     duration: 4e2,
                                     toValue: response.balance
+                                });
+                                $(".players").numerator({
+                                    easing: "linear",
+                                    duration: 1e3,
+                                    rounding: 0,
+                                    toValue: response.players
+                                });
+                                $(".players_tickets").numerator({
+                                    easing: "linear",
+                                    duration: 1e3,
+                                    rounding: 0,
+                                    toValue: response.players_tickets
+                                });
+                                $(".player_win_rate").numerator({
+                                    easing: "linear",
+                                    duration: 1e3,
+                                    toValue: response.player_win_rate
                                 });
                             update("success-ticket"), $("#success-ticket span.amount").html(response.number);
                             break;
