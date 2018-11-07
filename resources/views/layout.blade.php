@@ -430,14 +430,6 @@
             <div class="game-win__block-prize game-win__block-prize_green">
                 <div class="game-win__block-prize-bg-rays"><img src="/build/img/win-bg-1.png" alt="" class="game-win__block-prize-bg-rays-img game-win__block-prize-bg-rays-img_one"/><img src="/build/img/win-bg-2.png" alt="" class="game-win__block-prize-bg-rays-img game-win__block-prize-bg-rays-img_two"/></div>
                 <div class="game-win__block-prize-bg">
-                    <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_hov game-win__block-prize-bg-wrapper_red"><img src="/build/img/box__red-hov_min.png" alt="" class="game-win__block-prize-bg-img"/></div>
-                    <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_red"><img src="/build/img/box__red-box_no-badge.png" alt="" class="game-win__block-prize-bg-img"/></div>
-                    <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_hov game-win__block-prize-bg-wrapper_orange"><img src="/build/img/box__orange-hov_min.png" alt="" class="game-win__block-prize-bg-img"/></div>
-                    <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_orange"><img src="/build/img/box__orange-box_no-badge.png" alt="" class="game-win__block-prize-bg-img"/></div>
-                    <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_hov game-win__block-prize-bg-wrapper_blue"><img src="/build/img/box__blue-hov_min.png" alt="" class="game-win__block-prize-bg-img"/></div>
-                    <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_blue"><img src="/build/img/box__blue-box_no-badge.png" alt="" class="game-win__block-prize-bg-img"/></div>
-                    <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_hov game-win__block-prize-bg-wrapper_green"><img src="/build/img/box__green-hov_min.png" alt="" class="game-win__block-prize-bg-img"/></div>
-                    <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_green"><img src="/build/img/box__green-box_no-badge.png" alt="" class="game-win__block-prize-bg-img"/></div>
                     <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_hov game-win__block-prize-bg-wrapper_gray"><img src="/build/img/box__gray-hov_min.png" alt="" class="game-win__block-prize-bg-img"/></div>
                     <div class="game-win__block-prize-bg-wrapper game-win__block-prize-bg-wrapper_gray"><img src="/build/img/box__gray-box_no-badge.png" alt="" class="game-win__block-prize-bg-img"/></div>
                 </div>

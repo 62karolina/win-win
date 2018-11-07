@@ -11500,60 +11500,6 @@ a:active,a:focus,a:hover {
     padding: 10px 0 0;
 }
 
-.case-block_green .case-block__border-text {
-    border: 2px solid #63cea5;
-}
-
-.case-block_green .case-block__coin-glow {
-    background-color: #63cea5;
-    box-shadow: 0 0 150px 90px #63cea5;
-}
-
-.case-block_blue .case-block__border-text {
-    border: 2px solid #466ceb;
-}
-
-.case-block_blue .case-block__coin-glow {
-    background-color: #466ceb;
-    box-shadow: 0 0 150px 90px #466ceb;
-}
-
-.case-block_pink .case-block__border-text {
-    border: 2px solid #da1587;
-}
-
-.case-block_pink .case-block__coin-glow {
-    background-color: #da1587;
-    box-shadow: 0 0 150px 90px #da1587;
-}
-
-.case-block_silver .case-block__border-text {
-    border: 2px solid #d8d8d9;
-}
-
-.case-block_silver .case-block__coin-glow {
-    background-color: #d8d8d9;
-    box-shadow: 0 0 150px 90px #d8d8d9;
-}
-
-.case-block_gold .case-block__border-text {
-    border: 2px solid #e39b29;
-}
-
-.case-block_gold .case-block__coin-glow {
-    background-color: #e39b29;
-    box-shadow: 0 0 150px 90px #e39b29;
-}
-
-.case-block_red .case-block__border-text {
-    border: 2px solid #ea4848;
-}
-
-.case-block_red .case-block__coin-glow {
-    background-color: #ea4848;
-    box-shadow: 0 0 150px 90px #ea4848;
-}
-
 .case-block_with-timer .case-block__img-wrapper {
     padding: 0;
 }
@@ -11591,8 +11537,12 @@ a:active,a:focus,a:hover {
     padding: 0 0 10px;
     overflow: visible;
 }
+
 .box_item_list {
-    width: 100%;!impornant
+    width: 100%!important;
+}
+.box_profile_item_list {
+    width: 70%!important;
 }
 .box_nobg {
     background-color: transparent!important;
