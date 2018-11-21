@@ -2451,7 +2451,7 @@ pre code {
     }
 
     .box_contests-md-4 {
-      float: left;
+        float: left;
     }
 
 }
@@ -6126,6 +6126,25 @@ button.close {
 @media (min-width:992px) {
     .modal-lg {
         width: 900px;
+    }
+}
+
+@media (max-width:1090px) {
+    .box__img {
+        margin-left: 15%;
+    }
+    .box__img-wrapper {
+        text-align: initial!important;
+    }
+}
+
+@media (max-width:844px) {
+    .box__header-line {
+        display: block!important;
+    }
+    .box__img {
+        margin-left: 8%;
+        margin-top: -40px!important;
     }
 }
 
@@ -11716,6 +11735,7 @@ a:active,a:focus,a:hover {
     display: inline-block;
     position: relative;
     height: auto;
+    width:100%;
     max-width: 261px;
     padding: 20px 0;
 }
@@ -11728,9 +11748,10 @@ a:active,a:focus,a:hover {
 }
 
 .box__name {
-    width: 100%;
+    width: 90%;
     font: 15px ptsans,Helvetica,Arial,sans-serif;
     font-weight: 400;
+    text-align: center;
     line-height: 36px;
     vertical-align: middle;
     -webkit-user-select: none;
@@ -11830,7 +11851,21 @@ a:active,a:focus,a:hover {
     width: 110px;
     max-width: 100%;
 }
-
+.box__img__main {
+    margin-top: 42%;
+    margin-left: 15%;
+    z-index: 1;
+    height: 140px;
+    width: 200px;
+}
+.box__price__text{
+    color:black;
+    font: 17px ptsans,Helvetica,Arial,sans-serif;
+    margin-top: 25px;
+    z-index: 1;
+    position: absolute;
+    margin-left: 30px;
+}
 .box__button-wrapper {
     display: block;
     position: relative;
