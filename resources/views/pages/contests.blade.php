@@ -26,7 +26,8 @@
                                     @else
                                     <input type="hidden"  value="{{$contest->id}}" id="contest_id">
                                     <div class="form-actions">
-                                        <button type="submit" id="bye-ticket" class="btn btn-contests" >Стоимость ставки {{$contest->ticket_price}} BYN</button>
+                                        <!--<button type="submit" id="bye-ticket" class="btn btn-contests" >Стоимость ставки {{$contest->ticket_price}} BYN</button>-->
+                                         <button type="submit" id="bye-ticket" class="btn btn-contests" >Сделать ставку!</button>
                                     </div>
                                     @endif
                                 </div>

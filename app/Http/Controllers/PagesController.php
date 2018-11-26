@@ -106,8 +106,23 @@ class PagesController extends Controller
         $contest =  Contest::where('id',$r->id)->first();
         $user = Auth::user();
         $contestTikcet = Contest_ticket::where('contest_id', $r->id)->orderBy('id', 'desc')->first();
-        if($user->money < $contest->ticket_price){return response()->json(['status' => 401]);}
-        $user->money = $user->money - $contest->ticket_price;
+        if($user->contests_ticket == 0){
+            $open_cases = $user->open_box;
+            while (1==1){
+                if ($open_cases % 5 != 0){
+                    $open_cases += 1;
+                } else {
+                    break;
+                }
+            }
+            $need_cases = $open_cases - $user->open_box == 0 ? 5: $open_cases - $user->open_box;
+            return response()->json([
+                'status' => 401,
+                'need_cases'=> $need_cases
+                ]);
+            
+        }
+        $user->contests_ticket = $user->contests_ticket - 1;
         $number = $contestTikcet ? $contestTikcet->number+1 : 1;
         $user->save();
                 Contest_ticket::create([
@@ -125,6 +140,7 @@ class PagesController extends Controller
 //                ]);
                 return response()->json([
                     'status' => 200,
+                    'contests_ticket' => $user->contests_ticket,
                     'balance' => $user->money,
                     'number' => $number,
                     'players_tickets' => $players_tickets,
@@ -141,6 +157,10 @@ class PagesController extends Controller
         if($user->money < $case->price){return response()->json(['status' => 401]);}
         $user->money = $user->money - $case->price;
         $user->open_box = $user->open_box + 1;
+        $open_cases = $user->open_box;
+        if ($open_cases % 5 == 0){
+            $user->contests_ticket += 1;
+        }
         $user->save();
         $pro = mt_rand(1,100);
         if($pro < self::PROCENT_LOWER ){

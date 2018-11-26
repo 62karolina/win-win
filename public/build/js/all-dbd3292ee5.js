@@ -11582,8 +11582,23 @@ if (function(l, doc) {
                             update("success-ticket"), $("#success-ticket span.amount").html(response.number);
                             break;
                         case 401:
-                            update("need-money"), $("#need-money span.amount").html((parseInt($(".user-balance").html()) - parseInt(window.button_price)) * -1),
-                                $("#button-game-again").click();
+//                            update("need-money"), $("#need-money span.amount").html((parseInt($(".user-balance").html()) - parseInt(window.button_price)) * -1),
+//                                $("#button-game-again").click();
+                              var text = ' ';
+                              switch(response.need_cases){
+                                case 1:
+                                    text='кейс'; 
+                                    break;
+                                case 2:
+                                case 3:
+                                case 4:
+                                    text='кейса'; 
+                                    break;
+                                case 5:
+                                    text='кейсов'; 
+                                    break;    
+                              }
+                              update("need-ticket"), $("#need-ticket span.amount").html(response.need_cases +' '+ text);
                             break;
 
                         case 403:

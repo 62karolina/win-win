@@ -58,6 +58,10 @@
                                     Открыто коробок:
                                     &nbsp;<span>{{Auth::user()->open_box}}</span>
                                 </div>
+                                <div class="profile-row__user-stat-text">
+                                    Билетов для ставок:
+                                    &nbsp;<span>{{Auth::user()->contests_ticket}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
