@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 Route::group(['middleware' => 'admin', 'middleware' => 'access:admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'AdminController@index');
+    Route::post('/delete', 'AdminController@delete');
     Route::get('/addCase', 'AdminController@addCase');
     Route::post('/addCase', 'AdminController@addCasePost');
     Route::get('/addItem', 'AdminController@addItem');
