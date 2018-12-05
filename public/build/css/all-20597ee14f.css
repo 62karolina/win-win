@@ -14745,21 +14745,24 @@ a:active,a:focus,a:hover {
     width: 120%;
 }
 
-.contest_info{
+
+.contest_info {
+    width: -webkit-calc(100% - 490px);
+    width: -moz-calc(100% - 490px);
+    width: calc(100% - 570px);
+    float: left;
+    margin: 20px 20px 15px 0;
+    text-align: left;
+    padding: 16px;
     margin-top: 30px;
     font-style: italic;
     font-size: 20px;
 }
-
-
-.contest_info {
-    width:500px;
-    float:left;
-    margin: 20px 20px 15px 0;
-    text-align: left;
-    padding: 16px;
+@media (max-width: 770px) {
+    .contest_info {
+        width: 40%;
+    }
 }
-
 .infocontests_player {
     width:280px;
     float:left;
@@ -14780,4 +14783,26 @@ a:active,a:focus,a:hover {
 }
 .contest_info_row_win_rate{
     border-bottom: 3px solid #af1111;
+}
+
+@media (max-width: 768px){
+    .col-xs-12-contest {
+        width: 190%;
+    }
+}
+@media (max-width: 668px){
+    .col-xs-12-contest {
+        width: 190%;
+    }
+    .contest_imgbox {
+        width: 90px;
+        margin-top: 22px;
+    }
+    .btn-contests {
+        width: 90px;
+        font-size: 9px;
+    }
+    .box {
+        height: 190px;
+    }
 }

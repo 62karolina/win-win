@@ -8,7 +8,7 @@
                 @foreach($contests as $contest)
                 <div class="box box_gray-box" style="display: inline-block">
                     <div class="row">
-                        <div class="box_contests box_contests-md-4 box_contest-lg-4 col-xs-12  box_contest-sm-12">
+                        <div class="box_contests box_contests-md-4 box_contest-lg-4 col-xs-12 col-xs-12-contest  box_contest-sm-12">
                             <div class="box__bg-layout box__bg-xs-12">
                                 <a href="/infocontests/{{$contest->id}}">
                                     <div class="contest_name">
