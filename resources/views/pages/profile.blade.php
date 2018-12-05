@@ -177,7 +177,7 @@
                                     <div class="box__name"></div>
                                 </div>
                             </div>
-                            <div class="box__img-wrapper"></div>
+                            <div class="wrapper_deliv"></div>
                             <div class="box__float-button-wrapper box__float-button-wrapper_top">
                                 <button class="box__float-button box__float-button_red box__float-button_right"><img src="/build/img/cancel-icon.png" alt="" title="Удалить из списка" class="box__float-button-img"></button>
                             </div>
@@ -194,7 +194,7 @@
                                     <div class="box__name"></div>
                                 </div>
                             </div>
-                            <div class="box__img-wrapper"></div>
+                            <div class="wrapper_deliv"></div>
                             <div class="box__float-button-wrapper box__float-button-wrapper_top">
                                 <button class="box__float-button box__float-button_red box__float-button_right"><img src="/build/img/cancel-icon.png" alt="" title="Удалить из списка" class="box__float-button-img"></button>
                             </div>
@@ -211,7 +211,7 @@
                                     <div class="box__name"></div>
                                 </div>
                             </div>
-                            <div class="box__img-wrapper"></div>
+                            <div class="wrapper_deliv"></div>
                             <div class="box__float-button-wrapper box__float-button-wrapper_top">
                                 <button class="box__float-button box__float-button_red box__float-button_right"><img src="/build/img/cancel-icon.png" alt="" title="Удалить из списка" class="box__float-button-img"></button>
                             </div>
@@ -228,7 +228,7 @@
                                     <div class="box__name"></div>
                                 </div>
                             </div>
-                            <div class="box__img-wrapper"></div>
+                            <div class="wrapper_deliv"></div>
                             <div class="box__float-button-wrapper box__float-button-wrapper_top">
                                 <button class="box__float-button box__float-button_red box__float-button_right"><img src="/build/img/cancel-icon.png" alt="" title="Удалить из списка" class="box__float-button-img"></button>
                             </div>
@@ -245,7 +245,7 @@
                                     <div class="box__name"></div>
                                 </div>
                             </div>
-                            <div class="box__img-wrapper"></div>
+                            <div class="wrapper_deliv"></div>
                             <div class="box__float-button-wrapper box__float-button-wrapper_top">
                                 <button class="box__float-button box__float-button_red box__float-button_right"><img src="/build/img/cancel-icon.png" alt="" title="Удалить из списка" class="box__float-button-img"></button>
                             </div>
@@ -282,7 +282,7 @@
                                         </div>
                                     </div>
                                     <div class="box__img-wrapper"><img src="{{$item->image}}" alt="{{$item->name}}" title="{{$item->name}}" class="box__img"></div>
-                                    <div class="box__float-button-wrapper box__float-button-wrapper_bottom">
+                                    <div class="box__float-button-wrapper_deliv box__float-button-wrapper_bottom_deliv">
                                         <button class="sale-box box__float-button" data-id="{{$item->id}}" data-title="{{$item->name}}" data-price="{{$item->price}}">
                                             <img src="/build/img/rub-icon.png" alt="" title="Продать" class="box__float-button-img">
                                         </button>

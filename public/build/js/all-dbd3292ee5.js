@@ -11674,7 +11674,7 @@ if (function(l, doc) {
         var id = $(this).attr("data-id"), title = $(this).attr("data-title"), url = $(this).attr("data-image"), a = !1;
         return $(".box__cart-line .box_cart").each(function() {
             0 == a && "1" == $(this).attr("data-free") && ($(this).attr("data-free", "0").attr("data-id", id),
-                $(this).find(".box__name").html(title), $(this).find(".box__img-wrapper").html('<img src="' + url + '">'),
+                $(this).find(".box__name").html(title), $(this).find(".wrapper_deliv").html('<img class="deliv_img" src="' + url + '">'),
                 a = !0);
         }), 0 == a ? alert('Можно добавить только 5 товаров в одну посылку! Вы можете удалить товары из корзины, чтобы заменить их другими или нажмите кнопку "Заказать доставку"') : $("#box-" + id).addClass("hidden"),
             !1;
