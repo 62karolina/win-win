@@ -15,6 +15,7 @@ use App\Contest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller {
 
@@ -257,6 +258,21 @@ class AdminController extends Controller {
                 }
             }
         }
+    }
+
+    public function delete(Request $r) {
+        switch ($r->item) {
+            case 'contest':
+                Contest::destroy($r->id);
+                break;
+            case 'case':
+                Cases::destroy($r->id);
+                break;
+            case 'item':
+                Items::destroy($r->id);
+                break;
+        }
+        return Redirect::back();
     }
 
     public function addCasePost(Request $r) {

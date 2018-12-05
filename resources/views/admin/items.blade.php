@@ -43,6 +43,14 @@
                 <td>{{$i->price}}</td>
                 <td>{{$i->caseName}}</td>
                 <td><a href="/admin/items/{{$i->id}}">Редактировать</a></td>
+                <td> 
+                    <form method="post" action="/admin/delete" class="form-horizontal">
+                        <input name="id" value="{{$i->id}}"  type="hidden">
+                        <input name="item" value="item"  type="hidden">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button>Удалить</button>
+                    </form>
+                </td> 
             </tr>
             @endforeach
 
