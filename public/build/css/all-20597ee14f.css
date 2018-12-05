@@ -2027,9 +2027,21 @@ pre code {
     margin-left: 0;
 }
 
-@media (max-width:990px){
+@media (max-width:731px) {
+    .col_md-5_index {
+        width: 100%;
+        position: relative;
+        display: inline-table;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+}
+
+@media (min-width:601px){
     .col-sm-12_index{
-        width: 99%;
+        width: 100%;
         position: relative;
         display: inline-table;
         min-height: 1px;
@@ -2040,13 +2052,49 @@ pre code {
     .box_sm-12{
         position: inherit;
         height: 267.66666px;
-        width: 46%;
+        width: 45%;
         background-color: #dfe0cc;
         border-radius: 14px;
         margin: 5px 24px 15px 5px;
         padding: 0 20px 12px;
         display: inline-table;
         overflow: visible;
+    }
+    .box_bg-wrapper_index{
+        display: inline-table;
+        position: relative;
+        height: 100%;
+        width: 261px;
+    }
+}
+
+@media (max-width:600px){
+    .col-sm-12_index{
+        width: 100%;
+        position: relative;
+        display: inline-table;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .box_sm-12{
+        position: inherit;
+        height: 267.66666px;
+        width: 100%;
+        background-color: #dfe0cc;
+        border-radius: 14px;
+        margin: 5px 24px 15px 5px;
+        padding: 0 20px 12px;
+        display: inline-table;
+        overflow: visible;
+    }
+
+    .box_bg-wrapper_index{
+        display: inline-table;
+        position: relative;
+        height: 100%;
+        width: 261px;
     }
 }
 
