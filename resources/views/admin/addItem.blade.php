@@ -18,27 +18,27 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <!-- Forms: Normal input field -->
         <div class="control-group">
-            <label class="control-label" for="inputNormal">Name</label>
+            <label class="control-label" for="inputNormal">Название</label>
             <div class="controls">
                 <input type="text" name="name" value="" placeholder="..." class="input-block-level">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputNormal">Price</label>
+            <label class="control-label" for="inputNormal">Цена</label>
             <div class="controls">
                 <input type="number" step=".1"name="price" value="" placeholder="..." class="input-block-level">
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="inputNormal">Image(URL)</label>
+            <label class="control-label" for="inputNormal">Картинка(URL)</label>
             <div class="controls">
                 <input type="text" name="image" value="" placeholder="..." class="input-block-level">
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="inputNormal">Type</label>
+            <label class="control-label" for="inputNormal">Тип</label>
             <select class="input-block-level" name="type" style="margin-left:30px;">
                 <option value="def">Default</option>
             </select>

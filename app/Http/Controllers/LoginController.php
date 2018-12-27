@@ -208,7 +208,7 @@ class LoginController extends Controller {
 
             \Mail::raw('Ваш новый пароль:' . $pass, function(\Illuminate\Mail\Message $mail) use ($user) {
                 $mail->subject('Смена пароля Win-Win box');
-                $mail->from('boxwinwin@gmail.com', 'WinWinBox');
+                $mail->from('wwbox@tut.by', 'WinWinBox');
                 $mail->to($user->email);
             });
             $user->password = Hash::make($pass);
