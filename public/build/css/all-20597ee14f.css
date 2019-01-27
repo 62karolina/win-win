@@ -14862,12 +14862,14 @@ a:active,a:focus,a:hover {
     }
     .box {
         height: 260px;
-        margin: 2px 10px -14px 9px;
+        margin: 2px 10px -14px 0;
+        width: 100%;
     }
 
 }
 @media (min-width: 669px){
     .box{
-        margin: 0 15px -10px 13px;
+        margin: 0 15px -10px -4px;
+        width: 103%;
     }
 }
