@@ -10465,8 +10465,8 @@ a:active,a:focus,a:hover {
         -webkit-box-flex: 0;
         flex: 0 0 auto;
     }.header-row__login-button {
-         padding: 28px 0;
-     }
+        padding: 28px 0;
+    }
 }
 
 
@@ -14873,3 +14873,17 @@ a:active,a:focus,a:hover {
         width: 103%;
     }
 }
+
+@media (max-width: 715px) {
+    .hidden-line {
+        display: none!important;
+    }
+}
+@media  (max-width: 715px) {
+    .stat-line_mobile {
+        display: block!important;
+    }
+}
+.stat-line_mobile {
+        display: none;
+    }

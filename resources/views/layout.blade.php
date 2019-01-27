@@ -29,7 +29,7 @@
                     <div class="logo-wrapper hidden-xs hidden-lg"><a href="/"><img src="/build/img/logo_min-2.png" alt="Ranbox" class="logo-wrapper__img"/></a></div>
                 </div>
                 <div class="header-row__element_static header-row__element_static_small">
-                    <div class="stat-line hidden-xs">
+                    <div class="stat-line hidden-line">
 
                         <div class="stat-line__element">
                             <div class="stat-line__value counter-user" > {{PagesController::getStats()[0]}}</div>
@@ -220,17 +220,17 @@
                     </div>
                 </nav>
             </div>
-            <div class="stat-line stat-line_mobile visible-xs">
+                <div class="stat-line stat-line_mobile">
 
-                <div class="stat-line__element">
-                    <div class="stat-line__value counter-user" data-value="364534">{{PagesController::getStats()[0]}}</div>
-                    <div class="stat-line__key">Пользователей</div>
+                    <div class="stat-line__element">
+                        <div class="stat-line__value counter-user" data-value="364534">{{PagesController::getStats()[0]}}</div>
+                        <div class="stat-line__key">Пользователей</div>
+                    </div>
+                    <div class="stat-line__element">
+                        <div class="stat-line__value counter-case" data-value="969922">{{PagesController::getStats()[1]}}</div>
+                        <div class="stat-line__key">Открыто коробок</div>
+                    </div>
                 </div>
-                <div class="stat-line__element">
-                    <div class="stat-line__value counter-case" data-value="969922">{{PagesController::getStats()[1]}}</div>
-                    <div class="stat-line__key">Открыто коробок</div>
-                </div>
-            </div>
         </div>
     </div>            <div class="live-win">
         <div class="container">
