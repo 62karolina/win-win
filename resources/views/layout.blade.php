@@ -28,7 +28,7 @@
                     <div class="logo-wrapper visible-xs visible-lg"><a href="/"><img src="/build/img/logo.png" alt="Ranbox" class="logo-wrapper__img"/></a></div>
                     <div class="logo-wrapper hidden-xs hidden-lg"><a href="/"><img src="/build/img/logo_min-2.png" alt="Ranbox" class="logo-wrapper__img"/></a></div>
                 </div>
-                <div class="header-row__element_static">
+                <div class="header-row__element_static header-row__element_static_small">
                     <div class="stat-line hidden-xs">
 
                         <div class="stat-line__element">
