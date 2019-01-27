@@ -14885,3 +14885,8 @@ a:active,a:focus,a:hover {
 .stat-line_mobile {
         display: none;
     }
+    
+.box-contest {
+    height: 270.66666px;
+    width: 31%;
+}
