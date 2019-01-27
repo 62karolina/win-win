@@ -14887,3 +14887,9 @@ a:active,a:focus,a:hover {
 .stat-line_mobile {
         display: none;
     }
+@media  (min-width: 992px) {
+    .box{
+        margin: 1px 15px -10px 17px;
+        width: 91%;
+    }
+}
