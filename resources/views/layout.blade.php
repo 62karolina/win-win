@@ -313,7 +313,7 @@
                             <div class="pay-system__img-wrapper"><img src="/build/img/pay-icon_bee.png" alt="Beeline" title="Beeline" class="pay-system__img"/></div>
                         </div>
                         <div class="hidden"><a href="//www.free-kassa.com/"><img src="//www.free-kassa.ru/img/fk_btn/9.png"></a></div>
-                        <div class="footer__copy-text text-block text-block_color_gray hidden-xs">Copyright © 2018 </div>
+                        <div class="footer__copy-text text-block text-block_color_gray hidden-xs">Copyright © 2019 </div>
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-6 col-lg-5 col-lg-offset-3">
                         <div class="footer__vk-widgets">
@@ -333,6 +333,7 @@
                     </div>
                     <div class="col-xs-3 col-sm-4 col-md-6 col-lg-6">
                         <div class="footer__age-limit-wrapper">
+                            <div class="info-ip">ИП Чурейно УНП 590194207 <br> Регистрация №0413438, 09.07.2018</div>
                             <div class="age-limit">18+</div>
                         </div>
                     </div>

@@ -42,7 +42,7 @@
             <div class="row cases-row box-cases-row">
 
                     @foreach($items as $item)
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="col-xs-12 col-sm-6 col-md-4_4 col-lg-3">
                             <a href="#">
                                 <div class="box box_item_list box_nobg box_gray-box">
                                     <div class="box__bg-layout">
