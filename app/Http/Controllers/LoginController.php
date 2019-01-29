@@ -12,7 +12,7 @@ class LoginController extends Controller {
     public function vklogin(Request $r) {
         $client_id = '6713573';
         $client_secret = 'sk0KPPzMvrXS4c0pddZI';
-        $redirect_uri = 'cases/';
+        $redirect_uri = 'bww.by';
 
         if (!is_null($r->code)) {
 
@@ -35,7 +35,7 @@ class LoginController extends Controller {
                     $user = User::create([
                                 'username' => $info['response'][0]['last_name'] . ' ' . $info['response'][0]['first_name'],
                                 'avatar' => $photo,
-                                'password' => Hash::make($str_random(12)),
+                                'password' => Hash::make(str_random(12)),
                                 'login' => 'id' . $info['response'][0]['uid'],
                                 'login2' => $info['response'][0]['uid'],
                                 'ref_code' => $this->generate(),
@@ -68,41 +68,40 @@ class LoginController extends Controller {
 
         if (!is_null($r->code)) {
 
-            $obj = json_decode($this->curl('https://graph.facebook.com/oauth/access_token?client_id=' . $client_id . '&client_secret=' . $client_secret . '&redirect_uri=http://' . $redirect_uri . '/fblogin&code=' . $r->code));
+            $obj = json_decode($this->curl('https://graph.facebook.com/oauth/access_token?client_id=' . $client_id . '&client_secret=' . $client_secret . '&redirect_uri=https://' . $redirect_uri . '/fblogin&code=' . $r->code));
 
             if (isset($obj->access_token)) {
 
-                $info = json_decode($this->curl('https://graph.facebook.com/me?user_ids&fields=photo_200&access_token=' . $obj->access_token . '&v=V'), true);
+                $info = json_decode($this->curl('https://graph.facebook.com/me?user_ids&fields=first_name,last_name,id,name,picture&access_token=' . $obj->access_token . '&v=V'), true);
 
 
-
-                $user = User::where('login2', $info['response'][0]['uid'])->first();
+                $user = User::where('login2', $info['id'])->first();
                 if ($user == NULL) {
-                    if (array_key_exists('photo_200', $info['response'][0])) {
-                        $photo = $info['response'][0]['photo_200'];
+                    if (array_key_exists('picture', $info)) {
+                        $photo = $info['picture']['data']['url'];
                     } else {
                         $photo = 'http://vk.com/images/camera_200.png';
                     }
 
                     $user = User::create([
-                                'username' => $info['response'][0]['last_name'] . ' ' . $info['response'][0]['first_name'],
+                                'username' => $info['last_name'] . ' ' . $info['first_name'],
                                 'avatar' => $photo,
-                                'password' => Hash::make($str_random(12)),
-                                'login' => 'id' . $info['response'][0]['uid'],
-                                'login2' => $info['response'][0]['uid'],
+                                'password' => Hash::make(str_random(12)),
+                                'login' => 'id' . $info['id'],
+                                'login2' => $info['id'],
                                 'ref_code' => $this->generate(),
                                 'nick' => $this->generate_name()
                     ]);
                 } else {
-                    if (array_key_exists('photo_200', $info['response'][0])) {
-                        $photo = $info['response'][0]['photo_200'];
+                    if (array_key_exists('picture', $info)) {
+                       $photo = $info['picture']['data']['url'];
                     } else {
                         $photo = 'http://vk.com/images/camera_200.png';
                     }
-                    $user->username = $info['response'][0]['last_name'] . ' ' . $info['response'][0]['first_name'];
+                    $user->username = $info['last_name'] . ' ' . $info['first_name'];
                     $user->avatar = $photo;
-                    $user->login = 'id' . $info['response'][0]['uid'];
-                    $user->login2 = $info['response'][0]['uid'];
+                    $user->login = 'id' . $info['id'];
+                    $user->login2 = $info['id'];
                     $user->save();
                 }
 
@@ -110,7 +109,7 @@ class LoginController extends Controller {
                 return redirect('/');
             }
         } else {
-            return redirect('https://graph.facebook.com/oauth/authorize?client_id=' . $client_id . '&display=page&redirect_uri=http://' . $redirect_uri . '/fblogin&scope=friends,photos,status,offline,&response_type=code&v=5.53');
+            return redirect('https://graph.facebook.com/oauth/authorize?client_id=' . $client_id . '&display=page&redirect_uri=https://' . $redirect_uri . '/fblogin&scope=email,access_token,&response_type=code&v=5.53');
         }
     }
 

@@ -455,10 +455,10 @@ class PagesController extends Controller
             $c = User::where('ref_use',Auth::user()->ref_code)->count();
             $deliver = Deliver::where('user',Auth::user()->id)->orderBy('id','desc')->get();
 
-            if(count($deliver) != 0){
+            if($deliver != null && count($deliver) != 0){
                 foreach ($deliver as $d){
                     $uk = User::where('id',$d->user)->first();
-                    if(count($dev) != 0){
+                    if($dev !=null && count($dev) != 0){
                         $d->country = Crypt::decrypt($dev->country);
                         $d->city  = Crypt::decrypt($dev->city);
                         $d->postalcode = Crypt::decrypt($dev->postalcode);
@@ -476,14 +476,14 @@ class PagesController extends Controller
                 }
             }
 
-            if(count($tickets) != 0){
+            if($tickets != null && count($tickets) != 0){
                 foreach ($tickets as $t){
                     $contest = Contest::where('id',$t->contest_id)->first();
                     $item = Items::where('id',$contest->item_id)->first();
                     $t->item_image = $item->image;
                 }
             }
-            if(count($dev) != 0){
+            if($dev != null && count($dev) != 0){
                 $country = Crypt::decrypt($dev->country);
                 $city  = Crypt::decrypt($dev->city);
                 $postalcode = Crypt::decrypt($dev->postalcode);
