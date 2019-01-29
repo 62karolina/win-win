@@ -109,7 +109,7 @@ class LoginController extends Controller {
                 return redirect('/');
             }
         } else {
-            return redirect('https://graph.facebook.com/oauth/authorize?client_id=' . $client_id . '&display=page&redirect_uri=https://' . $redirect_uri . '/fblogin&scope=email,access_token,&response_type=code&v=5.53');
+            return redirect('https://graph.facebook.com/oauth/authorize?client_id=' . $client_id . '&display=page&redirect_uri=https://' . $redirect_uri . '/fblogin&scope=email,&response_type=code&v=5.53');
         }
     }
 
