@@ -64,7 +64,7 @@ class LoginController extends Controller {
     public function fblogin(Request $r) {
         $client_id = '191108368444968';
         $client_secret = 'e6aa7a8775320c78b4762062d1130dc2';
-        $redirect_uri = 'cases/';
+        $redirect_uri = 'bww.by';
 
         if (!is_null($r->code)) {
 
