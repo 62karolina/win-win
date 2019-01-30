@@ -50,7 +50,7 @@
                                 вернуть нажав кнопку “Продать” на странице коробки или в разделе “Мои товары” на странице вашего профиля. Стоимость продажи зависит от ценности товара
                                 и может быть как больше, так и меньше стоимости открытия коробки.</div>
                             <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как заказать доставку товаров?</div>
-                            <div class="faq-block__answer text-block">Подробную информацию об условиях и порядке получения товаров вы можете прочитать в на странице «<a href="http://Win-Win Box.ru.net/delivery">Доставка и оплата</a>».
+                            <div class="faq-block__answer text-block">Подробную информацию об условиях и порядке получения товаров вы можете прочитать в на странице «<a href="https://Win-Win Box.ru.net/delivery">Доставка и оплата</a>».
                             </div>
                         </div>
                     </div>

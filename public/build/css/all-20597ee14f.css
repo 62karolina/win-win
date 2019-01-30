@@ -1,5 +1,5 @@
 @charset "UTF-8";/*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Bootstrap v3.3.7 (https://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  *//*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */.label,sub,sup {
@@ -7002,8 +7002,8 @@ button.close {
 .fa,.fa-stack {
     display: inline-block;
 }/*!
- *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
- *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ *  Font Awesome 4.7.0 by @davegandy - https://fontawesome.io - @fontawesome
+ *  License - https://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */@font-face {
     font-family:FontAwesome;src:url(../fonts/fontawesome-webfont.eot?v=4.7.0);src:url(../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'),url(../fonts/fontawesome-webfont.woff2?v=4.7.0) format('woff2'),url(../fonts/fontawesome-webfont.woff?v=4.7.0) format('woff'),url(../fonts/fontawesome-webfont.ttf?v=4.7.0) format('truetype'),url(../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format('svg');font-weight:400;font-style:normal;
 }

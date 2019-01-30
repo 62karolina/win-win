@@ -33,7 +33,7 @@
                                         <div class="box__cost"><?php echo e($case1->price); ?><span class="rouble">p</span></div>
                                     </div>
                                 </div>
-                                <div class="box__img-wrapper"><img src="http://214010.selcdn.ru/ranbox/box/box1.png" alt="Коробка №1" title="Коробка №1" class="box__img"/></div>
+                                <div class="box__img-wrapper"><img src="https://214010.selcdn.ru/ranbox/box/box1.png" alt="Коробка №1" title="Коробка №1" class="box__img"/></div>
                                 <div class="box__button-wrapper">
                                     <button class="box__button">Открыть коробку</button>
                                 </div>
@@ -84,7 +84,7 @@
                                         <div class="box__cost"><?php echo e($case2->price); ?><span class="rouble">p</span></div>
                                     </div>
                                 </div>
-                                <div class="box__img-wrapper"><img src="http://214010.selcdn.ru/ranbox/box/box2.png" alt="Коробка №2" title="Коробка №2" class="box__img"/></div>
+                                <div class="box__img-wrapper"><img src="https://214010.selcdn.ru/ranbox/box/box2.png" alt="Коробка №2" title="Коробка №2" class="box__img"/></div>
                                 <div class="box__button-wrapper">
                                     <button class="box__button">Открыть коробку</button>
                                 </div>
@@ -135,7 +135,7 @@
                                         <div class="box__cost"><?php echo e($case3->price); ?><span class="rouble">p</span></div>
                                     </div>
                                 </div>
-                                <div class="box__img-wrapper"><img src="http://214010.selcdn.ru/ranbox/box/box3.png" alt="Коробка №3" title="Коробка №3" class="box__img"/></div>
+                                <div class="box__img-wrapper"><img src="https://214010.selcdn.ru/ranbox/box/box3.png" alt="Коробка №3" title="Коробка №3" class="box__img"/></div>
                                 <div class="box__button-wrapper">
                                     <button class="box__button">Открыть коробку</button>
                                 </div>

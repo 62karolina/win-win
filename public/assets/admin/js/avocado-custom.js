@@ -4,14 +4,14 @@
 
 // jQuery Waits for Document to Load
 // -------------------------------------------------------------------
-// URL: http://jquery.com
+// URL: https://jquery.com
 // -------------------------------------------------------------------
 
 jQuery(document).ready(function() {
 
 // Typhead (bootstrap)
 // -------------------------------------------------------------------
-// URL: http://twitter.github.io/bootstrap/javascript.html#typeahead
+// URL: https://twitter.github.io/bootstrap/javascript.html#typeahead
 // -------------------------------------------------------------------
 
 if ($(".typeahead")[0]){
@@ -106,7 +106,7 @@ $('#theme a').click(function () {
 
 // Photoswipe
 // -------------------------------------------------------------------
-// URL: http://www.photoswipe.com/
+// URL: https://www.photoswipe.com/
 // -------------------------------------------------------------------
 
 if ($(".gallery")[0]){
@@ -147,7 +147,7 @@ if ($(".gallery")[0]){
 
                 $(this).find("img").css({
                     "filter": "alpha(opacity=75)",
-                    "opacity": "http://lycaste.co/projects/avocadopanel/assets/js/0.75",
+                    "opacity": "https://lycaste.co/projects/avocadopanel/assets/js/0.75",
                   });
             }
          );
@@ -157,7 +157,7 @@ if ($(".gallery")[0]){
 
 // Isotope
 // -------------------------------------------------------------------
-// URL: http://isotope.metafizzy.co/
+// URL: https://isotope.metafizzy.co/
 // -------------------------------------------------------------------
 
 if ($(".gallery")[0]){
@@ -222,7 +222,7 @@ if ($(".gallery")[0]){
 
 // DataTables
 // -------------------------------------------------------------------
-// URL: http://www.datatables.net/
+// URL: https://www.datatables.net/
 // -------------------------------------------------------------------
 
 if ($(".data-table")[0]){
@@ -233,7 +233,7 @@ if ($(".data-table")[0]){
 
 // Tabs (bootstrap)
 // -------------------------------------------------------------------
-// URL: http://twitter.github.io/bootstrap/javascript.html#tabs
+// URL: https://twitter.github.io/bootstrap/javascript.html#tabs
 // -------------------------------------------------------------------
 
     $('.tab-container a').click(function (e) {
@@ -294,7 +294,7 @@ todoItemDone();
 
 // WYSIWYG (bootstrap)
 // -------------------------------------------------------------------
-// URL: http://mindmup.github.io/bootstrap-wysiwyg/
+// URL: https://mindmup.github.io/bootstrap-wysiwyg/
 // -------------------------------------------------------------------
 
 function initToolbarBootstrapBindings() {
@@ -397,7 +397,7 @@ if ($("#map-example1,#map-example2,#map-example3,#map-example4,#map-example5")[0
 
 // jQuery UI: Sortable for Box Widgets (wells)
 // -------------------------------------------------------------------
-// URL: http://jqueryui.com 
+// URL: https://jqueryui.com 
 // -------------------------------------------------------------------
 
 /*
@@ -442,7 +442,7 @@ if ($("#map-example1,#map-example2,#map-example3,#map-example4,#map-example5")[0
 
 // Flot Example
 // -------------------------------------------------------------------
-// URL: http://www.flotcharts.org
+// URL: https://www.flotcharts.org
 // -------------------------------------------------------------------
 
 if ($(".chart1")[0]){
@@ -807,7 +807,7 @@ $(function() {
 
 // Calendar
 // -------------------------------------------------------------------
-// URL: http://bootstrap.twitter.com
+// URL: https://bootstrap.twitter.com
 // -------------------------------------------------------------------
 
 // Standard Calendar
@@ -861,7 +861,7 @@ $('#calendar').fullCalendar({
             title: 'Click for Google',
             start: new Date(y, m, 28),
             end: new Date(y, m, 29),
-            url: 'http://google.com/'
+            url: 'https://google.com/'
         }
     ]
 });
@@ -923,7 +923,7 @@ $('#calendar').fullCalendar({
              title: 'Click for Google',
              start: new Date(y, m, 28),
              end: new Date(y, m, 29),
-             url: 'http://google.com/'
+             url: 'https://google.com/'
          }
      ]
  });
@@ -1002,7 +1002,7 @@ var calendar = $('#calendar-selectable').fullCalendar({
             title: 'Click for Google',
             start: new Date(y, m, 28),
             end: new Date(y, m, 29),
-            url: 'http://google.com/'
+            url: 'https://google.com/'
         }
     ]
 });
@@ -1014,7 +1014,7 @@ var calendar = $('#calendar-selectable').fullCalendar({
 
 $('#calendar-external-events .external-event').each(function() {
 
-    // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
+    // create an Event Object (https://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
     // it doesn't need to have a start or end
     var eventObject = {
         title: $.trim($(this).text()) // use the element's text as the event title
@@ -1057,7 +1057,7 @@ $('#calendar-external').fullCalendar({
         copiedEventObject.allDay = allDay;
         
         // render the event on the calendar
-        // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
+        // the last `true` argument determines if the event "sticks" (https://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
         $('#calendar-external').fullCalendar('renderEvent', copiedEventObject, true);
         
         // is the "remove after drop" checkbox checked?
@@ -1072,7 +1072,7 @@ $('#calendar-external').fullCalendar({
 
 // Tooltip (bootstrap)
 // -------------------------------------------------------------------
-// URL: http://bootstrap.twitter.com
+// URL: https://bootstrap.twitter.com
 // -------------------------------------------------------------------
 
 $("[rel='tooltip']").tooltip();
@@ -1083,7 +1083,7 @@ $("[rel='tooltip']").each(function( index ) {
 
 // Chosen
 // -------------------------------------------------------------------
-// URL: http://harvesthq.github.io/chosen/
+// URL: https://harvesthq.github.io/chosen/
 // -------------------------------------------------------------------
 
 if ($("select")[0]){
@@ -1095,7 +1095,7 @@ if ($("select")[0]){
 
 // END: jQuery Waits for Document to Load
 // -------------------------------------------------------------------
-// URL: http://jquery.com
+// URL: https://jquery.com
 // -------------------------------------------------------------------
 
 });

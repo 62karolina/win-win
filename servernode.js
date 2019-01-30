@@ -1,6 +1,17 @@
-﻿var mysql = require('mysql');
+var mysql = require('mysql');
 // Let’s make node/socketio listen on port 3000
-var io = require('socket.io').listen(3000); 
+//var io = require('socket.io').listen(3000);
+var fs = require('fs');
+var app = require('express');
+var https = require('https');
+var server = https.createServer({
+    key:fs.readFileSync('../../../etc/letsencrypt/live/bww.by/privkey.pem'),
+    cert:fs.readFileSync('../../../etc/letsencrypt/live/bww.by/cert.pem'),
+    ca:fs.readFileSync('../../../etc/letsencrypt/live/bww.by/chain.pem'),
+    requestCert:false,
+    rejectUnauthorized:false},app);
+server.listen(3000);
+var io = require('socket.io').listen(server);
 // Define our db creds
 var db = mysql.createConnection({
     host: '127.0.0.1',
@@ -36,6 +47,5 @@ io.sockets.on('connection', function (socket) {
                 .on('end', function () {
                     io.sockets.emit('live', notes);
                 });
-
     });
 });

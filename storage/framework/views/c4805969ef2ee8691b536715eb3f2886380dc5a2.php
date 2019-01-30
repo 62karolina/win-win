@@ -430,7 +430,7 @@
 </div>        <div class="modal-layout"></div>
 <!-- scripts -->
 <script src="//vk.com/js/api/openapi.js?136"></script>
-<script src="http://214010.selcdn.ru/ranbox/js/socket.io.min.js"></script>
+<script src="https://214010.selcdn.ru/ranbox/js/socket.io.min.js"></script>
 <script src="/build/js/all-dbd3292ee5.js?v=22222"></script>
 
 </body>

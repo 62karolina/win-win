@@ -16,7 +16,7 @@ class LoginController extends Controller {
 
         if (!is_null($r->code)) {
 
-            $obj = json_decode($this->curl('https://oauth.vk.com/access_token?client_id=' . $client_id . '&client_secret=' . $client_secret . '&redirect_uri=http://' . $redirect_uri . '/vklogin&code=' . $r->code));
+            $obj = json_decode($this->curl('https://oauth.vk.com/access_token?client_id=' . $client_id . '&client_secret=' . $client_secret . '&redirect_uri=https://' . $redirect_uri . '/vklogin&code=' . $r->code));
 
             if (isset($obj->access_token)) {
 
@@ -29,7 +29,7 @@ class LoginController extends Controller {
                     if (array_key_exists('photo_200', $info['response'][0])) {
                         $photo = $info['response'][0]['photo_200'];
                     } else {
-                        $photo = 'http://vk.com/images/camera_200.png';
+                        $photo = 'https://vk.com/images/camera_200.png';
                     }
 
                     $user = User::create([
@@ -45,7 +45,7 @@ class LoginController extends Controller {
                     if (array_key_exists('photo_200', $info['response'][0])) {
                         $photo = $info['response'][0]['photo_200'];
                     } else {
-                        $photo = 'http://vk.com/images/camera_200.png';
+                        $photo = 'https://vk.com/images/camera_200.png';
                     }
                     $user->username = $info['response'][0]['last_name'] . ' ' . $info['response'][0]['first_name'];
                     $user->avatar = $photo;
@@ -58,13 +58,13 @@ class LoginController extends Controller {
                 return redirect('/');
             }
         } else {
-            return redirect('https://oauth.vk.com/authorize?client_id=' . $client_id . '&display=page&redirect_uri=http://' . $redirect_uri . '/vklogin&scope=friends,photos,status,offline,&response_type=code&v=5.53');
+            return redirect('https://oauth.vk.com/authorize?client_id=' . $client_id . '&display=page&redirect_uri=https://' . $redirect_uri . '/vklogin&scope=friends,photos,status,offline,&response_type=code&v=5.53');
         }
     }
     public function fblogin(Request $r) {
         $client_id = '191108368444968';
         $client_secret = 'e6aa7a8775320c78b4762062d1130dc2';
-        $redirect_uri = 'cases/';
+        $redirect_uri = 'bww.by';
 
         if (!is_null($r->code)) {
 
@@ -80,7 +80,7 @@ class LoginController extends Controller {
                     if (array_key_exists('picture', $info)) {
                         $photo = $info['picture']['data']['url'];
                     } else {
-                        $photo = 'http://vk.com/images/camera_200.png';
+                        $photo = 'https://vk.com/images/camera_200.png';
                     }
 
                     $user = User::create([
@@ -96,7 +96,7 @@ class LoginController extends Controller {
                     if (array_key_exists('picture', $info)) {
                        $photo = $info['picture']['data']['url'];
                     } else {
-                        $photo = 'http://vk.com/images/camera_200.png';
+                        $photo = 'https://vk.com/images/camera_200.png';
                     }
                     $user->username = $info['last_name'] . ' ' . $info['first_name'];
                     $user->avatar = $photo;
@@ -109,7 +109,7 @@ class LoginController extends Controller {
                 return redirect('/');
             }
         } else {
-            return redirect('https://graph.facebook.com/oauth/authorize?client_id=' . $client_id . '&display=page&redirect_uri=https://' . $redirect_uri . '/fblogin&scope=email,access_token,&response_type=code&v=5.53');
+            return redirect('https://graph.facebook.com/oauth/authorize?client_id=' . $client_id . '&display=page&redirect_uri=https://' . $redirect_uri . '/fblogin&scope=email,&response_type=code&v=5.53');
         }
     }
 
@@ -119,7 +119,7 @@ class LoginController extends Controller {
     }
 
     public function registerPost(Request $r) {
-        $photo = 'http://vk.com/images/camera_200.png';
+        $photo = 'https://vk.com/images/camera_200.png';
         $user = User::where('login', $r->login)->first();
         if ($user == NULL) {
             $user = User::create([
