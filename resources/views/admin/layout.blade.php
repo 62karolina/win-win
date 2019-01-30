@@ -21,7 +21,7 @@
     <link href="{{ asset('assets/admin/css/bootstrap-responsive.css') }}"  rel="stylesheet">
 
     <!-- JavaScript/jQuery, Pre-DOM -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     <script src="{{ asset('assets/admin/js/charts/excanvas.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/charts/jquery.flot.js') }}"></script>
@@ -31,7 +31,7 @@
 
     <!-- HTML5, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" tppabs="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" tppabs="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
 </head>

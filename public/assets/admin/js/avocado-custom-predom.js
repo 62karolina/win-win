@@ -33,7 +33,7 @@ $('.top-bar:has(ul)').css('padding-left', '0px');
 
 // Hide / Show Sidebar (Mobile)
 // -------------------------------------------------------------------
-// URL: http://jpanelmenu.com/
+// URL: https://jpanelmenu.com/
 // -------------------------------------------------------------------
 
 	var jPM = $.jPanelMenu({

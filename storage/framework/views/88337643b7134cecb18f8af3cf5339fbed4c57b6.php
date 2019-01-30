@@ -120,8 +120,8 @@
                             </div>
                             <div class="faq-block__answer text-block">9.1. Администрация сайта вправе вносить изменения в настоящую Политику конфиденциальности без согласия Пользователя.</div>
                             <div class="faq-block__answer text-block">9.2. Новая Политика конфиденциальности вступает в силу с момента ее размещения на Сайте интернет-магазина, если иное не предусмотрено новой редакцией Политики конфиденциальности.</div>
-                            <div class="faq-block__answer text-block">9.3. Все предложения или вопросы по настоящей Политике конфиденциальности следует сообщать http://ranbox.ru.net/help</div>
-                            <div class="faq-block__answer text-block">9.4. Действующая Политика конфиденциальности размещена на странице по адресу http://ranbox.ru.net/confidence</div>
+                            <div class="faq-block__answer text-block">9.3. Все предложения или вопросы по настоящей Политике конфиденциальности следует сообщать https://ranbox.ru.net/help</div>
+                            <div class="faq-block__answer text-block">9.4. Действующая Политика конфиденциальности размещена на странице по адресу https://ranbox.ru.net/confidence</div>
                         </div>
                     </div>
                 </div>
