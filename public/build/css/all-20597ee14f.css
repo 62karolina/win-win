@@ -11500,7 +11500,7 @@ a:active,a:focus,a:hover {
     display: block;
     height: auto;
     width: 100%;
-    background-color: #141a21;
+    background-color: #000000;
     border-radius: 8px;
     margin: 10px 0;
     padding: 20px;
@@ -11568,7 +11568,7 @@ a:active,a:focus,a:hover {
 }
 
 .box__name,.case-block__text span {
-    color: black;
+      color: black;
 }
 
 .box__float-button,.case-block__timer {
@@ -11598,7 +11598,7 @@ a:active,a:focus,a:hover {
 }
 
 .case-block__coin-img {
-    height: auto;
+    height: 75px;
     width: 150px;
     position: relative;
     display: inline-block;
@@ -13331,7 +13331,7 @@ a:active,a:focus,a:hover {
 }
 
 .cases-history__coin-img {
-    width: 100px;
+    width: 75px;
 }
 
 .cases-history .case-block .case-block__coin-glow {
@@ -14968,4 +14968,11 @@ a:active,a:focus,a:hover {
 .box-contest {
     height: 270.66666px;
     width: 31%;
+}
+.case-history__text {
+    color: #ddd!important;
+    font-size: 17px;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+             0px 8px 13px rgba(0,0,0,0.1),
+             0px 18px 23px rgba(0,0,0,0.1);
 }

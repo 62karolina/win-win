@@ -530,8 +530,10 @@ class PagesController extends Controller
             $drops = \DB::table('history')->where('user',$user->id)->limit(2000)->orderBy('id', 'desc')->get();
             $user->c = User::where('ref_use',$user->ref_code)->count();
             foreach($drops as $drop) {
-                $as = \DB::table('items')->where('id', $drop->item)->first();
-                $drop->image = $as->image;
+                $item = \DB::table('items')->where('id', $drop->item)->first();
+                $case = \DB::table('cases')->where('id', $drop->case)->first();
+                $drop->image = $item->image;
+                $drop->name = $case->name;
             }
             return view('pages.account', compact('user','drops'));
     }

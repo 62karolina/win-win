@@ -34,64 +34,32 @@
                                     &nbsp;<span>{{$user->open_box}}</span>
                                 </div>
                             </div>
-                            <div class="profile-row__user-stat-element"><img src="/build/img/stat-icon__normal-cases.png" alt="normal cases" class="profile-row__user-stat-icon">
+<!--                            <div class="profile-row__user-stat-element"><img src="/build/img/stat-icon__normal-cases.png" alt="normal cases" class="profile-row__user-stat-icon">
                                 <div class="profile-row__user-stat-text">Пригласил друзей:</div>
                                 <div class="profile-row__user-stat-text"><span>{{$user->c}}</span></div>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
                 <div class="row cases-history">
                     <div class="col-xs-12">
-                        <div class="cases-history_header text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">История открытий</div>
+                        <div class="cases-history_header text-block-black text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">История открытий</div>
                     </div>
 
                     @foreach($drops as $drop)
-                        @if($drop->case == 1)
-                            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-                                <div class="case-block case-block_gray">
-                                    <div class="case-block__img-wrapper">
-                                        <div class="case-block__coin-glow"></div>
-                                        <a href="/box/{{$drop->case}}">
-                                            <img src="{{$drop->image}}" alt="" class="cases-history__coin-img case-block__coin-img">
-                                        </a>
-                                    </div>
-                                    <div class="case-block__footer-line">
-                                        <div class="case-block__text"><a href="/box/{{$drop->case}}"><span>Коробка №{{$drop->case}}</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                        @if($drop->case == 2)
                                 <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="case-block case-block_green">
+                                    <a href="/box/{{$drop->case}}">
+                                    <div class="case-block case-block_gray">
                                         <div class="case-block__img-wrapper">
-                                            <div class="case-block__coin-glow"></div>
-                                            <a href="/box/{{$drop->case}}">
+                                            <div class="case-block__coin-glow"></div>                                           
                                                 <img src="{{$drop->image}}" alt="" class="cases-history__coin-img case-block__coin-img">
-                                            </a>
                                         </div>
                                         <div class="case-block__footer-line">
-                                            <div class="case-block__text"><a href="/box/{{$drop->case}}"><span>Коробка №{{$drop->case}}</span></a></div>
+                                            <div class="case-block__text "><a href="/box/{{$drop->case}}"><span class="case-history__text">{{$drop->name}}</span></a></div>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
-                        @endif
-                        @if($drop->case == 3)
-                                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-                                    <div class="case-block case-block_red">
-                                        <div class="case-block__img-wrapper">
-                                            <div class="case-block__coin-glow"></div>
-                                            <a href="/box/{{$drop->case}}">
-                                                <img src="{{$drop->image}}" alt="" class="cases-history__coin-img case-block__coin-img">
-                                            </a>
-                                        </div>
-                                        <div class="case-block__footer-line">
-                                            <div class="case-block__text"><a href="/box/{{$drop->case}}"><span>Коробка №{{$drop->case}}</span></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                        @endif
                     @endforeach
                 </div>
             </div>
