@@ -21,7 +21,7 @@
                             <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Можно ввести несколько промокодов?</div>
                             <div class="faq-block__answer text-block">Нет. Можно ввести и активировать только 1 промокод.</div>
                             <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Что дает промокод?</div>
-                            <div class="faq-block__answer text-block">Все промокоды зачисляют на баланс 50 рублей, которые вы можете использовать для открытия коробок.</div>
+                            <div class="faq-block__answer text-block">Все промокоды зачисляют на баланс 5 BYN, которые вы можете использовать для открытия коробок.</div>
                             <div class="help-padge__faq-block-header faq-block__header text-block-black text-block_fs_m text-block_tf_up text-block_color_black">Открытие коробок</div>
                             <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как это работает?</div>
                             <div class="faq-block__answer text-block">На сайте расположено 3 коробки-сюрпризов. Открывая коробку вы получаете один из двенадцати реальных предметов,
@@ -29,6 +29,12 @@
                                 Таким образом, вы можете получить дорогие и интересные товары по очень низким ценам.</div>
                             <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Мне точно выпадет какой-то товар?</div>
                             <div class="faq-block__answer text-block">Открывая коробку мы гарантируем, что вы точно получите один из двенадцати товаров. Открытие коробки в Win-Win Box аналогично киндер-сюрпризу, вы всегда получаете свой сюрприз.</div>
+                            <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Для чего нужны жетоны?</div>
+                            <div class="faq-block__answer text-block">Жетоны нужны, чтобы участвовать в розыгрыше призов. </div>
+                            <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как получить жетон?</div>
+                            <div class="faq-block__answer text-block">Открыв 5 коробок вы автоматически получаете 1 жетон.</div>
+                            <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как принять участие в розыгрыше?</div>
+                            <div class="faq-block__answer text-block">Чтобы принять участие в розыгреше перейдите в <a href="https://bww.by/contests">"Розыгрыши"</a>. Чем больше жетонов внесено, тем больше шанс на выигрыш.</div>
                             <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как открыть коробку и получить товар?</div>
                             <div class="faq-block__answer text-block">
                                 <ol>

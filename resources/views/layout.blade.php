@@ -53,7 +53,7 @@
                         <div class="nav-line__element">
                              <a href="/contests">
                                  <div class="nav-line__link  nav-line__link " >
-                                     Конкурсы
+                                     Розыгрыши
                                  </div>
                              </a>
                         </div>
@@ -111,7 +111,7 @@
                 </label>
                 <ul class="hidden-menu">
                   <li class="hidden-menu_li"><a href="/">Главная</a></li>
-                  <li class="hidden-menu_li"><a href="/contests">Конкурсы</a></li>
+                  <li class="hidden-menu_li"><a href="/contests">Розыгрыши</a></li>
                   <li class="hidden-menu_li"><a href="/delivery">Доставка</a></li>
 <!--                  <li class="hidden-menu_li"><a href="/opinions">Отзывы</a></li>-->
                   <li class="hidden-menu_li"><a href="/help">Помощь</a></li>
@@ -129,7 +129,7 @@
                  <div class="nav-line__element">
                     <a href="/contests">
                         <div class="nav-line__link  nav-line__link " >
-                             Конкурсы
+                             Розыгрыши
                         </div>
                     </a>
                  </div>
@@ -186,7 +186,7 @@
                      <div class="nav-line__element">
                          <a href="/contests">
                              <div class="nav-line__link  nav-line__link " >
-                                 Конкурсы
+                                 Розыгрыши
                              </div>
                          </a>
                      </div>
@@ -268,7 +268,7 @@
                              <div class="nav-line__element">
                                 <a href="/contests">
                                      <div class="nav-line__link  nav-line__link " >
-                                         Конкурсы
+                                         Розыгрыши
                                      </div>
                                 </a>
                              </div>
