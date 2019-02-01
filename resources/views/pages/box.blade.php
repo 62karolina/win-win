@@ -47,6 +47,7 @@
                                 <div class="box box_item_list box_nobg box_gray-box">
                                     <div class="box__bg-layout">
                                         <div class="box__bg-wrapper">
+
                                             <div class="box__bg box__bg_hov box__bg_gray"><img src="/build/img/box__gray-hov_min.png" alt="" class="box__bg-img"></div>
                                             <div class="box__bg box__box box__bg_gray box__bg-box"><img src="/build/img/box__gray-box_min.png" alt="" class="box__bg-img"></div>
                                         </div>
