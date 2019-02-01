@@ -214,7 +214,8 @@ class LoginController extends Controller {
     public function login() {
         $userNotFound = false;
         $passwordEmail = false;
-        return view('pages.login', compact('userNotFound', 'passwordEmail'));
+        $badGoogleCapcha = false;
+        return view('pages.login', compact('userNotFound', 'passwordEmail','badGoogleCapcha'));
     }
 
     public function changepass() {
