@@ -5,25 +5,25 @@
     <div class="container">
         <div class="row dark-card">
             <div class="dark-card address">
-                <div class="address__header text-block text-block_align_center text-block_fs_b text-block_tf_up">Вход: </div>
+                <div class="address__header text-block-black text-block_align_center text-block_fs_b text-block_tf_up">Вход: </div>
                 <div class="row">
                     @if($userNotFound)
-                        <div class="text-block text-block_tf_up register__input-header">Неправильный логин/пароль!</div>
+                        <div class="text-block-black text-block_tf_up register__input-header">Неправильный логин/пароль!</div>
                     @endif
                     @if($badGoogleCapcha)
-                        <div class="text-block text-block_tf_up register__input-header">Проверка на робота не пройдена!</div>
+                        <div class="text-block-black text-block_tf_up register__input-header">Проверка на робота не пройдена!</div>
                     @endif
                      @if($passwordEmail)
-                        <div class="text-block text-block_tf_up register__input-header">Новый пароль был отправлен на почтовый адрес указнный при регистрации!</div>
+                        <div class="text-block-black text-block_tf_up register__input-header">Новый пароль был отправлен на почтовый адрес указнный при регистрации!</div>
                     @endif
                     <form method="post" action="/login" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div style="margin-left: 25%;" class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                            <div class="text-block text-block_tf_up register__input-header">Логин</div>
+                            <div class="text-block-black text-block_tf_up register__input-header">Логин</div>
                             <div class="input-block">
                                 <input required class="input-block__input register__input" name="login" value="" data-error="Необходимо заполнить логин" title="">
                             </div>
-                            <div class="text-block text-block_tf_up register__input-header">Пароль</div>
+                            <div class="text-block-black text-block_tf_up register__input-header">Пароль</div>
                             <div class="input-block">
                                 <input required type="password" class="input-block__input register__input" name="password" value="" data-error="Необходимо заполнить пароль" title="">
                                 <a href="/changepass">
