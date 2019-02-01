@@ -312,7 +312,7 @@
                             <div class="pay-system__img-wrapper"><img src="/build/img/pay-icon_tele2.png" alt="Tele2" title="Tele2" class="pay-system__img"/></div>
                             <div class="pay-system__img-wrapper"><img src="/build/img/pay-icon_bee.png" alt="Beeline" title="Beeline" class="pay-system__img"/></div> --}}
                         </div>
-                        <div class="hidden"><a href="//www.free-kassa.com/"><img src="//www.free-kassa.ru/img/fk_btn/9.png"></a></div>
+<!--                        <div class="hidden"><a href="//www.free-kassa.com/"><img src="//www.free-kassa.ru/img/fk_btn/9.png"></a></div>-->
                     </div>
                     <div class="col-xs-12 col-sm-7 col-md-6 col-lg-5 col-lg-offset-3">
                         <div class="footer__vk-widgets">
@@ -333,15 +333,14 @@
                     <div class="col-xs-3 col-sm-4 col-md-6 col-lg-6">
                         <div class="footer__age-limit-wrapper">
                             <div class="info-ip">ИП Чурейно <br> УНП 590194207 <br> Регистрация №0413438, 09.07.2018</div>
-                            <div class="footer__copy-text text-block text-block_color_gray hidden-xs">Copyright © 2019 </div>
-                            <div class="age-limit">18+</div>
+                            <div class="footer__copy-text text-block text-block_color_gray hidden-xs"><div class="age-limit">18+</div> Copyright © 2019 </div>
 
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="footer__copy-text text-block text-block_color_gray text-block_align_center visible-xs">Copyright © 2019</div>
+                        <div class="footer__copy-text text-block text-block_color_gray text-block_align_center visible-xs"><div class="age-limit">18+</div> Copyright © 2019</div>
                     </div>
                 </div>
             </div>
@@ -399,7 +398,7 @@
             <div class="modal-window__img-wrapper pay-system__img-wrapper">
                 <img src="/build/img/pay-icon_mc-visa_l.png" alt="Банковская карта" title="Банковская карта" data-provider="card" data-currency="10" class="pay-system__img">
             </div>
-            <div class="modal-window__img-wrapper pay-system__img-wrapper">
+<!--            <div class="modal-window__img-wrapper pay-system__img-wrapper">
                 <img src="/build/img/pay-icon_ym_l.png" alt="Яндекс.Деньги" title="Яндекс.Деньги" data-provider="yadi" data-currency="21" class="pay-system__img">
             </div>
             <div class="modal-window__img-wrapper pay-system__img-wrapper">
@@ -416,7 +415,7 @@
             </div>
             <div class="modal-window__img-wrapper pay-system__img-wrapper">
                 <img src="/build/img/pay-icon_bee_l.png" alt="Beeline" title="Beeline" data-provider="beeline" data-currency="42" class="pay-system__img">
-            </div>
+            </div>-->
         </div>
     </div>
     <div class="modal-window__element modal-window__button-block">

@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-
+<script src='https://www.google.com/recaptcha/api.js?hl=ru'></script>
 <div class="content">
     <div class="container">
         <div class="row dark-card">
@@ -9,6 +9,9 @@
                 <div class="row">
                     @if($userNotFound)
                         <div class="text-block text-block_tf_up register__input-header">Неправильный логин/пароль!</div>
+                    @endif
+                    @if($badGoogleCapcha)
+                        <div class="text-block text-block_tf_up register__input-header">Проверка на робота не пройдена!</div>
                     @endif
                      @if($passwordEmail)
                         <div class="text-block text-block_tf_up register__input-header">Новый пароль был отправлен на почтовый адрес указнный при регистрации!</div>
@@ -29,6 +32,7 @@
                                  </div>
                              </a>
                             </div>
+                            <div class="g-recaptcha" data-theme="dark" data-sitekey="6Le_iI4UAAAAAAhQyAJJ4QdfvWAi5n-bp0tAh2Oz"></div>
                             <div style="margin-top: 15px;" class="address__button-line">
                                 <button type="submit" class="register__button button-rounding button-rounding_big button-rounding_long button-rounding_light">Войти</button>
                             </div>

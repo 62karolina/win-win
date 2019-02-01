@@ -25,8 +25,8 @@ class PagesController extends Controller
     const merchant_secret_1 = ''; //free-kassa
     const merchant_secret_2 = ''; //free-kassa
     const PROCENT_LOWER = 80; //Price lower than case price item
-    const DELIVERY_COST = 300; //Delivery price (RUB)
-    const REF_CODE_ADD = 50; //Amount (RUB) when entering ref code
+    const DELIVERY_COST = 5; //Delivery price (RUB)
+    const REF_CODE_ADD = 1; //Amount (RUB) when entering ref code
 
 
     public function success(){
@@ -481,6 +481,7 @@ class PagesController extends Controller
                     $contest = Contest::where('id',$t->contest_id)->first();
                     $item = Items::where('id',$contest->item_id)->first();
                     $t->item_image = $item->image;
+                    $t->contest_status = $contest->status;
                 }
             }
             if($dev != null && count($dev) != 0){
@@ -533,7 +534,7 @@ class PagesController extends Controller
                 $item = \DB::table('items')->where('id', $drop->item)->first();
                 $case = \DB::table('cases')->where('id', $drop->case)->first();
                 $drop->image = $item->image;
-                $drop->name = $case->name;
+                $drop->name = $case->name;             
             }
             return view('pages.account', compact('user','drops'));
     }

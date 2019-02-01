@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-
+<script src='https://www.google.com/recaptcha/api.js?hl=ru&theme=dark'></script>
 <div class="content">
     <div class="container">
         <div class="row dark-card">
@@ -9,6 +9,9 @@
                 <div class="row">
                     @if($user->userExist)
                         <div class="text-block text-block_tf_up register__input-header">Такой пользователь уже есть!!!</div>
+                    @endif
+                    @if($user->badGoogleCapcha)
+                        <div class="text-block text-block_tf_up register__input-header">Проверка на робота не пройдена!</div>
                     @endif
                     <form method="post" action="/register" class="form-horizontal">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -29,6 +32,7 @@
                             <div class="input-block">
                                 <input required type="password" class="input-block__input register__input" name="password" value="" data-error="Необходимо заполнить пароль" title="">
                             </div>
+                            <div class="g-recaptcha" data-theme="dark" data-sitekey="6Le_iI4UAAAAAAhQyAJJ4QdfvWAi5n-bp0tAh2Oz"></div>
                             <div class="address__button-line">
                                 <button type="submit" class="register__button button-rounding button-rounding_big button-rounding_long button-rounding_light">Зарегистрироваться</button>
                             </div>

@@ -20,7 +20,7 @@
                     </div>
                     <div class="reviews-block__reviews-card-wrapper">
                         <div class="reviews-block__reviews-card">
-                            <div class="post" id="post2299" data-id="2299" data-code="kVnAGto4KqG4ZIgzhpey6bQ0rTB0" style="width: 100%; height: 503px; background: none;">
+<!--                            <div class="post" id="post2299" data-id="2299" data-code="kVnAGto4KqG4ZIgzhpey6bQ0rTB0" style="width: 100%; height: 503px; background: none;">
                                 <iframe name="fXD9ff3b" frameborder="0" src="https://vk.com/widget_post.php?app=0&amp;width=100%25&amp;_ver=1&amp;owner_id=-136259034&amp;post_id=2299&amp;hash=kVnAGto4KqG4ZIgzhpey6bQ0rTB0&amp;startWidth=600&amp;url=http%3A%2F%2Franbox.ru.net%2Fopinions&amp;referrer=http%3A%2F%2Franbox.ru.net%2Fdelivery&amp;title=%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B%20%E2%80%94%20Ranbox&amp;15b6c0349d9" width="100%" height="90" scrolling="no" id="vkwidget2" style="overflow: hidden; height: 503px;"></iframe></div>
                         </div>
                         <div class="reviews-block__reviews-card">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="reviews-block__reviews-card">
                             <div class="post" id="post2041" data-id="2041" data-code="dn70_WHADAqK3CX8Y97VpSx1G38h" style="width: 100%; height: 543px; background: none;"><iframe name="fXD4b337" frameborder="0" src="https://vk.com/widget_post.php?app=0&amp;width=100%25&amp;_ver=1&amp;owner_id=-136259034&amp;post_id=2041&amp;hash=dn70_WHADAqK3CX8Y97VpSx1G38h&amp;startWidth=600&amp;url=http%3A%2F%2Franbox.ru.net%2Fopinions&amp;referrer=http%3A%2F%2Franbox.ru.net%2Fdelivery&amp;title=%D0%9E%D1%82%D0%B7%D1%8B%D0%B2%D1%8B%20%E2%80%94%20Ranbox&amp;15b6c0349e6" width="100%" height="90" scrolling="no" id="vkwidget11" style="overflow: hidden; height: 543px;"></iframe></div>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="box__button-wrapper">
                         <button class="box__button" id="nextOpinions">Показать ещё</button>
