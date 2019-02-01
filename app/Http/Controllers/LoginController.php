@@ -119,40 +119,86 @@ class LoginController extends Controller {
     }
 
     public function registerPost(Request $r) {
-        $photo = 'https://vk.com/images/camera_200.png';
-        $user = User::where('login', $r->login)->first();
-        if ($user == NULL) {
-            $user = User::create([
-                        'username' => $r->name,
-                        'email' => $r->email,
-                        'login' => $r->login,
-                        'avatar' => $photo,
-                        'password' => Hash::make($r->password),
-                        'ref_code' => $this->generate(),
-                        'nick' => $this->generate_name()
-            ]);
-            Auth::login($user, true);
-            return redirect('/');
+        if (isset($_POST['g-recaptcha-response'])) {
+            $url_to_google_api = "https://www.google.com/recaptcha/api/siteverify";
+            $secret_key = '6Le_iI4UAAAAALWojwsT7PymKfPTwX5Q2vMuh8GX';
+            $query = $url_to_google_api . '?secret=' . $secret_key . '&response=' . $_POST['g-recaptcha-response'] . '&remoteip=' . $_SERVER['REMOTE_ADDR'];
+            $data = json_decode(file_get_contents($query));
+            if ($data->success) {
+                $photo = 'https://vk.com/images/camera_200.png';
+                $user = User::where('login', $r->login)->first();
+                if ($user == NULL) {
+                    $user = User::create([
+                                'username' => $r->name,
+                                'email' => $r->email,
+                                'login' => $r->login,
+                                'avatar' => $photo,
+                                'password' => Hash::make($r->password),
+                                'ref_code' => $this->generate(),
+                                'nick' => $this->generate_name()
+                    ]);
+                    Auth::login($user, true);
+                    return redirect('/');
+                } else {
+                    $user = new User();
+                    $user->name = $r->name;
+                    $user->email = $r->email;
+                    $user->login = $r->login;
+                    $user->password = "";
+                    $user->userExist = true;
+                    $user->badGoogleCapcha = false;
+                    return view('pages.register', compact('user'));
+                }
+            } else {
+                $user = new User();
+                $user->name = $r->name;
+                $user->email = $r->email;
+                $user->login = $r->login;
+                $user->password = "";
+                $user->userExist = false;
+                $user->badGoogleCapcha = true;
+                return view('pages.register', compact('user'));
+            }
         } else {
             $user = new User();
             $user->name = $r->name;
             $user->email = $r->email;
             $user->login = $r->login;
             $user->password = "";
-            $user->userExist = true;
+            $user->userExist = false;
+            $user->badGoogleCapcha = true;
             return view('pages.register', compact('user'));
         }
     }
 
     public function loginPost(Request $r) {
-        $user = User::where('login', $r->login)->first();
-        if ($user != NULL && Hash::check($r->password, $user->password)) {
-            Auth::login($user, true);
-            return redirect('/');
+        if (isset($_POST['g-recaptcha-response'])) {
+            $url_to_google_api = "https://www.google.com/recaptcha/api/siteverify";
+            $secret_key = '6Le_iI4UAAAAALWojwsT7PymKfPTwX5Q2vMuh8GX';
+            $query = $url_to_google_api . '?secret=' . $secret_key . '&response=' . $_POST['g-recaptcha-response'] . '&remoteip=' . $_SERVER['REMOTE_ADDR'];
+            $data = json_decode(file_get_contents($query));
+            if ($data->success) {
+                $user = User::where('login', $r->login)->first();
+                if ($user != NULL && Hash::check($r->password, $user->password)) {
+                    Auth::login($user, true);
+                    return redirect('/');
+                }
+                $userNotFound = true;
+                $badGoogleCapcha = false;
+                $passwordEmail = false;
+                return view('pages.login', compact('userNotFound', 'passwordEmail','badGoogleCapcha'));
+            } else {
+                $userNotFound = false;
+                $badGoogleCapcha = true;
+                $passwordEmail = false;
+                return view('pages.login', compact('userNotFound', 'passwordEmail','badGoogleCapcha'));
+            }
+        } else {
+            $userNotFound = false;
+            $badGoogleCapcha = true;
+            $passwordEmail = false;
+            return view('pages.login', compact('userNotFound', 'passwordEmail','badGoogleCapcha'));
         }
-        $userNotFound = true;
-        $passwordEmail = false;
-        return view('pages.login', compact('userNotFound', 'passwordEmail'));
     }
 
     public function register() {
@@ -168,7 +214,8 @@ class LoginController extends Controller {
     public function login() {
         $userNotFound = false;
         $passwordEmail = false;
-        return view('pages.login', compact('userNotFound', 'passwordEmail'));
+        $badGoogleCapcha = false;
+        return view('pages.login', compact('userNotFound', 'passwordEmail','badGoogleCapcha'));
     }
 
     public function changepass() {

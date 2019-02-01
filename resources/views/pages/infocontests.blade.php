@@ -12,7 +12,7 @@
         <div class="container">
             <div class="row dark-card">
                 <div class="head-xs-12">
-                    <div class="help-padge__header text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Информация о конкурсе &ldquo;{{$contest->name}}&rdquo;</div>
+                    <div class="help-padge__header text-block text-block_align_center text-block_fs_b text-block_tf_up text-block_fw_bold">Информация о розыгрыше &ldquo;{{$contest->name}}&rdquo;</div>
                 </div>
                 <div class="license_block-xs-12 license_block-sm-12 license_block-md-6 license_block-lg-7 ">
                         <div class="infocontest_image" >

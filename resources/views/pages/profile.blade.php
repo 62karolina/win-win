@@ -308,14 +308,18 @@
                 <div class="row cases-history">
                     @foreach($tickets as $ticket)
                         <div class="box-ticket" id="ticket-{{$ticket->id}}">
+                            @if($ticket->contest_status != 3)
+                            <div class="coin-block-min coin-block-min_red">
+                            @else
                             <div class="coin-block-min coin-block-min_silver">
+                            @endif
                                 <div class="coin-block-min__coin-glow">
                                     
                                 </div>
                                 <img src="{{$ticket->item_image}}" alt="coin25" class="coin-block-min__coin-img">
                                 <div class="coin-block-min__ava-link">
                                     <div class="circle-ava">
-                                        <a href="/infocontest/{{$ticket->id}}">
+                                        <a href="/infocontests/{{$ticket->contest_id}}">
                                             <div class="ticket-value">{{$ticket->number}}</div>
                                         </a>
                                     </div>

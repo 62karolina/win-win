@@ -11321,13 +11321,15 @@ if (function(l, doc) {
         headers: {
             "X-XSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         }
-    }), VK.Widgets.Group("vk_groups", {
-        mode: 3,
-        width: "290",
-        color1: "0B0E13",
-        color2: "FFFFFF",
-        color3: "F4BB2B"
-    }, 136259034), $(".modal-toggle").click(function() {
+    }),
+//       VK.Widgets.Group("vk_groups", {
+//        mode: 3,
+//        width: "290",
+//        color1: "0B0E13",
+//        color2: "FFFFFF",
+//        color3: "F4BB2B"
+//    }, 136259034), 
+            $(".modal-toggle").click(function() {
         return update($(this).attr("data-toggle"));
     }), $(".modal-window__close-button").click(function() {
         return $(".modal-layout").hide(), $(".modal-window").hide(), $("body").css("overflow", "auto").css("padding-right", 0),
@@ -11351,7 +11353,7 @@ if (function(l, doc) {
         var body = $("#add-cash .modal-window__img-wrapper_select img");
         if (!body.length) return alert("Выберите способ оплаты!"), !1;
         var elapsed = parseInt($("#add-cash input").val());
-        return elapsed < 100 ? (alert("Минимальная сумма пополнения 100 рублей!"),
+        return elapsed < 2 ? (alert("Минимальная сумма пополнения 2 рубля!"),
                 !1) : void $.ajax({
                 url: "/pay",
                 type: "get",
@@ -11480,7 +11482,7 @@ if (function(l, doc) {
                             break;
 
                         case 400:
-                            update("need-money"), $("#need-money span.amount").html((parseInt($(".user-balance").html()) - 300) * -1);
+                            update("need-money"), $("#need-money span.amount").html((parseInt($(".user-balance").html()) - 5) * -1);
                             break;
 
                         case 500:
