@@ -15,10 +15,12 @@
                                         <img  src="{{$case->image}}" alt="{{$case->name}}" title="" class="box__img__main box__img">
 
 
-                                        <div class="box__bg box__box box__bg_gray">
-                                            <span class="box__price__text text-block-black">{{$case->price}} BYN</span>
 
-                                        </div>
+                                        <div class="line"><img  src="/build/img/cases/poloska.png" alt="" >
+                                         <span class="box__price__text text-block-black">{{$case->price}} BYN</span>
+                                         </div>
+
+
                                     </div>
                                 </div>
                             </div>

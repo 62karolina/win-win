@@ -11917,8 +11917,23 @@ a:active,a:focus,a:hover {
         height: 250px;
         width: 250px;
     }
+
+    .polprice{
+        width: 100%;
+        margin: 0 0 0 0;
+    }
 }
 
+.line{
+    width: 100%;
+    margin: 0 0 0 0;
+}
+
+.box__img__main:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
 
 .box__float-button-wrapper_top {
     top: 75px;
@@ -15047,7 +15062,7 @@ a:active,a:focus,a:hover {
         max-width: 100%;
     }
     .box__img__main {
-        margin: 7% 5% 7% 5%
+        margin: 7% 5% 7% 5%;
         z-index: 1;
         height: 250px;
         width: 250px;
