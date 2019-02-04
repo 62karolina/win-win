@@ -13,12 +13,12 @@
                                 <div class="box__bg-layout">
                                     <div class="box__bg-wrapper box_bg-wrapper_index">
                                         <img  src="{{$case->image}}" alt="{{$case->name}}" title="" class="box__img__main box__img">
+                                        <div class="round">   <div class="text_round"> {{$case->price}} BYN</div>
+</div>
 
+                                           <!-- <div class="line"><img  src="/build/img/cases/poloska.png" alt="" >
 
-
-                                        <div class="line"><img  src="/build/img/cases/poloska.png" alt="" >
-                                         <span class="box__price__text text-block-black">{{$case->price}} BYN</span>
-                                         </div>
+                                         </div>-->
 
 
                                     </div>
