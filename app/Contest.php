@@ -18,7 +18,7 @@ class Contest extends Model
      *
      * @var array
      */
-    protected $fillable = ['status','end_at', 'item_id', 'user_win_id', 'ticket_price'];
+    protected $fillable = ['status','end_at', 'item_id', 'user_win_id', 'ticket_price','ticket_id_win','end_ticket'];
 
     public $timestamps = false;
 

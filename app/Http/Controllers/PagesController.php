@@ -74,7 +74,8 @@ class PagesController extends Controller
         }
         $players = Contest_ticket::where('contest_id', $id)->count();
         $player_win_rate=round(100/$players*$players_tickets,2);
-        return view('pages.infocontests', compact('contest', 'players', 'players_tickets','player_win_rate'));
+        $ticket_win=Contest_ticket::where('id', $contest->ticket_id_win)->first();
+        return view('pages.infocontests', compact('contest', 'players', 'players_tickets','player_win_rate','ticket_win'));
     }
 
     public function box($id){
@@ -105,48 +106,55 @@ class PagesController extends Controller
         if(!Auth::check()){return response()->json(['status' => 403]);}
         $contest =  Contest::where('id',$r->id)->first();
         $user = Auth::user();
+        $contestTikcetCount = Contest_ticket::where('contest_id', $r->id)->orderBy('id', 'desc')->count();
         $contestTikcet = Contest_ticket::where('contest_id', $r->id)->orderBy('id', 'desc')->first();
-        if($user->contests_ticket == 0){
-            $open_cases = $user->open_box;
-            while (1==1){
-                if ($open_cases % 5 != 0){
-                    $open_cases += 1;
-                } else {
-                    break;
+        if($contestTikcetCount < $contest->end_ticket){
+            if($user->contests_ticket == 0){
+                $open_cases = $user->open_box;
+                while (1==1){
+                    if ($open_cases % 5 != 0){
+                        $open_cases += 1;
+                    } else {
+                        break;
+                    }
                 }
-            }
-            $need_cases = $open_cases - $user->open_box == 0 ? 5: $open_cases - $user->open_box;
-            return response()->json([
-                'status' => 401,
-                'need_cases'=> $need_cases
-                ]);
-            
-        }
-        $user->contests_ticket = $user->contests_ticket - 1;
-        $number = $contestTikcet ? $contestTikcet->number+1 : 1;
-        $user->save();
-                Contest_ticket::create([
-                    'user_id' => $user->id,
-                    'contest_id' =>  $contest->id,
-                    'number' => $number,
-                ]);
-        $players_tickets = Contest_ticket::where('contest_id', $r->id)->where('user_id', $user->id)->count();
-        $players = Contest_ticket::where('contest_id', $r->id)->count();
-        $player_win_rate=round(100/$players*$players_tickets,2);
-//                History::create([
-//                    'user' => $user->id,
-//                    'item' => $win->id,
-//                    'case' => $case->id
-//                ]);
+                $need_cases = $open_cases - $user->open_box == 0 ? 5: $open_cases - $user->open_box;
                 return response()->json([
-                    'status' => 200,
-                    'contests_ticket' => $user->contests_ticket,
-                    'balance' => $user->money,
-                    'number' => $number,
-                    'players_tickets' => $players_tickets,
-                    'players' => $players,
-                    'player_win_rate' => $player_win_rate
+                    'status' => 401,
+                    'need_cases'=> $need_cases
+                    ]);
+
+            }
+            $user->contests_ticket = $user->contests_ticket - 1;
+            $number = $contestTikcet ? $contestTikcet->number+1 : 1;
+            $user->save();
+                    Contest_ticket::create([
+                        'user_id' => $user->id,
+                        'contest_id' =>  $contest->id,
+                        'number' => $number,
+                    ]);
+            $players_tickets = Contest_ticket::where('contest_id', $r->id)->where('user_id', $user->id)->count();
+            $players = Contest_ticket::where('contest_id', $r->id)->count();
+            $player_win_rate=round(100/$players*$players_tickets,2);
+    //                History::create([
+    //                    'user' => $user->id,
+    //                    'item' => $win->id,
+    //                    'case' => $case->id
+    //                ]);
+                    return response()->json([
+                        'status' => 200,
+                        'contests_ticket' => $user->contests_ticket,
+                        'balance' => $user->money,
+                        'number' => $number,
+                        'players_tickets' => $players_tickets,
+                        'players' => $players,
+                        'player_win_rate' => $player_win_rate
+                    ]);
+        } else {
+            return response()->json([
+                'status' => 402
                 ]);
+        }
 
     }
     

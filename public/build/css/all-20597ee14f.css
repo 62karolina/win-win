@@ -14957,7 +14957,7 @@ a:active,a:focus,a:hover {
 }
 .contest_info_row{
     margin: 10px 0;
-    font-size: 18px;
+    font-size: 17px;
     border-bottom: 2px solid #f4bc2a;
 }
 .contest_info_row_win_rate{
@@ -15134,4 +15134,8 @@ div.technical{
     .technical-hide {
         display: none;
     }
+}
+.contest_end_row{
+    color: #e60101;
+    font-size: 21px;
 }
