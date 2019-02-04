@@ -20,7 +20,6 @@
                         </div>
                         <div class="contest_info" >
                             Информация
-                            <div class="infocontest_info">Цена ставки: {{$contest->ticket_price}} BYN
                                 <div class="infocontest_description"> {{$contest->note}}Описание: </div>
                             </div>
                         </div>
