@@ -11922,6 +11922,23 @@ a:active,a:focus,a:hover {
         width: 100%;
         margin: 0 0 0 0;
     }
+    .round {
+        width: 75px;
+        height: 75px;
+        border-style: dashed;
+        border-radius: 50%;
+        border-color: #F4BC2A;
+        margin: 5px;
+        background: #d80c0c;
+
+    }
+    .text_round{
+        text-align: center;
+        line-height: 5em;
+        color: #000000;
+        font-family: initial;
+        font-weight: bold;
+    }
 }
 
 .line{
@@ -12028,6 +12045,22 @@ a:active,a:focus,a:hover {
         z-index: 1;
         height: 250px;
         width: 250px;
+    }
+    .round {
+        width: 75px;
+        height: 75px;
+        border-style: dashed;
+        border-radius: 50%;
+        border-color: #F4BC2A;
+        margin: 5px 0px 0px -27px;
+        background: #d80c0c;
+    }
+    .text_round{
+        text-align: center;
+        line-height: 5em;
+        color: #000000;
+        font-family: initial;
+        font-weight: bold;
     }
 }
 @media (min-width: 1200px) {
@@ -15050,6 +15083,8 @@ a:active,a:focus,a:hover {
         height: 250px;
         width: 250px;
     }
+
+
 }
 
 @media (max-width: 669px){
