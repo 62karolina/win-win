@@ -20,12 +20,18 @@
                         </div>
                         <div class="contest_info" >
                             Информация
-                            <div class="infocontest_info">Цена ставки: {{$contest->ticket_price}} BYN
-                                <div class="infocontest_description"> {{$contest->note}} Цена ставки:</div>
+                                <div class="infocontest_description"> {{$contest->note}}Описание: </div>
                             </div>
                         </div>
                         <div class="infocontests_player"> 
-                            <div class="contest_info_row">Количество ставок: <span class="players">{{$players}}</span></div>   
+                            @if($contest->status == 3)
+                            <div class="contest_end_row">Розыгрышь окончен!</div>
+                            <div class="contest_info_row">Выигрышный номер: <span class="players">{{$ticket_win->number}}</span></div> 
+                            @endif
+                            @if($contest->status == 2)
+                            <div class="contest_end_row">Прием ставок завершен!</div>  
+                            @endif
+                            <div class="contest_info_row">Количество ставок: <span class="players">{{$players}}</span> из <span class="players">{{$contest->end_ticket}}</span></div>   
                             @if(Auth::guest())
                             <div style = "display:inline-block;" class="header-row__login-button">
                                 <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="login">Авторизация</button>
@@ -36,7 +42,9 @@
                             <input type="hidden"  value="{{$contest->id}}" id="contest_id">
                             <div class="form-actions">
                                 <!--<button type="submit" id="bye-ticket" class="btn btn-contests" >Стоимость ставки {{$contest->ticket_price}} BYN</button>-->
+                               @if($contest->status == 1)
                                 <button type="submit" id="bye-ticket" class="btn btn-contests" >Сделать ставку!</button>
+                               @endif
                             </div>
                             @endif
                         </div>
