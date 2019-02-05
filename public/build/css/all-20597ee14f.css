@@ -11867,7 +11867,7 @@ a:active,a:focus,a:hover {
         width: 52%;
         padding: 36px 0 10px 0px;
         text-align: center;
-        line-height: 413px;
+        line-height: 200px;
         vertical-align: middle;
     }
 }
@@ -12083,11 +12083,11 @@ a:active,a:focus,a:hover {
 }
 
 .box__name {
-    width: 90%;
+    width: 190px;
     font: 15px ptsans,Helvetica,Arial,sans-serif;
     font-weight: 400;
     text-align: center;
-    line-height: 20xpx;
+    line-height: 20px;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -15073,10 +15073,11 @@ a:active,a:focus,a:hover {
     .box__img {
         display: inline-block;
         position: relative;
-        margin-top: -160px;
         height: 110px;
+        margin: 8px 83px 34px 37px;
         width: 110px;
         max-width: 100%;
+        margin-top: 75px!important;
     }
     .box__img__main {
         margin: 8% 15% 7% 15%;
@@ -15092,10 +15093,11 @@ a:active,a:focus,a:hover {
     .box__img {
         display: inline-block;
         position: relative;
-        margin-top: -160px;
+        margin: 8px 36px 34px 37px;
         height: 110px;
         width: 110px;
-        max-width: 100%;
+        max-width: 100px;
+        margin-top: 75px!important;
     }
     .box__img__main {
         margin: 7% 5% 7% 5%;
