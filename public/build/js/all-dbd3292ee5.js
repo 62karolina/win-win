@@ -11522,7 +11522,7 @@ if (function(l, doc) {
                             _test.spin(response.number),
                                 $("#win-name").html(response.name),
                                 $(".game-win__block-prize-img").attr("src",response.image),
-                                $("#win-sale-item span.price").html(response.price_sale-(response.price_sale*20/100).toFixed(2)),
+                                $("#win-sale-item span.price").html((response.price_sale-(response.price_sale*20/100)).toFixed(2)),
                                 $("#user-item-id").val(response.user_item_id),
                                 $(".user-balance").numerator({
                                     easing: "linear",
