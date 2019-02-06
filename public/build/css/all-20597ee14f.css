@@ -11718,7 +11718,7 @@ a:active,a:focus,a:hover {
 }
 
 .box_nobg .box__header-line {
-    padding: 50px 0 0!important;
+    padding: 50px 8px 0!important;
 }
 
 .box__cart-line {
