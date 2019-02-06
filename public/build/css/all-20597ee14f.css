@@ -11942,12 +11942,14 @@ a:active,a:focus,a:hover {
     margin: 0 0 0 0;
 }
 
-.box__img__main:hover {
+.box:hover  .name_box {
+    color: #d80c0c;
+}
+.box:hover  .box__img__main {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
 }
-
 .box__float-button-wrapper_top {
     top: 75px;
 }
@@ -12058,6 +12060,23 @@ a:active,a:focus,a:hover {
         font-family: initial;
         font-weight: bold;
     }
+
+}
+.name_box{
+     display: inline-block;
+     font-style: normal;
+     margin: 32px 3px 8px 50px;
+     font-weight: bold;
+     text-align: center;
+     color: #000000;
+ }
+.name_box:hover{
+    display: inline-block;
+    font-style: normal;
+    margin: 32px 3px 8px 50px;
+    font-weight: bold;
+    text-align: center;
+    color: #0a9878;
 }
 @media (min-width: 1200px) {
     .box__header-line {

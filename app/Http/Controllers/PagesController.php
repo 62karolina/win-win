@@ -58,6 +58,7 @@ class PagesController extends Controller
         return view('pages.confidence');
     }
 
+
     public function infocontests($id){
 
         $contest = Contest::where('id',$id)->first();

@@ -42,6 +42,7 @@ class AdminController extends Controller {
         return view('admin.cases', compact('cases'));
     }
 
+
     public function items() {
         $cases = \DB::table('items')->orderBy('case', 'asc')->paginate(100000);
         foreach ($cases as $i) {
