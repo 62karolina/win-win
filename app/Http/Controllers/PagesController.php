@@ -106,9 +106,7 @@ class PagesController extends Controller
         if(!Auth::check()){return response()->json(['status' => 403]);}
         $contest =  Contest::where('id',$r->id)->first();
         $user = Auth::user();
-        $contestTikcetCount = Contest_ticket::where('contest_id', $r->id)->orderBy('id', 'desc')->count();
         $contestTikcet = Contest_ticket::where('contest_id', $r->id)->orderBy('id', 'desc')->first();
-        if($contestTikcetCount < $contest->end_ticket){
             if($user->contests_ticket == 0){
                 $open_cases = $user->open_box;
                 while (1==1){
@@ -150,12 +148,6 @@ class PagesController extends Controller
                         'players' => $players,
                         'player_win_rate' => $player_win_rate
                     ]);
-        } else {
-            return response()->json([
-                'status' => 402
-                ]);
-        }
-
     }
     
   public function open(Request $r){

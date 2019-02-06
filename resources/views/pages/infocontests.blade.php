@@ -31,7 +31,11 @@
                             @if($contest->status == 2)
                             <div class="contest_end_row">Прием ставок завершен!</div>  
                             @endif
-                            <div class="contest_info_row">Количество ставок: <span class="players">{{$players}}</span> из <span class="players">{{$contest->end_ticket}}</span></div>   
+                            <div class="contest_info_row">Количество ставок: <span class="players">{{$players}}</span> 
+                                 @if($contest->end_ticket > $players)
+                                из <span class="players">{{$contest->end_ticket}}</span>
+                                @endif
+                            </div>   
                             @if(Auth::guest())
                             <div style = "display:inline-block;" class="header-row__login-button">
                                 <button class="button-rounding button-rounding_big button-rounding_light modal-toggle" data-toggle="login">Авторизация</button>
