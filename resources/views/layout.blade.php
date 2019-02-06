@@ -490,21 +490,6 @@
         </a>
     </div>
 </div>        <div class="modal-layout"></div>
-<div id="limit-ticket" class="modal-window modal-window_size_s">
-    <div class="modal-window__header-wrapper text-block_align_center">
-        <div class="modal-window__header ">
-            <span> Билеты на данный розыгрышь закончились!</span>
-            <div class="modal-window__header-border"></div>
-        </div>
-    </div>
-    <div style="font-size:19px;" class="text-block text-block_color_gray text-block_align_center">На данный розыгрышь все билеты уже заняты, пожалуйста выберите другой розыгрышь</div>
-    <div class="modal-window__element modal-window__button-block">
-        <button class="hide-modal modal-window__button button-rounding button-rounding_big button-rounding_vlong button-rounding_light modal-toggle" data-toggle="add-cash">Ок</button>
-           <a href="/contests">
-        Список розыгрышей
-        </a>
-    </div>
-</div>        <div class="modal-layout"></div>
 <!-- scripts -->
 
 <script src="//vk.com/js/api/openapi.js?136"></script>

@@ -11602,12 +11602,6 @@ if (function(l, doc) {
                               }
                               update("need-ticket"), $("#need-ticket span.amount").html(response.need_cases +' '+ text);
                             break;
-                            case 402:
-//                            update("need-money"), $("#need-money span.amount").html((parseInt($(".user-balance").html()) - parseInt(window.button_price)) * -1),
-//                                $("#button-game-again").click();
-                              update("limit-ticket");
-                            break;
-
                         case 403:
                             update("login"), $("#button-game-again").click();
                     }
