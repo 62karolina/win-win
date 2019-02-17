@@ -15,7 +15,7 @@
                                 <div class="name_box">{{$case->name}}</div>
                                 <div class="box__bg-layout">
                                     <div class="box__bg-wrapper box_bg-wrapper_index">
-                                         <img  src="{{$case->image}}" alt="{{$case->name}}" title="" class="box__img__main box__img">
+                                         <img  src="{{$case->image}}" alt="{{$case->name}}" title="" class="box__img__main">
                                          <div class="round">   <div class="text_round"> {{$case->price}} BYN</div></div>
                                     </div>
                                 </div>
