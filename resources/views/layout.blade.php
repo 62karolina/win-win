@@ -333,6 +333,7 @@
                     <div class="col-xs-3 col-sm-4 col-md-6 col-lg-6">
                         <div class="footer__age-limit-wrapper">
                             <div class="info-ip">ИП Чурейно <br> УНП 590194207 <br> Регистрация №0413438, 09.07.2018</div>
+                            <div class="info-ip">Дата регистрации в торговом реестре: 13.02.2019</div>
                             <div class="footer__copy-text text-block text-block_color_gray hidden-xs"><div class="age-limit">18+</div> Copyright © 2019 </div>
 
                         </div>
