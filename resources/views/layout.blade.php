@@ -260,35 +260,35 @@
                         <nav class="nav-line footer__nav">
                             <div class="nav-line__element footer__nav-element">
                                 <a href="/">
-                                    <div class="nav-line__link  nav-line__link_active " >
+                                    <div class="nav-line__link_foot  nav-line__link_active " >
                                         Коробки
                                     </div>
                                 </a>
                             </div>
                              <div class="nav-line__element">
                                 <a href="/contests">
-                                     <div class="nav-line__link  nav-line__link " >
+                                     <div class="nav-line__link_foot  nav-line__link_foot " >
                                          Розыгрыши
                                      </div>
                                 </a>
                              </div>
                             <div class="nav-line__element footer__nav-element">
                                 <a href="/delivery">
-                                    <div class="nav-line__link " >
+                                    <div class="nav-line__link_foot " >
                                         Доставка
                                     </div>
                                 </a>
                             </div>
                         <!--   <div class="nav-line__element footer__nav-element">
                                 <a href="/opinions">
-                                    <div class="nav-line__link " >
+                                    <div class="nav-line__link_foot " >
                                         Отзывы
                                     </div>
                                 </a>
                             </div> -->
                             <div class="nav-line__element footer__nav-element">
                                 <a href="/help">
-                                    <div class="nav-line__link " >
+                                    <div class="nav-line__link_foot " >
                                         Помощь
                                     </div>
                                 </a>
@@ -306,6 +306,7 @@
                         <div class="pay-system">
                             <div class="pay-system__img-wrapper"><img src="/build/img/pay-icon_mc.png" alt="MasterCard" title="MasterCard" class="pay-system__img"/></div>
                             <div class="pay-system__img-wrapper"><img src="/build/img/pay-icon_visa.png" alt="Visa" title="Visa" class="pay-system__img"/></div>
+                            <div class="pay-system__img-wrapper"><img src="/build/img/180.png" alt="Alfa-Bank" title="Alfa-Bank" class="pay-system__img"/></div>
                            {{-- <div class="pay-system__img-wrapper"><img src="/build/img/pay-icon_ym.png" alt="Яндекс.Деньги" title="Яндекс.Деньги" class="pay-system__img"/></div>
                             <div class="pay-system__img-wrapper"><img src="/build/img/pay-icon_qiwi.png" alt="Qiwi" title="Qiwi" class="pay-system__img"/></div>
                             <div class="pay-system__img-wrapper"><img src="/build/img/pay-icon_mts.png" alt="МТС" title="МТС" class="pay-system__img"/></div>

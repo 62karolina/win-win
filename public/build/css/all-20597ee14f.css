@@ -10763,6 +10763,15 @@ a:active,a:focus,a:hover {
     -webkit-transition: all .3s;
     transition: all .3s;
 }
+.nav-line__link_foot {
+    font-weight: 500;
+    color: #6A747F;
+    line-height: 33px;
+    text-align: center;
+    user-select: none;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
 
 .news-block__header,.user-block__name {
     font: 14px ptsans,Helvetica,Arial,sans-serif;
