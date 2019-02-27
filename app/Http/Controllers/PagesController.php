@@ -30,7 +30,7 @@ class PagesController extends Controller
     const PAY_USERNAME = 'bww.by-api'; // alfa user
     const PAY_PASSWORD = 'qTSbfASg'; // alfa user pass
     const GATEWAY_URL = 'https://web.rbsuat.com/ab_by/rest/'; // alfa api url
-    const RETURN_URL = 'https://bww.by/getPayment/?XDEBUG_SESSION_START=netbeans-xdebug'; // return url after pay
+    const RETURN_URL = 'https://bww.by/getPayment/'; // return url after pay
 
 
     public function success(){
@@ -342,7 +342,7 @@ class PagesController extends Controller
     }
 
     public function getPayment(Request $request){
-            if (is_null($request->orderId)){
+            if (is_null($request->orderId) || $request->orderId ==''){
                  return redirect()->route('index');
             }
             $payment=   \DB::table('payments')
@@ -359,7 +359,7 @@ class PagesController extends Controller
                         'orderId' => $request->orderId
                     );
                     $response = $this->gateway('getOrderStatus.do', $data);
-                    if(!isset($response['OrderStatus']) &&  $response['OrderStatus']!=2 && $response['ErrorCode'] === 0 && $payment->amount != ($response['Amount']/100)){
+                    if(!isset($response['OrderStatus']) ||  $response['OrderStatus']!=2 || $response['ErrorCode'] != 0 || $payment->amount != ($response['Amount']/100)){
                         return redirect()->route('index');
                     }else{
                         $user = User::where('id', $payment->user)->first();
