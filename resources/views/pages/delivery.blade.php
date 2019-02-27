@@ -38,7 +38,7 @@
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Есть ли самовывоз?</div>
                         <div class="faq-block__answer text-block">Самовывоза нет, все товары доставляются только через Белпочту и транспортные компании.</div>
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как быстро производится доставка?</div>
-                        <div class="faq-block__answer text-block">Доставка товаров в пределах России производится в течение 30 дней с момента оформления заказа через Белпочту.</div>
+                        <div class="faq-block__answer text-block">Доставка товаров в пределах Республики Беларусь производится в течение 30 дней с момента оформления заказа через Белпочту.</div>
                         <div class="help-padge__faq-block-header faq-block__header text-block-black text-block_fs_m text-block_tf_up text-block_color_black">Оплата</div>
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как пополнить баланс?</div>
                         <div class="faq-block__answer text-block">Нажмите на кнопку “+” или “пополнить баланс” в верхней части сайта.<br>
