@@ -21,7 +21,7 @@ Route::post('/api/last', 'PagesController@last');
 Route::post('/sale', 'PagesController@sell');
 Route::post('/deliver', 'PagesController@deliver');
 Route::post('/activate', 'PagesController@activate');
-Route::post('/getPayment', 'PagesController@getPayment');
+Route::get('/getPayment', 'PagesController@getPayment');
 Route::post('/register', 'LoginController@registerPost');
 Route::post('/login', 'LoginController@loginPost');
 

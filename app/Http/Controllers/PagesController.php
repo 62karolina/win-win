@@ -27,6 +27,10 @@ class PagesController extends Controller
     const PROCENT_LOWER = 80; //Price lower than case price item
     const DELIVERY_COST = 5; //Delivery price (RUB)
     const REF_CODE_ADD = 1; //Amount (RUB) when entering ref code
+    const PAY_USERNAME = 'bww.by-api'; // alfa user
+    const PAY_PASSWORD = 'qTSbfASg'; // alfa user pass
+    const GATEWAY_URL = 'https://web.rbsuat.com/ab_by/rest/'; // alfa api url
+    const RETURN_URL = 'https://bww.by/getPayment/'; // return url after pay
 
 
     public function success(){
@@ -274,6 +278,28 @@ class PagesController extends Controller
         }
     }
 
+    // формирование url и ответ
+    function gateway($method, $data) {
+        $curl = curl_init(); //
+        $lol=array(
+            CURLOPT_URL => self::GATEWAY_URL . $method, //
+            CURLOPT_RETURNTRANSFER => true, //
+            CURLOPT_POST => true, // POST
+            CURLOPT_POSTFIELDS => http_build_query($data) //
+        );
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => self::GATEWAY_URL . $method, //
+            CURLOPT_RETURNTRANSFER => true, //
+            CURLOPT_POST => true, // POST
+            CURLOPT_POSTFIELDS => http_build_query($data) //
+        ));
+        $response = curl_exec($curl); //
+
+        $response = json_decode($response, true); // JSON
+        curl_close($curl); //
+        return $response; //
+    }
+
     public function pay(Request $r){
         $type = $r->provider;
         $amount = $r->amount;
@@ -281,7 +307,7 @@ class PagesController extends Controller
             if((int)$amount < 1){
                 $amount = 99;
             }
-
+            $amount=$amount;
             $int_id =  \DB::table('payments')->insertGetId([
                 'amount' => (int)$amount,
                 'user' => Auth::user()->id,
@@ -290,26 +316,24 @@ class PagesController extends Controller
             ]);
             $orderID = $int_id;
 
-            $sign = md5(self::merchant_id.':'.$amount.':'.self::merchant_secret_1.':'.$orderID);
-            if($type == 'qiwi'){
-                $url = 'https://www.free-kassa.ru/merchant/cash.php?m='.self::merchant_id.'&oa='.$amount.'&o='.$orderID.'&s='.$sign.'&lang=ru&i=63';
-            }else if($type == 'card'){
-                $url = 'https://www.free-kassa.ru/merchant/cash.php?m='.self::merchant_id.'&oa='.$amount.'&o='.$orderID.'&s='.$sign.'&lang=ru&i=94';
-            }else if($type == 'mts'){
-                $url = 'https://www.free-kassa.ru/merchant/cash.php?m='.self::merchant_id.'&oa='.$amount.'&o='.$orderID.'&s='.$sign.'&lang=ru&i=84';
-            }else if($type == 'beeline'){
-                $url = 'https://www.free-kassa.ru/merchant/cash.php?m='.self::merchant_id.'&oa='.$amount.'&o='.$orderID.'&s='.$sign.'&lang=ru&i=83';
-            }else if($type == 'mega'){
-                $url = 'https://www.free-kassa.ru/merchant/cash.php?m='.self::merchant_id.'&oa='.$amount.'&o='.$orderID.'&s='.$sign.'&lang=ru&i=82';
-            }else if($type == 'tele2'){
-                $url = 'https://www.free-kassa.ru/merchant/cash.php?m='.self::merchant_id.'&oa='.$amount.'&o='.$orderID.'&s='.$sign.'&lang=ru&i=132';
-            }else{
-                $url = 'https://www.free-kassa.ru/merchant/cash.php?m='.self::merchant_id.'&oa='.$amount.'&o='.$orderID.'&s='.$sign.'&lang=ru';
+            if($type == 'card'){
+                   $data = array(
+                        'userName' => self::PAY_USERNAME,
+                        'password' => self::PAY_PASSWORD,
+                        'orderNumber' => $orderID,
+                        'amount' => $amount*100,
+                        'returnUrl' => self::RETURN_URL
+                    );
+                    $response = $this->gateway('register.do', $data);
+                    if (isset($response['errorCode'])) { //
+                        echo ' #' . $response['errorCode'] . ': ' . $response['errorMessage'];
+                    } else { //
+                        DB::table('payments')
+                            ->where('id', $orderID)
+                            ->update(['pay_id' => $response['orderId']]);
+                        return response()->json(['redirect_url' => $response['formUrl']]);                   
+                    }
             }
-
-                return response()->json(['redirect_url' => $url]);
-
-            //$url = 'https://www.free-kassa.ru/merchant/cash.php?m='.self::merchant_id.'&oa='.$amount.'&o='.$orderID.'&s='.$sign.'&lang=ru';
 
     }
     function getIP() {
@@ -318,46 +342,46 @@ class PagesController extends Controller
     }
 
     public function getPayment(Request $request){
-        if (!in_array($this->getIP(), array('136.243.38.147', '136.243.38.149', '136.243.38.150', '136.243.38.151', '136.243.38.189', '88.198.88.98'))) {
-            return "Ip nneatbilst";
-        }
-
-        $sign = md5(self::merchant_id.':'.$request->AMOUNT.':'.self::merchant_secret_2.':'.$request->MERCHANT_ORDER_ID);
-
-        if($sign != $request->SIGN){
-            return "Signi neatbilst";
-        }
-        $payment=   \DB::table('payments')
-            ->where('id', $request->MERCHANT_ORDER_ID)->first();
-        if(count($payment) == 0){
-            return "Neatrada bd";
-        }else{
-            if($payment->status != 0){
-                return "Status nav 0";
+            if (is_null($request->orderId) || $request->orderId ==''){
+                 return redirect()->route('index');
+            }
+            $payment=   \DB::table('payments')
+                ->where('pay_id', $request->orderId)->first();
+            if(count($payment) == 0){
+                return redirect()->route('index');
             }else{
-                if($payment->amount != $request->AMOUNT){
-                    return "Summa neatbilst";
+                if($payment->status != 0){
+                    return redirect()->route('index');
                 }else{
-                    $user = User::where('id', $payment->user)->first();
-                    $user->money = $user->money + $payment->amount;
-                    $user->deposit = $user->deposit + $payment->amount;
-                    $user->save();
-                    //1 tas kas uzaicina
-                    $te = User::where('ref_code', $user->ref_use)->first();
-                    if(count($te) == null || count($te) == 0){
-
+                    $data = array(
+                        'userName' => self::PAY_USERNAME,
+                        'password' => self::PAY_PASSWORD,
+                        'orderId' => $request->orderId
+                    );
+                    $response = $this->gateway('getOrderStatus.do', $data);
+                    if(!isset($response['OrderStatus']) ||  $response['OrderStatus']!=2 || $response['ErrorCode'] != 0 || $payment->amount != ($response['Amount']/100)){
+                        return redirect()->route('index');
                     }else{
-                        $bon = (10/100)*$payment->amount;
-                        $te->refferal_money =   $te->refferal_money + $bon;
-                        $te->save();
+                        $user = User::where('id', $payment->user)->first();
+                        $user->money = $user->money + $payment->amount;
+                        $user->deposit = $user->deposit + $payment->amount;
+                        $user->save();
+                        //1 tas kas uzaicina
+                        $te = User::where('ref_code', $user->ref_use)->first();
+                        if(count($te) == null || count($te) == 0){
+
+                        }else{
+                            $bon = (10/100)*$payment->amount;
+                            $te->refferal_money =   $te->refferal_money + $bon;
+                            $te->save();
+                        }
+                        \DB::table('payments')
+                            ->where('id', $payment->id)
+                            ->update(['status' => 1]);
+                        return redirect()->route('index');
                     }
-                    \DB::table('payments')
-                        ->where('id', $payment->id)
-                        ->update(['status' => 1]);
-                    return 'success';
                 }
             }
-        }
     }
 
     public function activate(Request $r)
