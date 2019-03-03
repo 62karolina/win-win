@@ -18,12 +18,6 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <!-- Forms: Normal input field -->
         <div class="control-group">
-            <label class="control-label" for="inputNormal">Дата окончания</label>
-            <div class="controls">
-                <input type="datetime" required name="end_at" value="" placeholder="yyyy-mm-dd hh:ii:ss" class="input-block-level">
-            </div>
-        </div>
-        <div class="control-group">
             <label class="control-label" for="inputNormal">Цена за ставку</label>
             <div class="controls">
                 <input required type="number" name="ticket_price" value="" placeholder="..." class="input-block-level">
