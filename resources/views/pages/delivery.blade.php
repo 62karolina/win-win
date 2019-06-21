@@ -34,7 +34,7 @@
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Сколько товаров можно заказать одновременно?</div>
                         <div class="faq-block__answer text-block">В одной посылке мы можем доставить от 1 до 5 товаров включительно. Если вы хотите заказать больше 5 товаров необходимо оформить несколько доставок.</div>
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Куда вы сможете доставить товары?</div>
-                        <div class="faq-block__answer text-block">Доставка производится во все населенные пункты Республики Беларусь. Стоимость доставки не зависит от региона и составляет 5 рублей.</div>
+                        <div class="faq-block__answer text-block">Доставка производится во все населенные пункты Республики Беларусь. Стоимость доставки не зависит от региона и составляет 2 рублей.</div>
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Есть ли самовывоз?</div>
                         <div class="faq-block__answer text-block">Самовывоза нет, все товары доставляются только через Белпочту и транспортные компании.</div>
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как быстро производится доставка?</div>
@@ -47,7 +47,7 @@
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Минимальная и максимальная сумма пополнения баланса?</div>
                         <div class="faq-block__answer text-block">Баланс можно пополнить на сумму от 2 рублей. За один раз можно пополнять баланс не более, чем на 300 рублей.</div>
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Как быстро зачисляются средства?</div>
-                        <div class="faq-block__answer text-block">Все платежи зачисляются в течение 1 минуты после оплаты. Если деньги не зачислились на баланс - обратитесь к нашим консультантам в форме справа.</div>
+                        <div class="faq-block__answer text-block">Все платежи зачисляются в течение 1 минуты после оплаты. Если деньги не зачислились на баланс - напишите нам на почту wwbox.by@gmail.com.</div>
                         <div class="faq-block__question text-block-black text-block_fs_m text-block_fw_bold text-block_color_black">Можно выводить деньги?</div>
                         <div class="faq-block__answer text-block">Нет. Баланс можно только тратить на открытие коробок и заказ доставки товаров.</div>
                     </div>

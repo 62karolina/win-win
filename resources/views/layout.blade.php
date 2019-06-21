@@ -292,6 +292,12 @@
                                         Помощь
                                     </div>
                                 </a>
+                            </div> <div class="nav-line__element footer__nav-element">
+                                <a href="/contacts">
+                                    <div class="nav-line__link_foot " >
+                                        Контакты
+                                    </div>
+                                </a>
                             </div>
                         </nav>
                     </div>

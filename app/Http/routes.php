@@ -12,6 +12,7 @@ Route::get('/account/{id}', ['as' => 'account', 'uses' => 'PagesController@accou
 Route::get('/pay', ['as' => 'pay', 'uses' => 'PagesController@pay']);
 Route::get('/contests', ['as' => 'contests', 'uses' => 'PagesController@contests']);
 Route::get('/infocontests/{id}', ['as' => 'infocontests', 'uses' => 'PagesController@infocontests']);
+Route::get('/contacts', ['as' => 'contacts', 'uses' => 'PagesController@contacts']);
 
 Route::post('/updateDelivery', ['as' => 'updateDelivery', 'uses' => 'PagesController@updateDelivery']);
 Route::post('/open', ['as' => 'open', 'uses' => 'PagesController@open']);

@@ -61,6 +61,9 @@ class PagesController extends Controller
     public function confidence(){
         return view('pages.confidence');
     }
+    public function contacts(){
+        return view('pages.contacts');
+    }
 
 
     public function infocontests($id){
