@@ -27,7 +27,6 @@
             <tr>
                 <th>#</th>
                 <th>Дата создания</th>
-                <th>Дата окончания</th>
                 <th>Вещь</th>
                 <th>Победитель</th>
                 <th>Статус</th>
@@ -40,7 +39,6 @@
             <tr>
                 <td>{{$i->id}}</td>
                 <td>{{$i->created_at}}</td>
-                <td>{{$i->end_at}}</td>
                 <td> @if($i->itemId !=null)
                     <a href="/admin/items/{{$i->itemId}}">{{$i->itemName}}</a>
                     @else 

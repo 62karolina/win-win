@@ -81,7 +81,11 @@ class PagesController extends Controller
             $players_tickets = 0;
         }
         $players = Contest_ticket::where('contest_id', $id)->count();
-        $player_win_rate=round(100/$players*$players_tickets,2);
+        if ($players === 0 && $players_tickets === 0){
+            $player_win_rate=0;
+        } else {
+            $player_win_rate=round(100/$players*$players_tickets,2);
+        }
         $ticket_win=Contest_ticket::where('id', $contest->ticket_id_win)->first();
         return view('pages.infocontests', compact('contest', 'players', 'players_tickets','player_win_rate','ticket_win'));
     }

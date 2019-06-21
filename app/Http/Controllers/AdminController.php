@@ -130,7 +130,6 @@ class AdminController extends Controller {
 
     public function contestedit(Request $request) {
         $contest = Contest::find($request->get('id'));
-        $contest->end_at = $request->get('end_at');
         $contest->ticket_price = $request->get('ticket_price');
         $contest->item_id = $request->get('item_id');
         $contest->user_win_id = $request->get('user_win_id');
@@ -443,7 +442,6 @@ class AdminController extends Controller {
 
     public function addContestPost(Request $r) {
         \DB::table('contest')->insertGetId([
-            'end_at' => $r->end_at,
             'ticket_price' => $r->ticket_price,
             'user_win_id' => $r->user_win_id,
             'item_id' => $r->item_id,
